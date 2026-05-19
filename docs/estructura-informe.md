@@ -33,3 +33,6 @@ El informe deberá contener, como mínimo, las siguientes secciones:
 > 📝 Recuerda que el informe debe ser elaborado en **LaTeX** (`article`, fuente Palatino, tamaño 10) y entregado en formato **PDF**.
 >
 > Ver detalles de formato en [Grupos de trabajo y entrega](./grupos-y-entrega.md).
+
+
+[← Volver al README principal](../README.md)

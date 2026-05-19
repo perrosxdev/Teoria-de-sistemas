@@ -32,3 +32,5 @@ La exposición debe demostrar que el grupo comprende:
 ---
 
 > 📊 La presentación corresponde al **25%** de la nota del proyecto. Ver más detalles en [Evaluación](./evaluacion.md).
+
+[← Volver al README principal](../README.md)

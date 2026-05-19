@@ -37,6 +37,8 @@ La situación estudiada debe corresponder a un problema observable o documentado
 | [🎤 Presentación en clases](./docs/presentacion.md) | Contenidos y participación esperada |
 | [🏆 Evaluación](./docs/evaluacion.md) | Ponderaciones y nota final |
 | [📝 Entrega de propuesta](./docs/propuesta.md) | Requisitos de la entrega del 29 de mayo |
+| [📝 propuesta Carlos](./docs/propuestas/carlos/readme.md) | Requisitos de la entrega del 29 de mayo |
+
 
 ---
 

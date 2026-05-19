@@ -21,3 +21,5 @@
 
 > Ver requisitos del informe en [Estructura mínima del informe](./estructura-informe.md)  
 > Ver requisitos de la presentación en [Presentación en clases](./presentacion.md)
+
+[← Volver al README principal](../README.md)

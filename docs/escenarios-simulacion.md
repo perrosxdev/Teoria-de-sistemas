@@ -38,3 +38,6 @@ La comparación entre escenarios debe permitir explicar si la intervención prop
 - ⚖️ **Estabiliza** el sistema
 - 📉 **Reduce** el efecto no deseado
 - 🔄 **Transforma** la dinámica del sistema
+
+
+[← Volver al README principal](../README.md)

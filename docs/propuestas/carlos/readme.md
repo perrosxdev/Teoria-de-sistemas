@@ -1,5 +1,7 @@
 # 🥚 Propuesta de Proyecto — Dinámica de Sistemas en una Distribuidora de Huevos
 
+[← Volver al README principal](../../../README.md)
+
 ## El problema
 
 Una distribuidora de huevos de pequeña escala abastece actualmente a:

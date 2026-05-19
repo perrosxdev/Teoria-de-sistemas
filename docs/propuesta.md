@@ -40,3 +40,5 @@ La propuesta deberá incluir:
 > Esta entrega **no es la entrega final**. Su propósito es recibir retroalimentación antes de construir el modelo completo.
 >
 > Ver requisitos del modelo completo en [Requisitos mínimos del modelo](./requisitos-modelo.md).
+
+[← Volver al README principal](../README.md)

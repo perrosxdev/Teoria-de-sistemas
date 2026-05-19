@@ -45,3 +45,5 @@ Ver detalles en [Presentación en clases](./presentacion.md).
 ---
 
 > 📅 **Recordatorio:** La fecha límite de entrega es el **28 de junio a las 23:55 hrs**.
+
+[← Volver al README principal](../README.md)

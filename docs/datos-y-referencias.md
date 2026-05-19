@@ -44,3 +44,5 @@ Las referencias deberán respaldar:
 ---
 
 > 📖 El formato de referencias es **APA 7**. Asegúrate de incluir tanto fuentes teóricas como fuentes de datos empíricos.
+
+[← Volver al README principal](../README.md)

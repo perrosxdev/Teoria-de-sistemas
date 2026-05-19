@@ -46,3 +46,5 @@ Cada variable deberá estar claramente definida, indicando:
 - ✅ La **fuente de información** utilizada
 
 > ⚠️ En caso de utilizar supuestos, estos deberán estar **justificados de forma explícita**.
+
+[← Volver al README principal](../README.md)
