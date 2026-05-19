@@ -1,23 +1,23 @@
-# 🛒 Propuesta de Proyecto — Dinámica de Sistemas en el Cierre de Minimarkets Locales
+# 🏬 Propuesta de Proyecto — Dinámica de Sistemas en la Pérdida de Liquidez por Desalineación de Inventario en Micro-PyMEs Comerciales de Temuco
 
 [← Volver al README principal](../../../README.md)
 
 ## El problema
 
-Un minimarket de barrio en la Región de La Araucanía opera actualmente atendiendo a:
+Una micro-pyme comercial de Temuco opera actualmente vendiendo productos de consumo masivo o vestuario a:
 
-- Clientes habituales del sector residencial
-- Trabajadores de comercios y servicios cercanos
-- Familias de sectores populares con preferencia por compra diaria
-- Clientes ocasionales de paso
+- Clientes habituales del sector donde se ubica el local
+- Compradores ocasionales atraídos por precio o cercanía
+- Clientes de temporada según rubro (escolar, invierno, fiestas, etc.)
+- Pequeños revendedores informales de la zona
 
-**El problema central:** la llegada progresiva de grandes cadenas de supermercados (Unimarc, Lider, Jumbo) a ciudades como Temuco, Angol y Victoria ha generado una presión competitiva sostenida sobre los minimarkets locales. La diferencia en precios, variedad y horario erosiona gradualmente la base de clientes del negocio pequeño, comprometiendo su viabilidad en el mediano plazo.
+**El problema central:** el dueño del negocio toma decisiones de compra de inventario basándose en la intuición y en lo que se vendía antes, sin estudiar las tendencias actuales del mercado local. Esto genera una acumulación progresiva de mercadería que no tiene salida — el llamado inventario "hueso" — que congela el capital de trabajo y destruye la liquidez del negocio mes a mes.
 
-A esto se suma que el minimarket no cuenta con estrategias formales de fidelización ni acceso a crédito para modernizar su operación, lo que profundiza la brecha competitiva con el tiempo.
+A esto se suma que, al no tener caja disponible, la pyme tampoco puede comprar los productos que el mercado de Temuco sí está pidiendo en ese momento, profundizando el problema en un círculo vicioso que termina en insolvencia técnica o cierre.
 
 La pregunta que guía el modelo es:
 
-> **¿En cuánto tiempo el ingreso de una cadena de supermercados al barrio lleva al cierre de un minimarket local, y qué estrategias de diferenciación permiten retrasar o revertir ese proceso?**
+> **¿En cuántos meses una micro-pyme comercial de Temuco queda en insolvencia por acumulación de inventario obsoleto, y qué estrategia de liquidación y lectura de mercado permite revertir ese proceso?**
 
 ---
 
@@ -25,61 +25,62 @@ La pregunta que guía el modelo es:
 
 El sistema se divide en dos subsistemas claramente diferenciados, cumpliendo el requisito mínimo del proyecto:
 
-### 🏪 Subsistema 1 — Operacional / Comercial
+### 📦 Subsistema 1 — Rotación de Inventario (Logístico)
 
-Agrupa las variables relacionadas con el flujo de clientes, ventas y la capacidad del minimarket para sostener su operación cotidiana.
-
-| Variable | Descripción |
-|----------|-------------|
-| Clientes activos | Número de compradores frecuentes que mantienen el minimarket como primera opción |
-| Tasa de captación de clientes | Nuevos clientes atraídos por cercanía, trato personalizado o crédito informal |
-| Tasa de deserción de clientes | Clientes que migran hacia la cadena competidora por precio o variedad |
-| Volumen de ventas mensual | Unidades o monto total vendido por período |
-| Nivel de stock disponible | Inventario en bodega; afecta la capacidad de respuesta a la demanda |
-| Presión competitiva | Variable que modula la tasa de deserción según la proximidad y tamaño del competidor |
-| Diferenciación percibida | Factor que representa ventajas del minimarket: cercanía, fiado, horario extendido, trato |
-
-### 💰 Subsistema 2 — Financiero / Viabilidad
-
-Agrupa las variables relacionadas con ingresos, costos y la capacidad del negocio para mantenerse operativo o adaptarse.
+Agrupa las variables relacionadas con el flujo físico de productos en bodega, distinguiendo entre mercadería con salida real y mercadería acumulada que no se vende.
 
 | Variable | Descripción |
 |----------|-------------|
-| Ingresos por ventas | Función del volumen vendido y precio promedio |
-| Precio de venta promedio | Generalmente más alto que las cadenas; puede ajustarse con márgenes |
-| Costos operacionales | Arriendo, servicios básicos, reposición de stock, personal familiar |
-| Margen acumulado | Diferencia entre ingresos y costos en el tiempo |
-| Capacidad de reinversión | Umbral de margen que permite reponer stock, mejorar local o implementar estrategias |
-| Deuda o crédito informal | Pasivo acumulado por compras al proveedor o préstamos para sostener operación |
-| Decisión de cierre | Variable que se activa cuando el margen acumulado cae por debajo de un umbral crítico sostenido |
+| Inventario inmovilizado ("hueso") | Stock acumulado de productos sin salida por obsolescencia, temporada vencida o cambio en la demanda local |
+| Tasa de compras erróneas | Volumen de productos adquiridos mensualmente sin respaldo en datos de mercado; depende del índice de desalineación |
+| Tasa de liquidación o pérdida | Productos rematados bajo el costo o desechados para liberar espacio y recuperar parte del capital |
+| Tiempo promedio de obsolescencia | Parámetro que define en cuántos días un producto sin movimiento pasa a considerarse "hueso" |
+| Espacio físico de bodega | Restricción física que, al saturarse, obliga a liquidar antes de reponer |
+| Índice de desalineación con el mercado | Variable auxiliar que representa qué tan desconectadas están las decisiones de compra de la demanda real; aumenta cuando no hay presupuesto para estudiar tendencias |
 
-> Total: **14 variables** → cumple holgadamente el mínimo de 10 exigido.
+### 💰 Subsistema 2 — Flujo de Caja y Capacidad de Reinversión (Financiero)
+
+Agrupa las variables relacionadas con la salud financiera del negocio, mostrando cómo el capital atrapado en inventario destruye la liquidez operacional.
+
+| Variable | Descripción |
+|----------|-------------|
+| Capital de trabajo disponible (caja) | Dinero líquido disponible para operar: pagar proveedores, costos fijos y reponer stock |
+| Recaudación por ventas efectivas | Ingresos reales generados únicamente por los productos que el mercado sí demanda |
+| Costos de almacenamiento y pérdidas financieras | Dinero drenado mensualmente en arriendo de bodega, mermas y costo de oportunidad del capital congelado |
+| Margen de ganancia de productos estrella | Parámetro que define la rentabilidad de los productos con salida real |
+| Costos fijos mensuales | Arriendo del local, servicios básicos, remuneraciones; se pagan independiente del nivel de ventas |
+| Presupuesto asignado a estudio de mercado | Variable que modula el índice de desalineación; si la caja cae, este ítem se elimina primero |
+| Umbral de insolvencia | Nivel mínimo de caja por debajo del cual el negocio no puede cubrir sus costos fijos; activa el cierre técnico |
+
+> Total: **13 variables** → cumple holgadamente el mínimo de 10 exigido.
 
 ---
 
 ## Bucles de retroalimentación
 
-El sistema tiene al menos tres bucles identificables, cumpliendo el requisito mínimo:
+El sistema tiene tres bucles identificables, cumpliendo el requisito mínimo:
 
-### ➕ Bucle R1 — Fidelización y diferenciación (Refuerzo)
+### ➕ Bucle R1 — Círculo vicioso de desalineación (Refuerzo)
 ```
-Mayor diferenciación percibida → Menor tasa de deserción → Más clientes activos
-→ Mayor volumen de ventas → Mayores ingresos → Mayor capacidad de reinversión
-→ Mejoras en el local o servicio → Mayor diferenciación percibida
-```
-
-### ➖ Bucle B1 — Espiral de pérdida de clientes (Balanceo)
-```
-Entrada de cadena competidora → Aumento de presión competitiva → Mayor deserción de clientes
-→ Menor volumen de ventas → Menores ingresos → Menor capacidad de reponer stock
-→ Quiebres de stock → Más deserción de clientes
+Mala lectura de mercado → Aumenta inventario inmovilizado
+→ Aumentan costos de almacenamiento → Disminuye capital de trabajo (caja)
+→ Menos presupuesto para estudiar el mercado → Mayor índice de desalineación
+→ Más compras erróneas → Más inventario inmovilizado
 ```
 
-### ➖ Bucle B2 — Tensión precio-fidelidad (Balanceo)
+### ➖ Bucle B1 — Liquidación como válvula de escape (Balanceo)
 ```
-Intento de bajar precios para competir → Reducción del margen por unidad
-→ Menor margen acumulado → Menor capacidad de reinversión → Deterioro del local o servicio
-→ Menor diferenciación percibida → Mayor deserción de clientes
+Inventario inmovilizado supera umbral de espacio → Se activa liquidación agresiva
+→ Recupera parte del capital → Aumenta caja disponible
+→ Permite comprar productos con demanda real → Reduce inventario hueso
+```
+
+### ➕ Bucle R2 — Círculo virtuoso por ventas efectivas (Refuerzo)
+```
+Mayor alineación con el mercado → Más productos con salida real
+→ Mayor recaudación por ventas efectivas → Mayor caja disponible
+→ Mayor presupuesto para estudio de mercado → Menor índice de desalineación
+→ Mejores decisiones de compra → Más productos con salida real
 ```
 
 ---
@@ -88,10 +89,10 @@ Intento de bajar precios para competir → Reducción del margen por unidad
 
 | Escenario | Descripción |
 |-----------|-------------|
-| **Base** | Operación actual sin cambios: el minimarket mantiene su forma de operar tras la llegada de la cadena, sin estrategia de diferenciación ni inversión adicional |
-| **Mejora** | Implementación de estrategias de fidelización: crédito informal controlado, horario extendido, entrega a domicilio local y mejora del trato personalizado |
+| **Base** | Sin intervención: el dueño sigue comprando por intuición, el inventario hueso crece mes a mes, la caja se drena progresivamente hasta caer bajo el umbral de insolvencia en un horizonte de 6 a 12 meses |
+| **Mejora** | Se introduce una regla de liquidación automática (si un producto supera X días sin movimiento, se remata al costo) y un presupuesto mínimo fijo para lectura de mercado, permitiendo que la caja se recupere y el ciclo vicioso se quiebre |
 
-La comparación permite responder: *¿cuánto tiempo sobrevive el minimarket sin intervención, y en qué medida las estrategias de diferenciación extienden o aseguran su viabilidad?*
+La comparación permite responder: *¿en cuántos meses quiebra técnicamente la pyme sin intervención, y en cuánto tiempo la estrategia de mejora estabiliza la caja y recupera la rentabilidad?*
 
 ---
 
@@ -103,17 +104,17 @@ La comparación permite responder: *¿cuánto tiempo sobrevive el minimarket sin
 | Resumen | ✅ |
 | Introducción | ✅ |
 | Definiciones y marco teórico | ✅ |
-| Definición del problema | ✅ — fenómeno observable en ciudades de La Araucanía |
+| Definición del problema | ✅ — fenómeno documentado en micro-pymes comerciales de La Araucanía |
 | Identificación de subsistemas | ✅ — 2 subsistemas definidos |
-| Identificación de variables | ✅ — 14 variables identificadas |
+| Identificación de variables | ✅ — 13 variables identificadas |
 | Influencias de 1°, 2° y 3° orden | ✅ |
 | Diagrama causal | ✅ |
-| Bucles de retroalimentación | ✅ — 3 bucles identificados |
-| Datos históricos y supuestos | ✅ — datos INE, SII, encuestas de comercio minorista regional |
+| Bucles de retroalimentación | ✅ — 3 bucles identificados (2 de refuerzo, 1 de balanceo) |
+| Datos históricos y supuestos | ✅ — supuestos justificados con datos de SERCOTEC, INE y literatura de gestión de inventarios |
 | Diagrama de Forrester | ✅ |
 | Construcción del modelo | ✅ |
 | Simulación escenario base | ✅ |
-| Propuesta de intervención | ✅ — estrategias de diferenciación y fidelización |
+| Propuesta de intervención | ✅ — liquidación automática + presupuesto fijo de lectura de mercado |
 | Simulación escenario de mejora | ✅ |
 | Resultados | ✅ |
 | Conclusiones | ✅ |
@@ -123,19 +124,51 @@ La comparación permite responder: *¿cuánto tiempo sobrevive el minimarket sin
 
 ---
 
+## Supuestos base del modelo
+
+Dado que no se trabaja con una tienda específica, se plantea un caso hipotético representativo de una micro-pyme comercial de Temuco, justificado con fuentes públicas:
+
+| Parámetro | Valor inicial supuesto | Fuente de referencia |
+|-----------|----------------------|----------------------|
+| Capital de trabajo inicial (caja) | $2.000.000 CLP | SERCOTEC — capital promedio micro-pyme comercial |
+| Inventario inicial (unidades) | 500 artículos | Supuesto razonable para local de 30–50 m² |
+| Costos fijos mensuales | $800.000 CLP | INE — encuesta de microempresas, rubro comercio |
+| Tiempo de obsolescencia promedio | 60 días | Literatura de gestión de inventarios (Chopra & Meindl) |
+| Índice de desalineación inicial | 0,4 (escala 0–1) | Supuesto; representa decisiones mayormente intuitivas |
+| Margen de productos estrella | 30% | Estimación típica para comercio minorista local |
+
+> Todos los supuestos serán explicitados y justificados en la sección correspondiente del informe.
+
+---
+
 ## Herramienta de simulación sugerida
 
-Se propone usar **Python** (con librerías `numpy` y `matplotlib`) o **Vensim** para la simulación, ambas aceptadas por el enunciado. Python tiene la ventaja de que el modelo queda como un script reutilizable y permite visualizar fácilmente la evolución temporal de las variables clave.
+Se propone usar **Python** (con librerías `numpy` y `matplotlib`) para la simulación. Python permite implementar el modelo como un sistema de ecuaciones diferenciales discretas, visualizar la evolución temporal de la caja y el inventario hueso, y comparar ambos escenarios en un mismo gráfico. El script queda además como entregable reutilizable.
+
+Como alternativa, **Vensim** o **Insight Maker** son igualmente válidos si el grupo prefiere una interfaz visual para construir el diagrama de Forrester directamente.
+
+---
+
+## Planificación en 4 semanas
+
+| Semana | Actividades |
+|--------|-------------|
+| **Semana 1** (29 may – 4 jun) | Entregar propuesta · Definir valores iniciales · Revisar fuentes bibliográficas |
+| **Semana 2** (5 – 11 jun) | Construir diagrama causal y de Forrester · Implementar modelo base en Python o Vensim |
+| **Semana 3** (12 – 18 jun) | Correr escenario base y de mejora · Analizar resultados · Redactar secciones técnicas |
+| **Semana 4** (19 – 27 jun) | Redactar informe completo en LaTeX · Preparar presentación · Revisión final |
+
+> Entrega definitiva: **28 de junio, 23:55 hrs.**
 
 ---
 
 ## Próximos pasos si se aprueba la propuesta
 
-1. Levantar datos de referencia: número de minimarkets en Temuco o Angol según SII y municipios
-2. Definir valores iniciales de cada variable (clientes base, ingresos estimados, costos típicos)
+1. Confirmar valores iniciales de cada variable con fuentes de SERCOTEC e INE
+2. Definir la fórmula del índice de desalineación con el mercado
 3. Construir el diagrama causal y de Forrester
 4. Implementar el modelo en Python o Vensim
-5. Correr los dos escenarios y analizar resultados comparativos
+5. Correr ambos escenarios y analizar el punto de quiebre técnico vs. punto de estabilización
 
 ---
 
