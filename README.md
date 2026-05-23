@@ -42,7 +42,7 @@ La situación estudiada debe corresponder a un problema observable o documentado
 |--------|--------|
 | [📝 Carlos](./docs/propuestas/carlos/readme.md) | Dinámica de Sistemas en una Distribuidora de Huevos | 
 | [📝 Nataly](./docs/propuestas/nataly/readme.md) |  | 
-| [📝 Kevin](./docs/propuestas/kevin/readme.md) |  | 
+| [📝 Kevin](./docs/propuestas/kevin/readme.md) |  inámica de Sistemas en la Pérdida de Liquidez por Desalineación de Inventario en Micro-PyMEs Comerciales de Temuco | 
 
 
 ---
