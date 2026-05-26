@@ -200,7 +200,7 @@ Se propone usar **Python** (con librerías `numpy` y `matplotlib`) o **Vensim** 
 
 ## Próximos pasos si se aprueba la propuesta
 
-1. Levantar los datos históricos disponibles (volúmenes, precios, costos, esto lo podemos obtener las facturas reales)
+1. Levantar los datos históricos disponibles (volúmenes, precios, costos)
 2. Definir valores iniciales de cada variable 
 3. Construir el diagrama causal y de Forrester
 4. Implementar el modelo en Python o Vensim
