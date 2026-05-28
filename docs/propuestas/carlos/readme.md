@@ -137,6 +137,74 @@ Si el precio sube demasiado, parte de la demanda puede caer, reduciendo los ingr
 
 ---
 
+# Diagrama Causal — Distribuidora de Huevos
+ 
+```mermaid
+graph TD
+ 
+    %% ── Variables exógenas ──────────────────────────────────────────
+    E([Estacionalidad]):::exo
+    DP([Disp. proveedor]):::exo
+ 
+    %% ── Subsistema 1: Operacional ───────────────────────────────────
+    subgraph S1["🚛 Subsistema 1 — Operacional / Logístico"]
+        DT([Demanda total]):::aux
+        TC([Tasa de compra]):::flu
+        SH([Stock de huevos]):::stock
+        CR([Cap. de reparto]):::aux
+        TD([Tasa de despacho]):::flu
+    end
+ 
+    %% ── Subsistema 2: Financiero ────────────────────────────────────
+    subgraph S2["💰 Subsistema 2 — Financiero / Inversión"]
+        VD([Vol. despachado]):::aux
+        PV([Precio de venta]):::param
+        IV([Ingresos ventas]):::flu
+        CT([Costos totales]):::costo
+        MA([Margen acumulado]):::stock
+        CI([Cap. de inversión]):::aux
+        IC([Inv. en capacidad]):::flu
+    end
+ 
+    %% ── Relaciones Subsistema 1 ─────────────────────────────────────
+    E  -->|+| DT
+    E  -->|-| DP
+    DT -->|+| TC
+    DP -->|+| TC
+    TC -->|+| SH
+    SH -->|+| TD
+    CR -->|+| TD
+    TD -->|-| SH
+ 
+    %% ── Relaciones Subsistema 2 ─────────────────────────────────────
+    VD -->|+| IV
+    PV -->|+| IV
+    PV -->|-| VD
+    IV -->|+| MA
+    CT -->|-| MA
+    MA -->|+| CI
+    CI -->|+| IC
+ 
+    %% ── Conexiones entre subsistemas ────────────────────────────────
+    TD -->|+| VD
+    IC -->|+| CR
+ 
+    %% ── Estilos ─────────────────────────────────────────────────────
+    classDef exo   fill:#FAEEDA,stroke:#BA7517,color:#633806
+    classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    classDef flu   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef aux   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef param fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    classDef costo fill:#FAECE7,stroke:#993C1D,color:#4A1B0C
+```
+ 
+**Convenciones:**
+- **(+)** relación positiva: si la variable origen aumenta, el destino también aumenta
+- **(−)** relación negativa: si la variable origen aumenta, el destino disminuye
+- 🟡 **Ámbar** — variable exógena (el sistema no la controla)
+- 🟢 **Verde** — flujo o variable auxiliar endógena
+- 🟣 **Púrpura** — stock o parámetro
+- 🔴 **Coral** — costos
 
 
 ## Bucles de retroalimentación
@@ -151,7 +219,9 @@ Aumento de demanda → Stock insuficiente o capacidad de reparto saturada → Pe
 
 ### ➖ Bucle B2 — Tensión precio-volumen (Balanceo)
 Aumento de precio de venta → Reducción de volumen despachado → Menor ingreso total
+
 ---
+
 
 ## Escenarios de simulación
 
