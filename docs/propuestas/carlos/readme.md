@@ -198,6 +198,20 @@ Se propone usar **Python** (con librerías `numpy` y `matplotlib`) o **Vensim** 
 
 ---
 
+## 📂 Datos históricos del negocio
+ 
+Los registros reales de compras y ventas del negocio (octubre 2024 – mayo 2026) están disponibles en el siguiente documento, y sirven como base para calibrar los valores iniciales del modelo:
+ 
+> 📊 **[Ver datos históricos de compras, ventas y ganancia líquida →](./DATOS_HISTORICOS.md)**
+ 
+Incluye:
+- Montos mensuales de compra al proveedor (con y sin IVA)
+- Montos mensuales de venta (con y sin IVA)
+- Ganancia líquida mensual
+- Observaciones sobre estacionalidad y variabilidad del margen
+---
+
+
 ## Próximos pasos si se aprueba la propuesta
 
 1. Levantar los datos históricos disponibles (volúmenes, precios, costos)
