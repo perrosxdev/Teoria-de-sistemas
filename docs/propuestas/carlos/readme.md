@@ -6,167 +6,63 @@
 
 Una distribuidora de huevos de pequeña escala abastece actualmente a:
 
-- 2 supermercados de la zona
+- supermercados de la zona
 - Restoranes locales
 - Almacenes de población
-- Un nuevo punto de venta al por menor (reciente)
+- Un nuevo punto de venta (reciente)
 
-**El problema central:** en temporada de verano, la demanda aumenta significativamente, pero la capacidad operacional no escala al mismo ritmo. Esto genera un cuello de botella que impide captar nuevos clientes y, en algunos casos, compromete el servicio a los actuales.
+**El problema central:** en temporada de verano, la demanda aumenta
+significativamente, pero la **capacidad de reparto** no escala al mismo ritmo.
+Esto genera un cuello de botella que impide captar nuevos clientes y, en algunos
+casos, compromete el servicio a los actuales.
 
-A esto se suma que en los últimos dos veranos consecutivos se han registrado problemas de disponibilidad (por parte del proveedor), precisamente cuando más se necesita el producto.
+A esto se suma que en los últimos dos veranos consecutivos se han registrado
+problemas de disponibilidad por parte del proveedor, precisamente cuando más se
+necesita el producto.
 
 La pregunta que guía el modelo es:
 
-> **¿Cuándo conviene invertir en más capacidad (vehículo, personal) y cómo afecta esa decisión la rentabilidad del negocio en el tiempo?**
+> **¿Cuándo conviene invertir en más capacidad (vehículo, personal) y cómo
+> afecta esa decisión la rentabilidad del negocio en el tiempo?**
+
+### Variable principal
+
+La **capacidad de reparto** es la variable central del modelo. Es el techo real
+del sistema: aunque haya stock disponible y demanda alta, si la capacidad de
+reparto está saturada, el negocio no puede despachar más. Toda la pregunta guía
+orbita alrededor de esta variable:
+
+- **B1** se activa porque la capacidad de reparto limita la tasa de despacho
+- **R1** existe para ampliarla mediante inversión
+- **B2** aparece como intento de compensar su limitación vía precio
 
 ---
 
 ## Subsistemas identificados
 
-El sistema se divide en dos subsistemas claramente diferenciados, cumpliendo el requisito mínimo del proyecto:
-
 ### 🚛 Subsistema 1 — Operacional / Logístico
 
-Agrupa las variables relacionadas con el flujo físico del negocio: desde la compra de huevos al proveedor hasta la entrega al cliente final.
-
-| Variable | Descripción |
-|----------|-------------|
-| Stock de huevos disponible | Nivel de inventario en bodega |
-| Tasa de compra al proveedor | Cajas adquiridas por período |
-| Disponibilidad del proveedor | Afectada estacionalmente en verano |
-| Tasa de despacho | Volumen entregado por período |
-| Capacidad de reparto | Vehículo propio + apoyo externo (camión familiar) |
-| Demanda total | Suma de todos los canales de venta |
-| Estacionalidad | Factor que modula demanda y disponibilidad según época del año |
+| Variable | Tipo | Descripción |
+|----------|------|-------------|
+| Stock de huevos disponible | Stock | Nivel de inventario en bodega |
+| Tasa de compra al proveedor | Flujo | Cajas adquiridas por período |
+| Tasa de despacho | Flujo | Volumen entregado por período |
+| Demanda total | Auxiliar | Suma de todos los canales de venta |
+| Capacidad de reparto | Auxiliar | **Variable principal** — vehículo propio + apoyo externo |
+| Estacionalidad | Exógena | Modula demanda según época del año |
+| Disponibilidad del proveedor | Exógena | Fracción de la demanda de compra que el proveedor puede satisfacer |
 
 ```mermaid
 graph TD
-    E([Estacionalidad]):::exo
-    D([Demanda total]):::var
-    TC([Tasa de compra\nal proveedor]):::var
-    DP([Disponibilidad\ndel proveedor]):::var
-    S([Stock de huevos\ndisponible]):::stock
-    CR([Capacidad\nde reparto]):::var
-    TD([Tasa de despacho]):::var
-
-    E -->|+| D
-    D -->|+| TC
-    DP -->|+| TC
-    TC -->|+| S
-    S -->|+| TD
-    CR -->|+| TD
-    TD -->|−| S
-
-    classDef exo fill:#FAEEDA,stroke:#BA7517,color:#633806
-    classDef var fill:#E1F5EE,stroke:#0F6E56,color:#04342C
-    classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
-```
-
-**Convenciones:**
-- **(+)** — si la variable origen aumenta, la variable destino también aumenta
-- **(−)** — si la variable origen aumenta, la variable destino disminuye
-- **Ámbar** — variable exógena (el sistema no la controla)
-- **Verde** — variable endógena del sistema
-- **Púrpura** — stock (nivel de inventario que se acumula y drena)
-
-**Bucle B1 — cuello de botella (balanceo):**
-`Stock → Tasa de despacho → Stock`
-Cada despacho consume inventario, lo que limita el despacho siguiente. En verano, la demanda sube pero el stock no escala al mismo ritmo, saturando el sistema.
-
-**Supuesto:** Se asume que en temporada de verano la disponibilidad del proveedor tiende a disminuir, basado en experiencia de dos períodos consecutivos. Esta relación no está representada en el diagrama causal pero se considera en los supuestos del modelo.
-` ``
-
-### 💰 Subsistema 2 — Financiero / Inversión
-
-Agrupa las variables relacionadas con ingresos, costos y la decisión de invertir para crecer.
-
-| Variable | Descripción |
-|----------|-------------|
-| Ingresos por ventas | Función del volumen despachado y precio |
-| Precio de venta | Variable con posibilidad de ajuste estacional |
-| Costo de compra | Precio del proveedor por caja |
-| Costos operacionales | Combustible, personal, arriendo del punto de venta |
-| Margen acumulado | Diferencia entre ingresos y costos en el tiempo |
-| Capacidad de inversión | Umbral de margen que habilita una decisión de inversión |
-| Inversión en capacidad | Compra de vehículo o contratación de personal |
-
-```mermaid
-graph TD
-    PV([Precio de venta]):::var
-    VD([Volumen despachado]):::var
-    IV([Ingresos por ventas]):::var
-    CC([Costo de compra]):::var
-    CO([Costos operacionales]):::var
-    MC([Margen acumulado]):::stock
-    CI([Capacidad de inversión]):::var
-    IC([Inversión en capacidad]):::var
-    CR([Capacidad de reparto]):::var
-
-    PV -->|+| IV
-    VD -->|+| IV
-    PV -->|−| VD
-
-    IV -->|+| MC
-    CC -->|−| MC
-    CO -->|−| MC
-
-    MC -->|+| CI
-    CI -->|+| IC
-    IC -->|+| CR
-    CR -->|+| VD
-
-    classDef var fill:#E1F5EE,stroke:#0F6E56,color:#04342C
-    classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
-```
-
-**Convenciones:**
-- **(+)** — si la variable origen aumenta, la variable destino también aumenta
-- **(−)** — si la variable origen aumenta, la variable destino disminuye
-- **Verde** — variable endógena del sistema
-- **Púrpura** — stock o acumulador del sistema
-
-**Bucle R1 — crecimiento por inversión (refuerzo):**
-`Margen acumulado → Inversión en capacidad → Capacidad de reparto → Volumen despachado → Ingresos por ventas → Margen acumulado`
-Cada mejora en la capacidad permite atender más volumen, lo que eleva los ingresos y puede seguir alimentando nuevas inversiones.
-
-**Bucle B2 — tensión precio-volumen (balanceo):**
-`Aumento de precio de venta → Reducción de volumen despachado → Menor ingreso total`
-Si el precio sube demasiado, parte de la demanda puede caer, reduciendo los ingresos finales pese al mayor precio unitario.
-
-> Total: **14 variables** → cumple holgadamente el mínimo de 10 exigido.
-
----
-
-# Diagrama Causal — Distribuidora de Huevos
- 
-```mermaid
-graph TD
- 
-    %% ── Variables exógenas ──────────────────────────────────────────
     E([Estacionalidad]):::exo
     DP([Disp. proveedor]):::exo
- 
-    %% ── Subsistema 1: Operacional ───────────────────────────────────
-    subgraph S1["🚛 Subsistema 1 — Operacional / Logístico"]
-        DT([Demanda total]):::aux
-        TC([Tasa de compra]):::flu
-        SH([Stock de huevos]):::stock
-        CR([Cap. de reparto]):::aux
-        TD([Tasa de despacho]):::flu
-    end
- 
-    %% ── Subsistema 2: Financiero ────────────────────────────────────
-    subgraph S2["💰 Subsistema 2 — Financiero / Inversión"]
-        VD([Vol. despachado]):::aux
-        PV([Precio de venta]):::param
-        IV([Ingresos ventas]):::flu
-        CT([Costos totales]):::costo
-        MA([Margen acumulado]):::stock
-        CI([Cap. de inversión]):::aux
-        IC([Inv. en capacidad]):::flu
-    end
- 
-    %% ── Relaciones Subsistema 1 ─────────────────────────────────────
+
+    DT([Demanda total]):::var
+    TC([Tasa de compra]):::flu
+    SH([Stock de huevos]):::stock
+    CR([Cap. de reparto]):::var
+    TD([Tasa de despacho]):::flu
+
     E  -->|+| DT
     E  -->|-| DP
     DT -->|+| TC
@@ -175,21 +71,116 @@ graph TD
     SH -->|+| TD
     CR -->|+| TD
     TD -->|-| SH
- 
-    %% ── Relaciones Subsistema 2 ─────────────────────────────────────
-    VD -->|+| IV
+
+    classDef exo   fill:#FAEEDA,stroke:#BA7517,color:#633806
+    classDef var   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef flu   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
+```
+
+**Bucle B1 — cuello de botella (balanceo):**
+`Stock → Tasa de despacho → Stock`
+Cada despacho consume inventario, limitando el despacho siguiente. En verano la
+demanda sube pero la capacidad de reparto actúa como techo fijo, saturando el
+sistema independientemente del nivel de stock.
+
+---
+
+### 💰 Subsistema 2 — Financiero / Inversión
+
+| Variable | Tipo | Descripción |
+|----------|------|-------------|
+| Ingresos por ventas | Flujo | Volumen despachado × precio de venta |
+| Costo de compra | Flujo | Gasto de adquisición al proveedor por período |
+| Costos operacionales | Flujo | Combustible, remuneraciones, arriendo |
+| Inversión en capacidad | Flujo | Desembolso puntual en vehículo o personal |
+| Margen acumulado | Stock | Diferencia acumulada entre ingresos y costos |
+| Capacidad de inversión | Auxiliar | Umbral de margen que habilita la inversión |
+| Precio de venta | Parámetro | Fijo en escenario base; con ajuste estacional en escenario de mejora |
+
+```mermaid
+graph TD
+    PV([Precio de venta]):::param
+    TD([Tasa de despacho]):::var
+    IV([Ingresos ventas]):::flu
+    CC([Costo de compra]):::costo
+    CO([Costos operacionales]):::costo
+    MA([Margen acumulado]):::stock
+    CI([Cap. de inversión]):::var
+    IC([Inv. en capacidad]):::flu
+    CR([Cap. de reparto]):::var
+
     PV -->|+| IV
-    PV -->|-| VD
+    TD -->|+| IV
+    PV -->|-| TD
+    IV -->|+| MA
+    CC -->|-| MA
+    CO -->|-| MA
+    MA -->|+| CI
+    CI -->|+| IC
+    IC -->|+| CR
+    CR -->|+| TD
+
+    classDef param fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    classDef var   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef flu   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
+    classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
+    classDef costo fill:#FAECE7,stroke:#993C1D,color:#4A1B0C
+```
+
+**Bucle R1 — crecimiento por inversión (refuerzo):**
+`Margen acumulado → Inversión en capacidad → Capacidad de reparto → Tasa de despacho → Ingresos por ventas → Margen acumulado`
+
+**Bucle B2 — tensión precio-volumen (balanceo):**
+`Precio de venta ↑ → Tasa de despacho ↓ → Ingresos totales ↓`
+
+> Total: **14 variables** — cumple holgadamente el mínimo de 10 exigido.
+
+---
+
+## Diagrama causal completo
+
+```mermaid
+graph TD
+
+    E([Estacionalidad]):::exo
+    DP([Disp. proveedor]):::exo
+
+    subgraph S1["🚛 Subsistema 1 — Operacional / Logístico"]
+        DT([Demanda total]):::aux
+        TC([Tasa de compra]):::flu
+        SH([Stock de huevos]):::stock
+        CR([Cap. de reparto]):::aux
+        TD([Tasa de despacho]):::flu
+    end
+
+    subgraph S2["💰 Subsistema 2 — Financiero / Inversión"]
+        PV([Precio de venta]):::param
+        IV([Ingresos ventas]):::flu
+        CT([Costos totales]):::costo
+        MA([Margen acumulado]):::stock
+        CI([Cap. de inversión]):::aux
+        IC([Inv. en capacidad]):::flu
+    end
+
+    E  -->|+| DT
+    E  -->|-| DP
+    DT -->|+| TC
+    DP -->|+| TC
+    TC -->|+| SH
+    SH -->|+| TD
+    CR -->|+| TD
+    TD -->|-| SH
+
+    PV -->|+| IV
+    TD -->|+| IV
+    PV -->|-| TD
     IV -->|+| MA
     CT -->|-| MA
     MA -->|+| CI
     CI -->|+| IC
- 
-    %% ── Conexiones entre subsistemas ────────────────────────────────
-    TD -->|+| VD
     IC -->|+| CR
- 
-    %% ── Estilos ─────────────────────────────────────────────────────
+
     classDef exo   fill:#FAEEDA,stroke:#BA7517,color:#633806
     classDef stock fill:#EEEDFE,stroke:#534AB7,color:#26215C
     classDef flu   fill:#E1F5EE,stroke:#0F6E56,color:#04342C
@@ -197,44 +188,65 @@ graph TD
     classDef param fill:#EEEDFE,stroke:#534AB7,color:#26215C
     classDef costo fill:#FAECE7,stroke:#993C1D,color:#4A1B0C
 ```
- 
-**Convenciones:**
-- **(+)** relación positiva: si la variable origen aumenta, el destino también aumenta
-- **(−)** relación negativa: si la variable origen aumenta, el destino disminuye
-- 🟡 **Ámbar** — variable exógena (el sistema no la controla)
-- 🟢 **Verde** — flujo o variable auxiliar endógena
-- 🟣 **Púrpura** — stock o parámetro
-- 🔴 **Coral** — costos
 
-
-## Bucles de retroalimentación
-
-El sistema tiene al menos tres bucles identificables, cumpliendo el requisito mínimo:
-
-### ➕ Bucle R1 — Crecimiento por inversión (Refuerzo)
-Margen acumulado → Inversión en capacidad → Capacidad de reparto → Volumen despachado → Ingresos por ventas → Margen acumulado
-
-### ➖ Bucle B1 — Cuello de botella operacional (Balanceo)
-Aumento de demanda → Stock insuficiente o capacidad de reparto saturada → Pedidos no atendidos → Pérdida de clientes → Menor ingreso
-
-### ➖ Bucle B2 — Tensión precio-volumen (Balanceo)
-Aumento de precio de venta → Reducción de volumen despachado → Menor ingreso total
+**Conexión entre subsistemas:** la **tasa de despacho** es el vínculo estructural:
+drena el stock de huevos (S1) y alimenta los ingresos por ventas (S2).
 
 ---
 
+## Bucles de retroalimentación
+
+| Bucle | Tipo | Descripción |
+|-------|------|-------------|
+| **B1** | Balanceo | Cuello de botella operacional: la capacidad de reparto limita la tasa de despacho, que a su vez contiene el crecimiento del sistema |
+| **R1** | Refuerzo | Crecimiento por inversión: mayor margen → inversión → mayor capacidad → más despacho → más ingresos |
+| **B2** | Balanceo | Tensión precio-volumen: precio excesivo reduce volumen despachado y contiene los ingresos |
+
+---
+
+## Datos históricos y supuestos
+
+Los datos provienen de los registros reales de operación del negocio durante el
+año 2025. Del análisis se desprenden tres observaciones clave para la calibración:
+
+1. **Estacionalidad confirmada.** Enero y febrero concentran los mayores volúmenes
+   en compras y ventas, superando en más del doble el promedio mensual del resto
+   del año. Esto valida el uso de un índice de estacionalidad como variable exógena.
+
+2. **Brecha entre compras y ventas.** La diferencia mensual entre ventas y compras
+   (sin IVA) refleja la sensibilidad del negocio al precio del proveedor y al
+   volumen despachado. Esta brecha alimenta el stock de margen acumulado en el modelo.
+
+3. **Respuesta reactiva en temporada alta.** El salto entre noviembre–diciembre y
+   enero–febrero evidencia que el negocio compra más solo cuando la demanda ya
+   presiona el inventario, sin anticipación.
+
+### Supuestos del modelo
+
+| Supuesto | Valor | Justificación |
+|----------|-------|---------------|
+| Disponibilidad del proveedor en verano | −20 % | Experiencia de dos períodos estivales consecutivos |
+| Capacidad de reparto actual | 200 cajas/semana | Consistente con volúmenes históricos fuera de temporada alta |
+| Umbral de inversión | Equivalente al costo de la inversión | Se precisará en la etapa de construcción del modelo |
+| Precio de venta en escenario base | Fijo | Permite aislar el efecto de la capacidad operacional |
+
+> 📊 **[Ver datos históricos de compras, ventas y ganancia líquida →](./DATOS_HISTORICOS.md)**
+
+---
 
 ## Escenarios de simulación
 
 | Escenario | Descripción |
 |-----------|-------------|
-| **Base** | Operación actual: sin inversión nueva, usando el camión familiar como parche en verano, precio fijo |
+| **Base** | Operación actual: sin inversión nueva, camión familiar como contingencia en verano, precio fijo |
 | **Mejora** | Compra de vehículo propio + contratación de personal en temporada alta + ajuste de precio en verano |
 
-La comparación permite responder: *¿en cuántos períodos se recupera la inversión y a partir de cuándo es más rentable que la situación actual?*
+La comparación permite responder: *¿en cuántos períodos se recupera la inversión
+y a partir de cuándo es más rentable que la situación actual?*
 
 ---
 
-## Estructura del informe (check de requisitos)
+## Estructura del informe
 
 | Sección requerida | ¿Cubierta? |
 |------------------|-----------|
@@ -242,13 +254,13 @@ La comparación permite responder: *¿en cuántos períodos se recupera la inver
 | Resumen | ✅ |
 | Introducción | ✅ |
 | Definiciones y marco teórico | ✅ |
-| Definición del problema | ✅ — problema real con contexto documentable |
+| Definición del problema | ✅ |
 | Identificación de subsistemas | ✅ — 2 subsistemas definidos |
 | Identificación de variables | ✅ — 14 variables identificadas |
 | Influencias de 1°, 2° y 3° orden | ✅ |
 | Diagrama causal | ✅ |
 | Bucles de retroalimentación | ✅ — 3 bucles identificados |
-| Datos históricos y supuestos | ✅ — datos reales del negocio + fuentes de precios de mercado |
+| Datos históricos y supuestos | ✅ — datos reales 2025 + supuestos justificados |
 | Diagrama de Forrester | ✅ |
 | Construcción del modelo | ✅ |
 | Simulación escenario base | ✅ |
@@ -258,37 +270,12 @@ La comparación permite responder: *¿en cuántos períodos se recupera la inver
 | Conclusiones | ✅ |
 | Referencias APA 7 | ✅ |
 
-> **Todo el esqueleto del informe está cubierto desde el diseño del problema.**
-
 ---
 
 ## Herramienta de simulación sugerida
 
-Se propone usar **Python** (con librerías `numpy` y `matplotlib`) o **Vensim** para la simulación, ambas aceptadas por el enunciado. Python tiene la ventaja de que el modelo queda como un script reutilizable para el negocio real.
-
----
-
-## 📂 Datos históricos del negocio
- 
-Los registros reales de compras y ventas del negocio (octubre 2024 – mayo 2026) están disponibles en el siguiente documento, y sirven como base para calibrar los valores iniciales del modelo:
- 
-> 📊 **[Ver datos históricos de compras, ventas y ganancia líquida →](./DATOS_HISTORICOS.md)**
- 
-Incluye:
-- Montos mensuales de compra al proveedor (con y sin IVA)
-- Montos mensuales de venta (con y sin IVA)
-- Ganancia líquida mensual
-- Observaciones sobre estacionalidad y variabilidad del margen
----
-
-
-## Próximos pasos si se aprueba la propuesta
-
-1. Levantar los datos históricos disponibles (volúmenes, precios, costos)
-2. Definir valores iniciales de cada variable 
-3. Construir el diagrama causal y de Forrester
-4. Implementar el modelo en Python o Vensim
-5. Correr los dos escenarios y analizar resultados
+**Python** (`numpy` + `matplotlib`) o **Vensim**. Python tiene la ventaja de que
+el modelo queda como script reutilizable para el negocio real.
 
 ---
 
