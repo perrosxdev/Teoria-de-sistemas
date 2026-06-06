@@ -1,0 +1,2191 @@
+﻿fecha,producto,cantidad_cajas,precio_venta_caja,total_ventas
+2025-01-01,Caja Huevos Granel Primera,5,35000,175000
+2025-01-01,Caja Huevos Granel Extra,3,38000,114000
+2025-01-01,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-01,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-01,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-02,Caja Huevos Granel Primera,3,35000,105000
+2025-01-02,Caja Huevos Granel Extra,3,38000,114000
+2025-01-02,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-02,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-02,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-02,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-03,Caja Huevos Granel Primera,4,35000,140000
+2025-01-03,Caja Huevos Granel Extra,3,38000,114000
+2025-01-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-03,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-03,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-04,Caja Huevos Granel Primera,2,35000,70000
+2025-01-04,Caja Huevos Granel Extra,2,38000,76000
+2025-01-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-04,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-05,Caja Huevos Granel Primera,2,35000,70000
+2025-01-05,Caja Huevos Granel Extra,1,38000,38000
+2025-01-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-01-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-01-06,Caja Huevos Granel Primera,4,35000,140000
+2025-01-06,Caja Huevos Granel Extra,3,38000,114000
+2025-01-06,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-06,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-06,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-07,Caja Huevos Granel Primera,5,35000,175000
+2025-01-07,Caja Huevos Granel Extra,3,38000,114000
+2025-01-07,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-07,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-07,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-07,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-08,Caja Huevos Granel Primera,3,35000,105000
+2025-01-08,Caja Huevos Granel Extra,3,38000,114000
+2025-01-08,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-08,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-08,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-08,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-09,Caja Huevos Granel Primera,6,35000,210000
+2025-01-09,Caja Huevos Granel Extra,3,38000,114000
+2025-01-09,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-09,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-10,Caja Huevos Granel Primera,4,35000,140000
+2025-01-10,Caja Huevos Granel Extra,3,38000,114000
+2025-01-10,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-10,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-10,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-11,Caja Huevos Granel Primera,5,35000,175000
+2025-01-11,Caja Huevos Granel Extra,2,38000,76000
+2025-01-11,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-11,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-11,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-12,Caja Huevos Granel Primera,2,35000,70000
+2025-01-12,Caja Huevos Granel Extra,1,38000,38000
+2025-01-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-01-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-01-13,Caja Huevos Granel Primera,4,35000,140000
+2025-01-13,Caja Huevos Granel Extra,3,38000,114000
+2025-01-13,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-13,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-13,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-14,Caja Huevos Granel Primera,5,35000,175000
+2025-01-14,Caja Huevos Granel Extra,2,38000,76000
+2025-01-14,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-14,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-14,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-14,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-15,Caja Huevos Granel Primera,6,35000,210000
+2025-01-15,Caja Huevos Granel Extra,3,38000,114000
+2025-01-15,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-15,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-15,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-15,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-16,Caja Huevos Granel Primera,4,35000,140000
+2025-01-16,Caja Huevos Granel Extra,3,38000,114000
+2025-01-16,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-16,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-16,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-16,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-17,Caja Huevos Granel Primera,4,35000,140000
+2025-01-17,Caja Huevos Granel Extra,2,38000,76000
+2025-01-17,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-17,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-17,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-18,Caja Huevos Granel Primera,3,35000,105000
+2025-01-18,Caja Huevos Granel Extra,2,38000,76000
+2025-01-18,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-18,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-19,Caja Huevos Granel Primera,3,35000,105000
+2025-01-19,Caja Huevos Granel Extra,1,38000,38000
+2025-01-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-19,Caja Formato 15x12 (docena),0,40000,0
+2025-01-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-01-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-01-20,Caja Huevos Granel Primera,5,35000,175000
+2025-01-20,Caja Huevos Granel Extra,4,38000,152000
+2025-01-20,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-20,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-20,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-20,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-21,Caja Huevos Granel Primera,5,35000,175000
+2025-01-21,Caja Huevos Granel Extra,3,38000,114000
+2025-01-21,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-21,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-21,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-21,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-22,Caja Huevos Granel Primera,3,35000,105000
+2025-01-22,Caja Huevos Granel Extra,3,38000,114000
+2025-01-22,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-22,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-22,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-23,Caja Huevos Granel Primera,4,35000,140000
+2025-01-23,Caja Huevos Granel Extra,3,38000,114000
+2025-01-23,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-23,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-23,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-23,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-24,Caja Huevos Granel Primera,3,35000,105000
+2025-01-24,Caja Huevos Granel Extra,2,38000,76000
+2025-01-24,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-24,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-24,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-24,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-25,Caja Huevos Granel Primera,3,35000,105000
+2025-01-25,Caja Huevos Granel Extra,2,38000,76000
+2025-01-25,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-25,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-25,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-26,Caja Huevos Granel Primera,2,35000,70000
+2025-01-26,Caja Huevos Granel Extra,1,38000,38000
+2025-01-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-01-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-01-27,Caja Huevos Granel Primera,3,35000,105000
+2025-01-27,Caja Huevos Granel Extra,2,38000,76000
+2025-01-27,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-27,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-27,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-28,Caja Huevos Granel Primera,5,35000,175000
+2025-01-28,Caja Huevos Granel Extra,2,38000,76000
+2025-01-28,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-28,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-28,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-29,Caja Huevos Granel Primera,3,35000,105000
+2025-01-29,Caja Huevos Granel Extra,3,38000,114000
+2025-01-29,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-29,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-30,Caja Huevos Granel Primera,4,35000,140000
+2025-01-30,Caja Huevos Granel Extra,2,38000,76000
+2025-01-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-01-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-01-30,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-30,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-01-31,Caja Huevos Granel Primera,4,35000,140000
+2025-01-31,Caja Huevos Granel Extra,3,38000,114000
+2025-01-31,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-01-31,Caja Formato 15x12 (docena),2,40000,80000
+2025-01-31,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-01-31,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-01,Caja Huevos Granel Primera,4,35000,140000
+2025-02-01,Caja Huevos Granel Extra,3,38000,114000
+2025-02-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-01,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-01,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-02,Caja Huevos Granel Primera,3,35000,105000
+2025-02-02,Caja Huevos Granel Extra,1,38000,38000
+2025-02-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-02-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-02-03,Caja Huevos Granel Primera,4,35000,140000
+2025-02-03,Caja Huevos Granel Extra,2,38000,76000
+2025-02-03,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-03,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-03,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-03,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-04,Caja Huevos Granel Primera,3,35000,105000
+2025-02-04,Caja Huevos Granel Extra,3,38000,114000
+2025-02-04,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-04,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-05,Caja Huevos Granel Primera,4,35000,140000
+2025-02-05,Caja Huevos Granel Extra,4,38000,152000
+2025-02-05,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-05,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-05,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-06,Caja Huevos Granel Primera,5,35000,175000
+2025-02-06,Caja Huevos Granel Extra,3,38000,114000
+2025-02-06,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-06,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-06,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-07,Caja Huevos Granel Primera,4,35000,140000
+2025-02-07,Caja Huevos Granel Extra,3,38000,114000
+2025-02-07,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-07,Caja Formato 15x12 (docena),3,40000,120000
+2025-02-07,Caja Formato 20 Extra Bonito,2,50000,100000
+2025-02-07,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-08,Caja Huevos Granel Primera,4,35000,140000
+2025-02-08,Caja Huevos Granel Extra,2,38000,76000
+2025-02-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-08,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-08,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-09,Caja Huevos Granel Primera,3,35000,105000
+2025-02-09,Caja Huevos Granel Extra,1,38000,38000
+2025-02-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-02-10,Caja Huevos Granel Primera,5,35000,175000
+2025-02-10,Caja Huevos Granel Extra,4,38000,152000
+2025-02-10,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-10,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-10,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-11,Caja Huevos Granel Primera,4,35000,140000
+2025-02-11,Caja Huevos Granel Extra,4,38000,152000
+2025-02-11,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-11,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-11,Caja Formato 20 Extra Bonito,2,50000,100000
+2025-02-11,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-12,Caja Huevos Granel Primera,5,35000,175000
+2025-02-12,Caja Huevos Granel Extra,3,38000,114000
+2025-02-12,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-12,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-12,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-12,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-13,Caja Huevos Granel Primera,3,35000,105000
+2025-02-13,Caja Huevos Granel Extra,3,38000,114000
+2025-02-13,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-13,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-13,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-14,Caja Huevos Granel Primera,4,35000,140000
+2025-02-14,Caja Huevos Granel Extra,3,38000,114000
+2025-02-14,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-14,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-14,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-14,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-15,Caja Huevos Granel Primera,4,35000,140000
+2025-02-15,Caja Huevos Granel Extra,2,38000,76000
+2025-02-15,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-15,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-15,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-16,Caja Huevos Granel Primera,1,35000,35000
+2025-02-16,Caja Huevos Granel Extra,1,38000,38000
+2025-02-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-02-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-02-17,Caja Huevos Granel Primera,5,35000,175000
+2025-02-17,Caja Huevos Granel Extra,3,38000,114000
+2025-02-17,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-17,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-17,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-18,Caja Huevos Granel Primera,5,35000,175000
+2025-02-18,Caja Huevos Granel Extra,3,38000,114000
+2025-02-18,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-18,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-18,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-19,Caja Huevos Granel Primera,5,35000,175000
+2025-02-19,Caja Huevos Granel Extra,3,38000,114000
+2025-02-19,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-19,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-19,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-19,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-20,Caja Huevos Granel Primera,4,35000,140000
+2025-02-20,Caja Huevos Granel Extra,3,38000,114000
+2025-02-20,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-20,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-20,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-20,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-21,Caja Huevos Granel Primera,4,35000,140000
+2025-02-21,Caja Huevos Granel Extra,3,38000,114000
+2025-02-21,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-21,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-21,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-21,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-22,Caja Huevos Granel Primera,4,35000,140000
+2025-02-22,Caja Huevos Granel Extra,4,38000,152000
+2025-02-22,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-22,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-22,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-22,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-23,Caja Huevos Granel Primera,1,35000,35000
+2025-02-23,Caja Huevos Granel Extra,1,38000,38000
+2025-02-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-02-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-02-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-02-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-02-24,Caja Huevos Granel Primera,6,35000,210000
+2025-02-24,Caja Huevos Granel Extra,3,38000,114000
+2025-02-24,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-24,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-24,Caja Formato 20 Extra Bonito,2,50000,100000
+2025-02-24,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-25,Caja Huevos Granel Primera,5,35000,175000
+2025-02-25,Caja Huevos Granel Extra,3,38000,114000
+2025-02-25,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-25,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-25,Caja Formato 20 Extra Bonito,2,50000,100000
+2025-02-25,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-26,Caja Huevos Granel Primera,4,35000,140000
+2025-02-26,Caja Huevos Granel Extra,3,38000,114000
+2025-02-26,Caja Formato 30x6 (1/2 doc),3,40000,120000
+2025-02-26,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-26,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-26,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-27,Caja Huevos Granel Primera,3,35000,105000
+2025-02-27,Caja Huevos Granel Extra,3,38000,114000
+2025-02-27,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-27,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-27,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-02-28,Caja Huevos Granel Primera,5,35000,175000
+2025-02-28,Caja Huevos Granel Extra,3,38000,114000
+2025-02-28,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-02-28,Caja Formato 15x12 (docena),2,40000,80000
+2025-02-28,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-02-28,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-03-01,Caja Huevos Granel Primera,3,35000,105000
+2025-03-01,Caja Huevos Granel Extra,1,38000,38000
+2025-03-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-01,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-02,Caja Huevos Granel Primera,1,35000,35000
+2025-03-02,Caja Huevos Granel Extra,1,38000,38000
+2025-03-02,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-03-02,Caja Formato 15x12 (docena),0,40000,0
+2025-03-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-03,Caja Huevos Granel Primera,1,35000,35000
+2025-03-03,Caja Huevos Granel Extra,1,38000,38000
+2025-03-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-04,Caja Huevos Granel Primera,2,35000,70000
+2025-03-04,Caja Huevos Granel Extra,2,38000,76000
+2025-03-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-05,Caja Huevos Granel Primera,2,35000,70000
+2025-03-05,Caja Huevos Granel Extra,2,38000,76000
+2025-03-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-06,Caja Huevos Granel Primera,2,35000,70000
+2025-03-06,Caja Huevos Granel Extra,1,38000,38000
+2025-03-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-07,Caja Huevos Granel Primera,3,35000,105000
+2025-03-07,Caja Huevos Granel Extra,2,38000,76000
+2025-03-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-07,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-08,Caja Huevos Granel Primera,1,35000,35000
+2025-03-08,Caja Huevos Granel Extra,1,38000,38000
+2025-03-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-09,Caja Huevos Granel Primera,1,35000,35000
+2025-03-09,Caja Huevos Granel Extra,0,38000,0
+2025-03-09,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-03-09,Caja Formato 15x12 (docena),0,40000,0
+2025-03-09,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-10,Caja Huevos Granel Primera,2,35000,70000
+2025-03-10,Caja Huevos Granel Extra,2,38000,76000
+2025-03-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-11,Caja Huevos Granel Primera,2,35000,70000
+2025-03-11,Caja Huevos Granel Extra,1,38000,38000
+2025-03-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-12,Caja Huevos Granel Primera,2,35000,70000
+2025-03-12,Caja Huevos Granel Extra,1,38000,38000
+2025-03-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-12,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-13,Caja Huevos Granel Primera,2,35000,70000
+2025-03-13,Caja Huevos Granel Extra,2,38000,76000
+2025-03-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-14,Caja Huevos Granel Primera,1,35000,35000
+2025-03-14,Caja Huevos Granel Extra,1,38000,38000
+2025-03-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-15,Caja Huevos Granel Primera,3,35000,105000
+2025-03-15,Caja Huevos Granel Extra,1,38000,38000
+2025-03-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-16,Caja Huevos Granel Primera,2,35000,70000
+2025-03-16,Caja Huevos Granel Extra,1,38000,38000
+2025-03-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-16,Caja Formato 15x12 (docena),0,40000,0
+2025-03-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-17,Caja Huevos Granel Primera,3,35000,105000
+2025-03-17,Caja Huevos Granel Extra,2,38000,76000
+2025-03-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-18,Caja Huevos Granel Primera,2,35000,70000
+2025-03-18,Caja Huevos Granel Extra,1,38000,38000
+2025-03-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-18,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-19,Caja Huevos Granel Primera,2,35000,70000
+2025-03-19,Caja Huevos Granel Extra,1,38000,38000
+2025-03-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-19,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-20,Caja Huevos Granel Primera,2,35000,70000
+2025-03-20,Caja Huevos Granel Extra,1,38000,38000
+2025-03-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-20,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-21,Caja Huevos Granel Primera,3,35000,105000
+2025-03-21,Caja Huevos Granel Extra,2,38000,76000
+2025-03-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-22,Caja Huevos Granel Primera,1,35000,35000
+2025-03-22,Caja Huevos Granel Extra,1,38000,38000
+2025-03-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-23,Caja Huevos Granel Primera,1,35000,35000
+2025-03-23,Caja Huevos Granel Extra,0,38000,0
+2025-03-23,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-03-23,Caja Formato 15x12 (docena),0,40000,0
+2025-03-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-24,Caja Huevos Granel Primera,2,35000,70000
+2025-03-24,Caja Huevos Granel Extra,2,38000,76000
+2025-03-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-24,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-25,Caja Huevos Granel Primera,3,35000,105000
+2025-03-25,Caja Huevos Granel Extra,1,38000,38000
+2025-03-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-25,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-26,Caja Huevos Granel Primera,2,35000,70000
+2025-03-26,Caja Huevos Granel Extra,1,38000,38000
+2025-03-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-26,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-27,Caja Huevos Granel Primera,2,35000,70000
+2025-03-27,Caja Huevos Granel Extra,2,38000,76000
+2025-03-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-28,Caja Huevos Granel Primera,2,35000,70000
+2025-03-28,Caja Huevos Granel Extra,1,38000,38000
+2025-03-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-28,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-29,Caja Huevos Granel Primera,2,35000,70000
+2025-03-29,Caja Huevos Granel Extra,1,38000,38000
+2025-03-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-30,Caja Huevos Granel Primera,2,35000,70000
+2025-03-30,Caja Huevos Granel Extra,0,38000,0
+2025-03-30,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-03-30,Caja Formato 15x12 (docena),0,40000,0
+2025-03-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-03-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-03-31,Caja Huevos Granel Primera,2,35000,70000
+2025-03-31,Caja Huevos Granel Extra,2,38000,76000
+2025-03-31,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-03-31,Caja Formato 15x12 (docena),1,40000,40000
+2025-03-31,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-03-31,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-01,Caja Huevos Granel Primera,2,35000,70000
+2025-04-01,Caja Huevos Granel Extra,1,38000,38000
+2025-04-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-02,Caja Huevos Granel Primera,2,35000,70000
+2025-04-02,Caja Huevos Granel Extra,1,38000,38000
+2025-04-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-03,Caja Huevos Granel Primera,2,35000,70000
+2025-04-03,Caja Huevos Granel Extra,2,38000,76000
+2025-04-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-04,Caja Huevos Granel Primera,2,35000,70000
+2025-04-04,Caja Huevos Granel Extra,2,38000,76000
+2025-04-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-05,Caja Huevos Granel Primera,2,35000,70000
+2025-04-05,Caja Huevos Granel Extra,1,38000,38000
+2025-04-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-06,Caja Huevos Granel Primera,1,35000,35000
+2025-04-06,Caja Huevos Granel Extra,1,38000,38000
+2025-04-06,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-04-06,Caja Formato 15x12 (docena),0,40000,0
+2025-04-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-07,Caja Huevos Granel Primera,1,35000,35000
+2025-04-07,Caja Huevos Granel Extra,1,38000,38000
+2025-04-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-08,Caja Huevos Granel Primera,4,35000,140000
+2025-04-08,Caja Huevos Granel Extra,1,38000,38000
+2025-04-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-09,Caja Huevos Granel Primera,3,35000,105000
+2025-04-09,Caja Huevos Granel Extra,2,38000,76000
+2025-04-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-10,Caja Huevos Granel Primera,2,35000,70000
+2025-04-10,Caja Huevos Granel Extra,1,38000,38000
+2025-04-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-11,Caja Huevos Granel Primera,2,35000,70000
+2025-04-11,Caja Huevos Granel Extra,1,38000,38000
+2025-04-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-12,Caja Huevos Granel Primera,1,35000,35000
+2025-04-12,Caja Huevos Granel Extra,1,38000,38000
+2025-04-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-13,Caja Huevos Granel Primera,1,35000,35000
+2025-04-13,Caja Huevos Granel Extra,0,38000,0
+2025-04-13,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-04-13,Caja Formato 15x12 (docena),0,40000,0
+2025-04-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-14,Caja Huevos Granel Primera,2,35000,70000
+2025-04-14,Caja Huevos Granel Extra,1,38000,38000
+2025-04-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-14,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-15,Caja Huevos Granel Primera,2,35000,70000
+2025-04-15,Caja Huevos Granel Extra,1,38000,38000
+2025-04-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-15,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-16,Caja Huevos Granel Primera,1,35000,35000
+2025-04-16,Caja Huevos Granel Extra,1,38000,38000
+2025-04-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-17,Caja Huevos Granel Primera,1,35000,35000
+2025-04-17,Caja Huevos Granel Extra,1,38000,38000
+2025-04-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-18,Caja Huevos Granel Primera,3,35000,105000
+2025-04-18,Caja Huevos Granel Extra,2,38000,76000
+2025-04-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-19,Caja Huevos Granel Primera,1,35000,35000
+2025-04-19,Caja Huevos Granel Extra,1,38000,38000
+2025-04-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-20,Caja Huevos Granel Primera,1,35000,35000
+2025-04-20,Caja Huevos Granel Extra,1,38000,38000
+2025-04-20,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-04-20,Caja Formato 15x12 (docena),0,40000,0
+2025-04-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-21,Caja Huevos Granel Primera,2,35000,70000
+2025-04-21,Caja Huevos Granel Extra,2,38000,76000
+2025-04-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-22,Caja Huevos Granel Primera,2,35000,70000
+2025-04-22,Caja Huevos Granel Extra,1,38000,38000
+2025-04-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-23,Caja Huevos Granel Primera,1,35000,35000
+2025-04-23,Caja Huevos Granel Extra,1,38000,38000
+2025-04-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-23,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-24,Caja Huevos Granel Primera,2,35000,70000
+2025-04-24,Caja Huevos Granel Extra,1,38000,38000
+2025-04-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-25,Caja Huevos Granel Primera,2,35000,70000
+2025-04-25,Caja Huevos Granel Extra,1,38000,38000
+2025-04-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-26,Caja Huevos Granel Primera,2,35000,70000
+2025-04-26,Caja Huevos Granel Extra,1,38000,38000
+2025-04-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-27,Caja Huevos Granel Primera,2,35000,70000
+2025-04-27,Caja Huevos Granel Extra,1,38000,38000
+2025-04-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-27,Caja Formato 15x12 (docena),0,40000,0
+2025-04-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-28,Caja Huevos Granel Primera,4,35000,140000
+2025-04-28,Caja Huevos Granel Extra,1,38000,38000
+2025-04-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-28,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-29,Caja Huevos Granel Primera,2,35000,70000
+2025-04-29,Caja Huevos Granel Extra,1,38000,38000
+2025-04-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-04-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-04-30,Caja Huevos Granel Primera,1,35000,35000
+2025-04-30,Caja Huevos Granel Extra,1,38000,38000
+2025-04-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-04-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-04-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-04-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-01,Caja Huevos Granel Primera,2,35000,70000
+2025-05-01,Caja Huevos Granel Extra,1,38000,38000
+2025-05-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-02,Caja Huevos Granel Primera,2,35000,70000
+2025-05-02,Caja Huevos Granel Extra,2,38000,76000
+2025-05-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-02,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-03,Caja Huevos Granel Primera,2,35000,70000
+2025-05-03,Caja Huevos Granel Extra,1,38000,38000
+2025-05-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-04,Caja Huevos Granel Primera,1,35000,35000
+2025-05-04,Caja Huevos Granel Extra,1,38000,38000
+2025-05-04,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-05-04,Caja Formato 15x12 (docena),0,40000,0
+2025-05-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-05,Caja Huevos Granel Primera,3,35000,105000
+2025-05-05,Caja Huevos Granel Extra,2,38000,76000
+2025-05-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-06,Caja Huevos Granel Primera,2,35000,70000
+2025-05-06,Caja Huevos Granel Extra,1,38000,38000
+2025-05-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-07,Caja Huevos Granel Primera,2,35000,70000
+2025-05-07,Caja Huevos Granel Extra,1,38000,38000
+2025-05-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-07,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-08,Caja Huevos Granel Primera,2,35000,70000
+2025-05-08,Caja Huevos Granel Extra,1,38000,38000
+2025-05-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-08,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-08,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-05-09,Caja Huevos Granel Primera,2,35000,70000
+2025-05-09,Caja Huevos Granel Extra,1,38000,38000
+2025-05-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-10,Caja Huevos Granel Primera,2,35000,70000
+2025-05-10,Caja Huevos Granel Extra,1,38000,38000
+2025-05-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-11,Caja Huevos Granel Primera,1,35000,35000
+2025-05-11,Caja Huevos Granel Extra,1,38000,38000
+2025-05-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-11,Caja Formato 15x12 (docena),0,40000,0
+2025-05-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-12,Caja Huevos Granel Primera,2,35000,70000
+2025-05-12,Caja Huevos Granel Extra,2,38000,76000
+2025-05-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-12,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-13,Caja Huevos Granel Primera,2,35000,70000
+2025-05-13,Caja Huevos Granel Extra,2,38000,76000
+2025-05-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-14,Caja Huevos Granel Primera,3,35000,105000
+2025-05-14,Caja Huevos Granel Extra,1,38000,38000
+2025-05-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-14,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-15,Caja Huevos Granel Primera,2,35000,70000
+2025-05-15,Caja Huevos Granel Extra,1,38000,38000
+2025-05-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-16,Caja Huevos Granel Primera,2,35000,70000
+2025-05-16,Caja Huevos Granel Extra,2,38000,76000
+2025-05-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-17,Caja Huevos Granel Primera,2,35000,70000
+2025-05-17,Caja Huevos Granel Extra,1,38000,38000
+2025-05-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-18,Caja Huevos Granel Primera,2,35000,70000
+2025-05-18,Caja Huevos Granel Extra,0,38000,0
+2025-05-18,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-05-18,Caja Formato 15x12 (docena),0,40000,0
+2025-05-18,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-19,Caja Huevos Granel Primera,2,35000,70000
+2025-05-19,Caja Huevos Granel Extra,2,38000,76000
+2025-05-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-19,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-20,Caja Huevos Granel Primera,3,35000,105000
+2025-05-20,Caja Huevos Granel Extra,1,38000,38000
+2025-05-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-21,Caja Huevos Granel Primera,2,35000,70000
+2025-05-21,Caja Huevos Granel Extra,1,38000,38000
+2025-05-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-21,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-22,Caja Huevos Granel Primera,2,35000,70000
+2025-05-22,Caja Huevos Granel Extra,2,38000,76000
+2025-05-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-22,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-22,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-05-23,Caja Huevos Granel Primera,3,35000,105000
+2025-05-23,Caja Huevos Granel Extra,1,38000,38000
+2025-05-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-24,Caja Huevos Granel Primera,1,35000,35000
+2025-05-24,Caja Huevos Granel Extra,1,38000,38000
+2025-05-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-25,Caja Huevos Granel Primera,1,35000,35000
+2025-05-25,Caja Huevos Granel Extra,1,38000,38000
+2025-05-25,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-05-25,Caja Formato 15x12 (docena),0,40000,0
+2025-05-25,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-26,Caja Huevos Granel Primera,2,35000,70000
+2025-05-26,Caja Huevos Granel Extra,1,38000,38000
+2025-05-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-26,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-26,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-05-27,Caja Huevos Granel Primera,2,35000,70000
+2025-05-27,Caja Huevos Granel Extra,2,38000,76000
+2025-05-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-28,Caja Huevos Granel Primera,2,35000,70000
+2025-05-28,Caja Huevos Granel Extra,2,38000,76000
+2025-05-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-28,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-29,Caja Huevos Granel Primera,2,35000,70000
+2025-05-29,Caja Huevos Granel Extra,1,38000,38000
+2025-05-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-30,Caja Huevos Granel Primera,2,35000,70000
+2025-05-30,Caja Huevos Granel Extra,1,38000,38000
+2025-05-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-30,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-05-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-05-31,Caja Huevos Granel Primera,1,35000,35000
+2025-05-31,Caja Huevos Granel Extra,1,38000,38000
+2025-05-31,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-05-31,Caja Formato 15x12 (docena),1,40000,40000
+2025-05-31,Caja Formato 20 Extra Bonito,0,50000,0
+2025-05-31,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-01,Caja Huevos Granel Primera,3,35000,105000
+2025-06-01,Caja Huevos Granel Extra,0,38000,0
+2025-06-01,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-06-01,Caja Formato 15x12 (docena),0,40000,0
+2025-06-01,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-02,Caja Huevos Granel Primera,4,35000,140000
+2025-06-02,Caja Huevos Granel Extra,1,38000,38000
+2025-06-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-03,Caja Huevos Granel Primera,1,35000,35000
+2025-06-03,Caja Huevos Granel Extra,1,38000,38000
+2025-06-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-04,Caja Huevos Granel Primera,2,35000,70000
+2025-06-04,Caja Huevos Granel Extra,1,38000,38000
+2025-06-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-05,Caja Huevos Granel Primera,2,35000,70000
+2025-06-05,Caja Huevos Granel Extra,1,38000,38000
+2025-06-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-05,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-06,Caja Huevos Granel Primera,4,35000,140000
+2025-06-06,Caja Huevos Granel Extra,1,38000,38000
+2025-06-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-07,Caja Huevos Granel Primera,3,35000,105000
+2025-06-07,Caja Huevos Granel Extra,1,38000,38000
+2025-06-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-07,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-08,Caja Huevos Granel Primera,2,35000,70000
+2025-06-08,Caja Huevos Granel Extra,1,38000,38000
+2025-06-08,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-06-08,Caja Formato 15x12 (docena),0,40000,0
+2025-06-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-09,Caja Huevos Granel Primera,2,35000,70000
+2025-06-09,Caja Huevos Granel Extra,1,38000,38000
+2025-06-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-10,Caja Huevos Granel Primera,2,35000,70000
+2025-06-10,Caja Huevos Granel Extra,2,38000,76000
+2025-06-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-10,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-11,Caja Huevos Granel Primera,3,35000,105000
+2025-06-11,Caja Huevos Granel Extra,1,38000,38000
+2025-06-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-12,Caja Huevos Granel Primera,1,35000,35000
+2025-06-12,Caja Huevos Granel Extra,1,38000,38000
+2025-06-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-13,Caja Huevos Granel Primera,2,35000,70000
+2025-06-13,Caja Huevos Granel Extra,1,38000,38000
+2025-06-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-14,Caja Huevos Granel Primera,3,35000,105000
+2025-06-14,Caja Huevos Granel Extra,1,38000,38000
+2025-06-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-15,Caja Huevos Granel Primera,2,35000,70000
+2025-06-15,Caja Huevos Granel Extra,0,38000,0
+2025-06-15,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-06-15,Caja Formato 15x12 (docena),0,40000,0
+2025-06-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-16,Caja Huevos Granel Primera,1,35000,35000
+2025-06-16,Caja Huevos Granel Extra,1,38000,38000
+2025-06-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-17,Caja Huevos Granel Primera,2,35000,70000
+2025-06-17,Caja Huevos Granel Extra,1,38000,38000
+2025-06-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-18,Caja Huevos Granel Primera,2,35000,70000
+2025-06-18,Caja Huevos Granel Extra,1,38000,38000
+2025-06-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-19,Caja Huevos Granel Primera,3,35000,105000
+2025-06-19,Caja Huevos Granel Extra,1,38000,38000
+2025-06-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-20,Caja Huevos Granel Primera,2,35000,70000
+2025-06-20,Caja Huevos Granel Extra,2,38000,76000
+2025-06-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-21,Caja Huevos Granel Primera,2,35000,70000
+2025-06-21,Caja Huevos Granel Extra,1,38000,38000
+2025-06-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-22,Caja Huevos Granel Primera,1,35000,35000
+2025-06-22,Caja Huevos Granel Extra,1,38000,38000
+2025-06-22,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-06-22,Caja Formato 15x12 (docena),0,40000,0
+2025-06-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-23,Caja Huevos Granel Primera,2,35000,70000
+2025-06-23,Caja Huevos Granel Extra,1,38000,38000
+2025-06-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-24,Caja Huevos Granel Primera,3,35000,105000
+2025-06-24,Caja Huevos Granel Extra,1,38000,38000
+2025-06-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-25,Caja Huevos Granel Primera,1,35000,35000
+2025-06-25,Caja Huevos Granel Extra,1,38000,38000
+2025-06-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-26,Caja Huevos Granel Primera,3,35000,105000
+2025-06-26,Caja Huevos Granel Extra,1,38000,38000
+2025-06-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-26,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-06-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-27,Caja Huevos Granel Primera,2,35000,70000
+2025-06-27,Caja Huevos Granel Extra,1,38000,38000
+2025-06-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-28,Caja Huevos Granel Primera,1,35000,35000
+2025-06-28,Caja Huevos Granel Extra,1,38000,38000
+2025-06-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-29,Caja Huevos Granel Primera,1,35000,35000
+2025-06-29,Caja Huevos Granel Extra,0,38000,0
+2025-06-29,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-06-29,Caja Formato 15x12 (docena),0,40000,0
+2025-06-29,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-06-30,Caja Huevos Granel Primera,1,35000,35000
+2025-06-30,Caja Huevos Granel Extra,1,38000,38000
+2025-06-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-06-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-06-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-06-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-01,Caja Huevos Granel Primera,2,35000,70000
+2025-07-01,Caja Huevos Granel Extra,1,38000,38000
+2025-07-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-02,Caja Huevos Granel Primera,2,35000,70000
+2025-07-02,Caja Huevos Granel Extra,1,38000,38000
+2025-07-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-03,Caja Huevos Granel Primera,2,35000,70000
+2025-07-03,Caja Huevos Granel Extra,1,38000,38000
+2025-07-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-04,Caja Huevos Granel Primera,3,35000,105000
+2025-07-04,Caja Huevos Granel Extra,1,38000,38000
+2025-07-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-05,Caja Huevos Granel Primera,3,35000,105000
+2025-07-05,Caja Huevos Granel Extra,1,38000,38000
+2025-07-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-05,Caja Formato 15x12 (docena),0,40000,0
+2025-07-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-06,Caja Huevos Granel Primera,2,35000,70000
+2025-07-06,Caja Huevos Granel Extra,1,38000,38000
+2025-07-06,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-07-06,Caja Formato 15x12 (docena),0,40000,0
+2025-07-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-07,Caja Huevos Granel Primera,2,35000,70000
+2025-07-07,Caja Huevos Granel Extra,1,38000,38000
+2025-07-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-07,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-08,Caja Huevos Granel Primera,2,35000,70000
+2025-07-08,Caja Huevos Granel Extra,2,38000,76000
+2025-07-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-09,Caja Huevos Granel Primera,2,35000,70000
+2025-07-09,Caja Huevos Granel Extra,2,38000,76000
+2025-07-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-10,Caja Huevos Granel Primera,3,35000,105000
+2025-07-10,Caja Huevos Granel Extra,1,38000,38000
+2025-07-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-10,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-11,Caja Huevos Granel Primera,2,35000,70000
+2025-07-11,Caja Huevos Granel Extra,1,38000,38000
+2025-07-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-11,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-11,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-07-12,Caja Huevos Granel Primera,2,35000,70000
+2025-07-12,Caja Huevos Granel Extra,1,38000,38000
+2025-07-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-13,Caja Huevos Granel Primera,4,35000,140000
+2025-07-13,Caja Huevos Granel Extra,0,38000,0
+2025-07-13,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-07-13,Caja Formato 15x12 (docena),0,40000,0
+2025-07-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-14,Caja Huevos Granel Primera,2,35000,70000
+2025-07-14,Caja Huevos Granel Extra,1,38000,38000
+2025-07-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-15,Caja Huevos Granel Primera,2,35000,70000
+2025-07-15,Caja Huevos Granel Extra,1,38000,38000
+2025-07-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-16,Caja Huevos Granel Primera,2,35000,70000
+2025-07-16,Caja Huevos Granel Extra,2,38000,76000
+2025-07-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-16,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-16,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-07-17,Caja Huevos Granel Primera,2,35000,70000
+2025-07-17,Caja Huevos Granel Extra,2,38000,76000
+2025-07-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-18,Caja Huevos Granel Primera,2,35000,70000
+2025-07-18,Caja Huevos Granel Extra,1,38000,38000
+2025-07-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-19,Caja Huevos Granel Primera,2,35000,70000
+2025-07-19,Caja Huevos Granel Extra,1,38000,38000
+2025-07-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-20,Caja Huevos Granel Primera,1,35000,35000
+2025-07-20,Caja Huevos Granel Extra,1,38000,38000
+2025-07-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-20,Caja Formato 15x12 (docena),0,40000,0
+2025-07-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-21,Caja Huevos Granel Primera,2,35000,70000
+2025-07-21,Caja Huevos Granel Extra,1,38000,38000
+2025-07-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-22,Caja Huevos Granel Primera,2,35000,70000
+2025-07-22,Caja Huevos Granel Extra,2,38000,76000
+2025-07-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-23,Caja Huevos Granel Primera,1,35000,35000
+2025-07-23,Caja Huevos Granel Extra,1,38000,38000
+2025-07-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-24,Caja Huevos Granel Primera,2,35000,70000
+2025-07-24,Caja Huevos Granel Extra,1,38000,38000
+2025-07-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-25,Caja Huevos Granel Primera,2,35000,70000
+2025-07-25,Caja Huevos Granel Extra,2,38000,76000
+2025-07-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-26,Caja Huevos Granel Primera,2,35000,70000
+2025-07-26,Caja Huevos Granel Extra,1,38000,38000
+2025-07-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-26,Caja Formato 15x12 (docena),0,40000,0
+2025-07-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-27,Caja Huevos Granel Primera,1,35000,35000
+2025-07-27,Caja Huevos Granel Extra,0,38000,0
+2025-07-27,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-07-27,Caja Formato 15x12 (docena),0,40000,0
+2025-07-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-28,Caja Huevos Granel Primera,2,35000,70000
+2025-07-28,Caja Huevos Granel Extra,1,38000,38000
+2025-07-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-29,Caja Huevos Granel Primera,2,35000,70000
+2025-07-29,Caja Huevos Granel Extra,1,38000,38000
+2025-07-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-30,Caja Huevos Granel Primera,3,35000,105000
+2025-07-30,Caja Huevos Granel Extra,2,38000,76000
+2025-07-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-30,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-07-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-07-31,Caja Huevos Granel Primera,1,35000,35000
+2025-07-31,Caja Huevos Granel Extra,1,38000,38000
+2025-07-31,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-07-31,Caja Formato 15x12 (docena),1,40000,40000
+2025-07-31,Caja Formato 20 Extra Bonito,0,50000,0
+2025-07-31,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-01,Caja Huevos Granel Primera,2,35000,70000
+2025-08-01,Caja Huevos Granel Extra,1,38000,38000
+2025-08-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-01,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-02,Caja Huevos Granel Primera,1,35000,35000
+2025-08-02,Caja Huevos Granel Extra,1,38000,38000
+2025-08-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-02,Caja Formato 15x12 (docena),0,40000,0
+2025-08-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-03,Caja Huevos Granel Primera,1,35000,35000
+2025-08-03,Caja Huevos Granel Extra,1,38000,38000
+2025-08-03,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-08-03,Caja Formato 15x12 (docena),0,40000,0
+2025-08-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-04,Caja Huevos Granel Primera,1,35000,35000
+2025-08-04,Caja Huevos Granel Extra,1,38000,38000
+2025-08-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-05,Caja Huevos Granel Primera,2,35000,70000
+2025-08-05,Caja Huevos Granel Extra,1,38000,38000
+2025-08-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-06,Caja Huevos Granel Primera,3,35000,105000
+2025-08-06,Caja Huevos Granel Extra,1,38000,38000
+2025-08-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-07,Caja Huevos Granel Primera,2,35000,70000
+2025-08-07,Caja Huevos Granel Extra,1,38000,38000
+2025-08-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-08,Caja Huevos Granel Primera,2,35000,70000
+2025-08-08,Caja Huevos Granel Extra,1,38000,38000
+2025-08-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-09,Caja Huevos Granel Primera,1,35000,35000
+2025-08-09,Caja Huevos Granel Extra,1,38000,38000
+2025-08-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-09,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-10,Caja Huevos Granel Primera,2,35000,70000
+2025-08-10,Caja Huevos Granel Extra,0,38000,0
+2025-08-10,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-08-10,Caja Formato 15x12 (docena),0,40000,0
+2025-08-10,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-11,Caja Huevos Granel Primera,2,35000,70000
+2025-08-11,Caja Huevos Granel Extra,1,38000,38000
+2025-08-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-12,Caja Huevos Granel Primera,2,35000,70000
+2025-08-12,Caja Huevos Granel Extra,1,38000,38000
+2025-08-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-13,Caja Huevos Granel Primera,1,35000,35000
+2025-08-13,Caja Huevos Granel Extra,1,38000,38000
+2025-08-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-14,Caja Huevos Granel Primera,1,35000,35000
+2025-08-14,Caja Huevos Granel Extra,1,38000,38000
+2025-08-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-15,Caja Huevos Granel Primera,2,35000,70000
+2025-08-15,Caja Huevos Granel Extra,1,38000,38000
+2025-08-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-16,Caja Huevos Granel Primera,3,35000,105000
+2025-08-16,Caja Huevos Granel Extra,1,38000,38000
+2025-08-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-16,Caja Formato 15x12 (docena),0,40000,0
+2025-08-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-17,Caja Huevos Granel Primera,3,35000,105000
+2025-08-17,Caja Huevos Granel Extra,0,38000,0
+2025-08-17,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-08-17,Caja Formato 15x12 (docena),0,40000,0
+2025-08-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-18,Caja Huevos Granel Primera,1,35000,35000
+2025-08-18,Caja Huevos Granel Extra,1,38000,38000
+2025-08-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-18,Caja Formato 15x12 (docena),0,40000,0
+2025-08-18,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-19,Caja Huevos Granel Primera,2,35000,70000
+2025-08-19,Caja Huevos Granel Extra,1,38000,38000
+2025-08-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-20,Caja Huevos Granel Primera,2,35000,70000
+2025-08-20,Caja Huevos Granel Extra,1,38000,38000
+2025-08-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-21,Caja Huevos Granel Primera,3,35000,105000
+2025-08-21,Caja Huevos Granel Extra,1,38000,38000
+2025-08-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-21,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-08-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-22,Caja Huevos Granel Primera,3,35000,105000
+2025-08-22,Caja Huevos Granel Extra,1,38000,38000
+2025-08-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-23,Caja Huevos Granel Primera,2,35000,70000
+2025-08-23,Caja Huevos Granel Extra,1,38000,38000
+2025-08-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-24,Caja Huevos Granel Primera,0,35000,0
+2025-08-24,Caja Huevos Granel Extra,0,38000,0
+2025-08-24,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-08-24,Caja Formato 15x12 (docena),0,40000,0
+2025-08-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-25,Caja Huevos Granel Primera,2,35000,70000
+2025-08-25,Caja Huevos Granel Extra,1,38000,38000
+2025-08-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-25,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-26,Caja Huevos Granel Primera,1,35000,35000
+2025-08-26,Caja Huevos Granel Extra,1,38000,38000
+2025-08-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-27,Caja Huevos Granel Primera,3,35000,105000
+2025-08-27,Caja Huevos Granel Extra,1,38000,38000
+2025-08-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-28,Caja Huevos Granel Primera,4,35000,140000
+2025-08-28,Caja Huevos Granel Extra,1,38000,38000
+2025-08-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-08-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-29,Caja Huevos Granel Primera,1,35000,35000
+2025-08-29,Caja Huevos Granel Extra,1,38000,38000
+2025-08-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-29,Caja Formato 15x12 (docena),0,40000,0
+2025-08-29,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-30,Caja Huevos Granel Primera,2,35000,70000
+2025-08-30,Caja Huevos Granel Extra,1,38000,38000
+2025-08-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-08-30,Caja Formato 15x12 (docena),0,40000,0
+2025-08-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-08-31,Caja Huevos Granel Primera,3,35000,105000
+2025-08-31,Caja Huevos Granel Extra,0,38000,0
+2025-08-31,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-08-31,Caja Formato 15x12 (docena),0,40000,0
+2025-08-31,Caja Formato 20 Extra Bonito,0,50000,0
+2025-08-31,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-01,Caja Huevos Granel Primera,2,35000,70000
+2025-09-01,Caja Huevos Granel Extra,1,38000,38000
+2025-09-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-01,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-02,Caja Huevos Granel Primera,2,35000,70000
+2025-09-02,Caja Huevos Granel Extra,1,38000,38000
+2025-09-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-03,Caja Huevos Granel Primera,5,35000,175000
+2025-09-03,Caja Huevos Granel Extra,1,38000,38000
+2025-09-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-04,Caja Huevos Granel Primera,3,35000,105000
+2025-09-04,Caja Huevos Granel Extra,1,38000,38000
+2025-09-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-04,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-05,Caja Huevos Granel Primera,2,35000,70000
+2025-09-05,Caja Huevos Granel Extra,1,38000,38000
+2025-09-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-05,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-09-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-06,Caja Huevos Granel Primera,1,35000,35000
+2025-09-06,Caja Huevos Granel Extra,1,38000,38000
+2025-09-06,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-09-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-06,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-07,Caja Huevos Granel Primera,2,35000,70000
+2025-09-07,Caja Huevos Granel Extra,0,38000,0
+2025-09-07,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-09-07,Caja Formato 15x12 (docena),0,40000,0
+2025-09-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-08,Caja Huevos Granel Primera,2,35000,70000
+2025-09-08,Caja Huevos Granel Extra,1,38000,38000
+2025-09-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-09,Caja Huevos Granel Primera,2,35000,70000
+2025-09-09,Caja Huevos Granel Extra,1,38000,38000
+2025-09-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-09,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-10,Caja Huevos Granel Primera,1,35000,35000
+2025-09-10,Caja Huevos Granel Extra,1,38000,38000
+2025-09-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-10,Caja Formato 15x12 (docena),0,40000,0
+2025-09-10,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-11,Caja Huevos Granel Primera,2,35000,70000
+2025-09-11,Caja Huevos Granel Extra,1,38000,38000
+2025-09-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-11,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-09-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-12,Caja Huevos Granel Primera,1,35000,35000
+2025-09-12,Caja Huevos Granel Extra,1,38000,38000
+2025-09-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-13,Caja Huevos Granel Primera,1,35000,35000
+2025-09-13,Caja Huevos Granel Extra,1,38000,38000
+2025-09-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-14,Caja Huevos Granel Primera,2,35000,70000
+2025-09-14,Caja Huevos Granel Extra,0,38000,0
+2025-09-14,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-09-14,Caja Formato 15x12 (docena),0,40000,0
+2025-09-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-15,Caja Huevos Granel Primera,4,35000,140000
+2025-09-15,Caja Huevos Granel Extra,1,38000,38000
+2025-09-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-16,Caja Huevos Granel Primera,2,35000,70000
+2025-09-16,Caja Huevos Granel Extra,1,38000,38000
+2025-09-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-17,Caja Huevos Granel Primera,1,35000,35000
+2025-09-17,Caja Huevos Granel Extra,1,38000,38000
+2025-09-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-18,Caja Huevos Granel Primera,2,35000,70000
+2025-09-18,Caja Huevos Granel Extra,1,38000,38000
+2025-09-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-18,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-19,Caja Huevos Granel Primera,2,35000,70000
+2025-09-19,Caja Huevos Granel Extra,1,38000,38000
+2025-09-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-19,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-09-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-20,Caja Huevos Granel Primera,3,35000,105000
+2025-09-20,Caja Huevos Granel Extra,1,38000,38000
+2025-09-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-21,Caja Huevos Granel Primera,2,35000,70000
+2025-09-21,Caja Huevos Granel Extra,1,38000,38000
+2025-09-21,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-09-21,Caja Formato 15x12 (docena),0,40000,0
+2025-09-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-22,Caja Huevos Granel Primera,1,35000,35000
+2025-09-22,Caja Huevos Granel Extra,1,38000,38000
+2025-09-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-23,Caja Huevos Granel Primera,1,35000,35000
+2025-09-23,Caja Huevos Granel Extra,1,38000,38000
+2025-09-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-24,Caja Huevos Granel Primera,1,35000,35000
+2025-09-24,Caja Huevos Granel Extra,1,38000,38000
+2025-09-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-24,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-25,Caja Huevos Granel Primera,2,35000,70000
+2025-09-25,Caja Huevos Granel Extra,1,38000,38000
+2025-09-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-09-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-26,Caja Huevos Granel Primera,1,35000,35000
+2025-09-26,Caja Huevos Granel Extra,1,38000,38000
+2025-09-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-27,Caja Huevos Granel Primera,1,35000,35000
+2025-09-27,Caja Huevos Granel Extra,1,38000,38000
+2025-09-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-28,Caja Huevos Granel Primera,3,35000,105000
+2025-09-28,Caja Huevos Granel Extra,0,38000,0
+2025-09-28,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-09-28,Caja Formato 15x12 (docena),0,40000,0
+2025-09-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-29,Caja Huevos Granel Primera,2,35000,70000
+2025-09-29,Caja Huevos Granel Extra,1,38000,38000
+2025-09-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-29,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-09-30,Caja Huevos Granel Primera,1,35000,35000
+2025-09-30,Caja Huevos Granel Extra,1,38000,38000
+2025-09-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-09-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-09-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-09-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-01,Caja Huevos Granel Primera,2,35000,70000
+2025-10-01,Caja Huevos Granel Extra,2,38000,76000
+2025-10-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-01,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-10-02,Caja Huevos Granel Primera,2,35000,70000
+2025-10-02,Caja Huevos Granel Extra,2,38000,76000
+2025-10-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-02,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-03,Caja Huevos Granel Primera,3,35000,105000
+2025-10-03,Caja Huevos Granel Extra,2,38000,76000
+2025-10-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-03,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-04,Caja Huevos Granel Primera,3,35000,105000
+2025-10-04,Caja Huevos Granel Extra,1,38000,38000
+2025-10-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-05,Caja Huevos Granel Primera,1,35000,35000
+2025-10-05,Caja Huevos Granel Extra,0,38000,0
+2025-10-05,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-10-05,Caja Formato 15x12 (docena),0,40000,0
+2025-10-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-06,Caja Huevos Granel Primera,2,35000,70000
+2025-10-06,Caja Huevos Granel Extra,1,38000,38000
+2025-10-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-06,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-10-07,Caja Huevos Granel Primera,2,35000,70000
+2025-10-07,Caja Huevos Granel Extra,2,38000,76000
+2025-10-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-08,Caja Huevos Granel Primera,2,35000,70000
+2025-10-08,Caja Huevos Granel Extra,1,38000,38000
+2025-10-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-09,Caja Huevos Granel Primera,3,35000,105000
+2025-10-09,Caja Huevos Granel Extra,1,38000,38000
+2025-10-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-09,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-10-10,Caja Huevos Granel Primera,3,35000,105000
+2025-10-10,Caja Huevos Granel Extra,2,38000,76000
+2025-10-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-11,Caja Huevos Granel Primera,3,35000,105000
+2025-10-11,Caja Huevos Granel Extra,1,38000,38000
+2025-10-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-12,Caja Huevos Granel Primera,0,35000,0
+2025-10-12,Caja Huevos Granel Extra,0,38000,0
+2025-10-12,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-10-12,Caja Formato 15x12 (docena),0,40000,0
+2025-10-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-13,Caja Huevos Granel Primera,2,35000,70000
+2025-10-13,Caja Huevos Granel Extra,2,38000,76000
+2025-10-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-13,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-14,Caja Huevos Granel Primera,2,35000,70000
+2025-10-14,Caja Huevos Granel Extra,1,38000,38000
+2025-10-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-14,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-15,Caja Huevos Granel Primera,2,35000,70000
+2025-10-15,Caja Huevos Granel Extra,1,38000,38000
+2025-10-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-15,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-16,Caja Huevos Granel Primera,3,35000,105000
+2025-10-16,Caja Huevos Granel Extra,2,38000,76000
+2025-10-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-16,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-17,Caja Huevos Granel Primera,3,35000,105000
+2025-10-17,Caja Huevos Granel Extra,1,38000,38000
+2025-10-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-18,Caja Huevos Granel Primera,2,35000,70000
+2025-10-18,Caja Huevos Granel Extra,1,38000,38000
+2025-10-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-18,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-19,Caja Huevos Granel Primera,1,35000,35000
+2025-10-19,Caja Huevos Granel Extra,1,38000,38000
+2025-10-19,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-10-19,Caja Formato 15x12 (docena),0,40000,0
+2025-10-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-20,Caja Huevos Granel Primera,2,35000,70000
+2025-10-20,Caja Huevos Granel Extra,1,38000,38000
+2025-10-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-21,Caja Huevos Granel Primera,2,35000,70000
+2025-10-21,Caja Huevos Granel Extra,1,38000,38000
+2025-10-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-22,Caja Huevos Granel Primera,2,35000,70000
+2025-10-22,Caja Huevos Granel Extra,1,38000,38000
+2025-10-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-22,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-22,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-10-23,Caja Huevos Granel Primera,3,35000,105000
+2025-10-23,Caja Huevos Granel Extra,1,38000,38000
+2025-10-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-23,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-24,Caja Huevos Granel Primera,2,35000,70000
+2025-10-24,Caja Huevos Granel Extra,1,38000,38000
+2025-10-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-24,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-25,Caja Huevos Granel Primera,1,35000,35000
+2025-10-25,Caja Huevos Granel Extra,1,38000,38000
+2025-10-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-25,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-26,Caja Huevos Granel Primera,1,35000,35000
+2025-10-26,Caja Huevos Granel Extra,1,38000,38000
+2025-10-26,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-10-26,Caja Formato 15x12 (docena),0,40000,0
+2025-10-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-27,Caja Huevos Granel Primera,2,35000,70000
+2025-10-27,Caja Huevos Granel Extra,2,38000,76000
+2025-10-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-28,Caja Huevos Granel Primera,2,35000,70000
+2025-10-28,Caja Huevos Granel Extra,2,38000,76000
+2025-10-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-29,Caja Huevos Granel Primera,2,35000,70000
+2025-10-29,Caja Huevos Granel Extra,2,38000,76000
+2025-10-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-29,Caja Formato 20 Extra Bonito,0,50000,0
+2025-10-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-30,Caja Huevos Granel Primera,2,35000,70000
+2025-10-30,Caja Huevos Granel Extra,1,38000,38000
+2025-10-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-30,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-10-31,Caja Huevos Granel Primera,2,35000,70000
+2025-10-31,Caja Huevos Granel Extra,1,38000,38000
+2025-10-31,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-10-31,Caja Formato 15x12 (docena),1,40000,40000
+2025-10-31,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-10-31,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-01,Caja Huevos Granel Primera,3,35000,105000
+2025-11-01,Caja Huevos Granel Extra,1,38000,38000
+2025-11-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-01,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-02,Caja Huevos Granel Primera,1,35000,35000
+2025-11-02,Caja Huevos Granel Extra,1,38000,38000
+2025-11-02,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-11-02,Caja Formato 15x12 (docena),0,40000,0
+2025-11-02,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-02,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-03,Caja Huevos Granel Primera,2,35000,70000
+2025-11-03,Caja Huevos Granel Extra,1,38000,38000
+2025-11-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-03,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-03,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-04,Caja Huevos Granel Primera,6,35000,210000
+2025-11-04,Caja Huevos Granel Extra,1,38000,38000
+2025-11-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-04,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-05,Caja Huevos Granel Primera,2,35000,70000
+2025-11-05,Caja Huevos Granel Extra,1,38000,38000
+2025-11-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-05,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-05,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-06,Caja Huevos Granel Primera,3,35000,105000
+2025-11-06,Caja Huevos Granel Extra,1,38000,38000
+2025-11-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-07,Caja Huevos Granel Primera,2,35000,70000
+2025-11-07,Caja Huevos Granel Extra,1,38000,38000
+2025-11-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-07,Caja Formato 15x12 (docena),0,40000,0
+2025-11-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-08,Caja Huevos Granel Primera,2,35000,70000
+2025-11-08,Caja Huevos Granel Extra,1,38000,38000
+2025-11-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-08,Caja Formato 15x12 (docena),0,40000,0
+2025-11-08,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-09,Caja Huevos Granel Primera,1,35000,35000
+2025-11-09,Caja Huevos Granel Extra,1,38000,38000
+2025-11-09,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-11-09,Caja Formato 15x12 (docena),0,40000,0
+2025-11-09,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-09,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-10,Caja Huevos Granel Primera,1,35000,35000
+2025-11-10,Caja Huevos Granel Extra,1,38000,38000
+2025-11-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-10,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-10,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-11,Caja Huevos Granel Primera,3,35000,105000
+2025-11-11,Caja Huevos Granel Extra,1,38000,38000
+2025-11-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-11,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-12,Caja Huevos Granel Primera,2,35000,70000
+2025-11-12,Caja Huevos Granel Extra,1,38000,38000
+2025-11-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-12,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-13,Caja Huevos Granel Primera,3,35000,105000
+2025-11-13,Caja Huevos Granel Extra,1,38000,38000
+2025-11-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-14,Caja Huevos Granel Primera,2,35000,70000
+2025-11-14,Caja Huevos Granel Extra,1,38000,38000
+2025-11-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-15,Caja Huevos Granel Primera,1,35000,35000
+2025-11-15,Caja Huevos Granel Extra,1,38000,38000
+2025-11-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-15,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-16,Caja Huevos Granel Primera,1,35000,35000
+2025-11-16,Caja Huevos Granel Extra,0,38000,0
+2025-11-16,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-11-16,Caja Formato 15x12 (docena),0,40000,0
+2025-11-16,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-16,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-17,Caja Huevos Granel Primera,2,35000,70000
+2025-11-17,Caja Huevos Granel Extra,1,38000,38000
+2025-11-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-17,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-17,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-18,Caja Huevos Granel Primera,2,35000,70000
+2025-11-18,Caja Huevos Granel Extra,1,38000,38000
+2025-11-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-18,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-19,Caja Huevos Granel Primera,3,35000,105000
+2025-11-19,Caja Huevos Granel Extra,1,38000,38000
+2025-11-19,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-19,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-19,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-20,Caja Huevos Granel Primera,4,35000,140000
+2025-11-20,Caja Huevos Granel Extra,1,38000,38000
+2025-11-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-20,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-21,Caja Huevos Granel Primera,2,35000,70000
+2025-11-21,Caja Huevos Granel Extra,1,38000,38000
+2025-11-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-21,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-22,Caja Huevos Granel Primera,1,35000,35000
+2025-11-22,Caja Huevos Granel Extra,1,38000,38000
+2025-11-22,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-22,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-23,Caja Huevos Granel Primera,1,35000,35000
+2025-11-23,Caja Huevos Granel Extra,0,38000,0
+2025-11-23,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-11-23,Caja Formato 15x12 (docena),0,40000,0
+2025-11-23,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-23,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-24,Caja Huevos Granel Primera,3,35000,105000
+2025-11-24,Caja Huevos Granel Extra,1,38000,38000
+2025-11-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-24,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-11-24,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-25,Caja Huevos Granel Primera,1,35000,35000
+2025-11-25,Caja Huevos Granel Extra,1,38000,38000
+2025-11-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-25,Caja Formato 15x12 (docena),0,40000,0
+2025-11-25,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-26,Caja Huevos Granel Primera,2,35000,70000
+2025-11-26,Caja Huevos Granel Extra,1,38000,38000
+2025-11-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-26,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-26,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-27,Caja Huevos Granel Primera,2,35000,70000
+2025-11-27,Caja Huevos Granel Extra,1,38000,38000
+2025-11-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-27,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-28,Caja Huevos Granel Primera,2,35000,70000
+2025-11-28,Caja Huevos Granel Extra,1,38000,38000
+2025-11-28,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-11-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-29,Caja Huevos Granel Primera,1,35000,35000
+2025-11-29,Caja Huevos Granel Extra,1,38000,38000
+2025-11-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-11-29,Caja Formato 15x12 (docena),0,40000,0
+2025-11-29,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-11-30,Caja Huevos Granel Primera,1,35000,35000
+2025-11-30,Caja Huevos Granel Extra,0,38000,0
+2025-11-30,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-11-30,Caja Formato 15x12 (docena),0,40000,0
+2025-11-30,Caja Formato 20 Extra Bonito,0,50000,0
+2025-11-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-01,Caja Huevos Granel Primera,3,35000,105000
+2025-12-01,Caja Huevos Granel Extra,2,38000,76000
+2025-12-01,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-01,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-01,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-01,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-02,Caja Huevos Granel Primera,2,35000,70000
+2025-12-02,Caja Huevos Granel Extra,3,38000,114000
+2025-12-02,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-02,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-02,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-02,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-03,Caja Huevos Granel Primera,3,35000,105000
+2025-12-03,Caja Huevos Granel Extra,2,38000,76000
+2025-12-03,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-03,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-03,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-03,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-04,Caja Huevos Granel Primera,3,35000,105000
+2025-12-04,Caja Huevos Granel Extra,2,38000,76000
+2025-12-04,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-04,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-04,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-04,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-05,Caja Huevos Granel Primera,3,35000,105000
+2025-12-05,Caja Huevos Granel Extra,2,38000,76000
+2025-12-05,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-05,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-05,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-05,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-06,Caja Huevos Granel Primera,2,35000,70000
+2025-12-06,Caja Huevos Granel Extra,2,38000,76000
+2025-12-06,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-06,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-06,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-06,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-07,Caja Huevos Granel Primera,1,35000,35000
+2025-12-07,Caja Huevos Granel Extra,1,38000,38000
+2025-12-07,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-07,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-07,Caja Formato 20 Extra Bonito,0,50000,0
+2025-12-07,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-08,Caja Huevos Granel Primera,2,35000,70000
+2025-12-08,Caja Huevos Granel Extra,2,38000,76000
+2025-12-08,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-08,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-08,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-08,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-09,Caja Huevos Granel Primera,3,35000,105000
+2025-12-09,Caja Huevos Granel Extra,2,38000,76000
+2025-12-09,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-09,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-09,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-09,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-10,Caja Huevos Granel Primera,3,35000,105000
+2025-12-10,Caja Huevos Granel Extra,2,38000,76000
+2025-12-10,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-10,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-10,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-10,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-11,Caja Huevos Granel Primera,2,35000,70000
+2025-12-11,Caja Huevos Granel Extra,2,38000,76000
+2025-12-11,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-11,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-11,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-11,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-12,Caja Huevos Granel Primera,4,35000,140000
+2025-12-12,Caja Huevos Granel Extra,2,38000,76000
+2025-12-12,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-12,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-12,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-12,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-13,Caja Huevos Granel Primera,3,35000,105000
+2025-12-13,Caja Huevos Granel Extra,2,38000,76000
+2025-12-13,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-13,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-13,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-13,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-14,Caja Huevos Granel Primera,1,35000,35000
+2025-12-14,Caja Huevos Granel Extra,1,38000,38000
+2025-12-14,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-14,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-14,Caja Formato 20 Extra Bonito,0,50000,0
+2025-12-14,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-15,Caja Huevos Granel Primera,2,35000,70000
+2025-12-15,Caja Huevos Granel Extra,2,38000,76000
+2025-12-15,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-15,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-15,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-15,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-16,Caja Huevos Granel Primera,3,35000,105000
+2025-12-16,Caja Huevos Granel Extra,2,38000,76000
+2025-12-16,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-16,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-16,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-16,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-17,Caja Huevos Granel Primera,3,35000,105000
+2025-12-17,Caja Huevos Granel Extra,2,38000,76000
+2025-12-17,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-17,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-17,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-17,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-18,Caja Huevos Granel Primera,4,35000,140000
+2025-12-18,Caja Huevos Granel Extra,2,38000,76000
+2025-12-18,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-18,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-18,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-18,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-19,Caja Huevos Granel Primera,3,35000,105000
+2025-12-19,Caja Huevos Granel Extra,2,38000,76000
+2025-12-19,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-12-19,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-19,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-19,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-20,Caja Huevos Granel Primera,3,35000,105000
+2025-12-20,Caja Huevos Granel Extra,1,38000,38000
+2025-12-20,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-20,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-20,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-20,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-21,Caja Huevos Granel Primera,2,35000,70000
+2025-12-21,Caja Huevos Granel Extra,1,38000,38000
+2025-12-21,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-21,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-21,Caja Formato 20 Extra Bonito,0,50000,0
+2025-12-21,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-22,Caja Huevos Granel Primera,2,35000,70000
+2025-12-22,Caja Huevos Granel Extra,2,38000,76000
+2025-12-22,Caja Formato 30x6 (1/2 doc),2,40000,80000
+2025-12-22,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-22,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-22,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-23,Caja Huevos Granel Primera,4,35000,140000
+2025-12-23,Caja Huevos Granel Extra,2,38000,76000
+2025-12-23,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-23,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-23,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-23,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-24,Caja Huevos Granel Primera,2,35000,70000
+2025-12-24,Caja Huevos Granel Extra,2,38000,76000
+2025-12-24,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-24,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-24,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-24,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-25,Caja Huevos Granel Primera,2,35000,70000
+2025-12-25,Caja Huevos Granel Extra,2,38000,76000
+2025-12-25,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-25,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-25,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-25,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-26,Caja Huevos Granel Primera,2,35000,70000
+2025-12-26,Caja Huevos Granel Extra,2,38000,76000
+2025-12-26,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-26,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-26,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-26,Caja Formato 30 Mediano Bonito,1,54000,54000
+2025-12-27,Caja Huevos Granel Primera,3,35000,105000
+2025-12-27,Caja Huevos Granel Extra,2,38000,76000
+2025-12-27,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-27,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-27,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-27,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-28,Caja Huevos Granel Primera,1,35000,35000
+2025-12-28,Caja Huevos Granel Extra,1,38000,38000
+2025-12-28,Caja Formato 30x6 (1/2 doc),0,40000,0
+2025-12-28,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-28,Caja Formato 20 Extra Bonito,0,50000,0
+2025-12-28,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-29,Caja Huevos Granel Primera,3,35000,105000
+2025-12-29,Caja Huevos Granel Extra,2,38000,76000
+2025-12-29,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-29,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-29,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-29,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-30,Caja Huevos Granel Primera,3,35000,105000
+2025-12-30,Caja Huevos Granel Extra,2,38000,76000
+2025-12-30,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-30,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-30,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-30,Caja Formato 30 Mediano Bonito,0,54000,0
+2025-12-31,Caja Huevos Granel Primera,3,35000,105000
+2025-12-31,Caja Huevos Granel Extra,2,38000,76000
+2025-12-31,Caja Formato 30x6 (1/2 doc),1,40000,40000
+2025-12-31,Caja Formato 15x12 (docena),1,40000,40000
+2025-12-31,Caja Formato 20 Extra Bonito,1,50000,50000
+2025-12-31,Caja Formato 30 Mediano Bonito,1,54000,54000
