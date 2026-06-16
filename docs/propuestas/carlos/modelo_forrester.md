@@ -10,7 +10,7 @@
 > - `(( ))` → **Flujo** (válvula/flecha gruesa)
 > - `{ }` → **Variable auxiliar**
 > - `[ ]` → **Parámetro / Constante**
-> - `(( ))` con borde naranja → **Variable exógena**
+> - borde naranja → **Variable exógena**
 
 ```mermaid
 flowchart TD
@@ -26,6 +26,9 @@ flowchart TD
 
         DBASE["📦 Demanda base\n= 220 cajas/mes"]:::param
         DT{"Demanda\ntotal"}:::aux
+
+        INVOBJ["🎯 Inventario objetivo\n= 1.000 cajas"]:::param
+        NEC{"Necesidad\nde compra"}:::aux
 
         TC(("🔼 Tasa de\ncompra")):::flow
         SH[["📦 Stock de\nhuevos\n₀ = 1.000 cajas"]]:::stock
@@ -54,13 +57,18 @@ flowchart TD
         CI{"🔍 Capacidad\nde inversión"}:::aux
     end
 
-    %% ─── CONEXIONES EXÓGENAS → S1 ─────────────────────────────────
+    %% ─── CONEXIONES EXÓGENAS ──────────────────────────────────────
     EST -->|"+ (modula)"| DT
     DPROV -->|"+ (limita)"| TC
     DBASE -->|"+"| DT
 
+    %% ─── LÓGICA DE COMPRA (NUEVO) ─────────────────────────────────
+    INVOBJ -->|"objetivo"| NEC
+    SH -->|"− (stock actual)"| NEC
+    NEC -->|"+"| TC
+    DT -->|"+ (escala demanda)"| TC
+
     %% ─── FLUJOS INTERNOS S1 ───────────────────────────────────────
-    DT -->|"+"| TC
     TC -->|"entra +"| SH
     SH -->|"+"| TD
     CR -->|"+ (techo)"| TD
@@ -105,6 +113,12 @@ flowchart LR
         CRb["Capacidad de reparto"] -->|"techo"| TDb
     end
 
+    subgraph B1b["🔄 B1b — Reposición de inventario (Balanceo)"]
+        SHr[["Stock de huevos"]] -->|"− (reduce brecha)"| NECr{"Necesidad de compra"}
+        NECr -->|"+"| TCr(("Tasa de compra"))
+        TCr -->|"+"| SHr
+    end
+
     subgraph R1["🔄 R1 — Crecimiento por inversión (Refuerzo)"]
         MAr[["Margen Acumulado"]] -->|"+"| CIr{"Cap. inversión"}
         CIr -->|"+"| TINVr(("Inv. en capacidad"))
@@ -125,76 +139,93 @@ flowchart LR
 
 ## 3. Variables del modelo — Tabla completa
 
-### 3.1 Stocks (Niveles)
+### 3.1 Stocks (Niveles) — Stock Tool en Vensim
 
-| Variable | Símbolo | Valor inicial | Unidad | Ecuación INTEG | Descripción |
-|----------|---------|:-------------:|--------|----------------|-------------|
-| Stock de huevos | `SH` | 1.000 | cajas | `INTEG(Tasa_compra − Tasa_despacho, 1000)` | Inventario físico en bodega |
-| Margen Acumulado | `MA` | 0 | CLP | `INTEG(Ingresos − Costos_totales, 0)` | Rentabilidad acumulada del negocio |
-| Capacidad de reparto | `CR` | 200 | cajas/mes | `INTEG(Inversion_en_capacidad, 200)` | Variable principal — techo operacional del sistema |
+| Variable | Valor inicial | Unidad | Ecuación INTEG | Descripción |
+|----------|:-------------:|--------|----------------|-------------|
+| `Stock de huevos` | 1.000 | cajas | `INTEG(Tasa de compra − Tasa de despacho, 1000)` | Inventario físico en bodega |
+| `Margen Acumulado` | 0 | CLP | `INTEG(Ingresos − Costos totales, 0)` | Rentabilidad acumulada del negocio |
+| `Capacidad de reparto` | 200 | cajas/mes | `INTEG(Inversion en capacidad, 200)` | Variable principal — techo operacional del sistema |
 
-### 3.2 Flujos
+### 3.2 Flujos — Flow Tool en Vensim
 
-| Variable | Símbolo | Unidad | Ecuación | Descripción |
-|----------|---------|--------|----------|-------------|
-| Tasa de compra | `TC` | cajas/mes | `MIN(Demanda_total, Disp_proveedor × Demanda_total)` | Compra limitada por disponibilidad del proveedor |
-| Tasa de despacho | `TD` | cajas/mes | `MIN(Stock_huevos, Capacidad_reparto)` | Despacho limitado por stock Y capacidad de reparto |
-| Ingresos | `IV` | CLP/mes | `Tasa_despacho × Precio_venta` | Ingresos brutos por ventas del período |
-| Costos totales | `CT` | CLP/mes | `Costo_compra + Costos_operacionales` | Egresos totales del período |
-| Inversión en capacidad | `TINV` | cajas/mes² | `Capacidad_inversion × Tasa_expansion` | Flujo de expansión de capacidad cuando se activa |
+| Variable | Unidad | Ecuación | Descripción |
+|----------|--------|----------|-------------|
+| `Tasa de compra` | cajas/mes | `MIN(Necesidad de compra, Disponibilidad proveedor * Demanda total)` | Compra limitada por brecha de inventario Y disponibilidad del proveedor |
+| `Tasa de despacho` | cajas/mes | `MIN(Stock de huevos, Capacidad de reparto)` | Despacho limitado por stock Y capacidad de reparto |
+| `Ingresos` | CLP/mes | `Tasa de despacho * Precio de venta` | Ingresos brutos por ventas del período |
+| `Costos totales` | CLP/mes | `Costo de compra + Costos operacionales` | Egresos totales del período |
+| `Inversion en capacidad` | cajas/mes/mes | `Capacidad de inversion * Tasa de expansion` | Flujo de expansión de capacidad cuando se activa |
 
-### 3.3 Variables auxiliares
+### 3.3 Variables auxiliares — Variable Tool en Vensim
 
-| Variable | Símbolo | Unidad | Ecuación | Descripción |
-|----------|---------|--------|----------|-------------|
-| Demanda total | `DT` | cajas/mes | `Demanda_base × Estacionalidad` | Demanda real modulada por época del año |
-| Costo de compra | `CC` | CLP/mes | `Tasa_compra × Precio_proveedor` | Gasto mensual en adquisición |
-| Capacidad de inversión | `CI` | adim. | `IF(MA > Umbral_inversion, 1, 0)` | Indicador binario: ¿hay margen para invertir? |
+| Variable | Unidad | Ecuación | Descripción |
+|----------|--------|----------|-------------|
+| `Demanda total` | cajas/mes | `Demanda base * Estacionalidad` | Demanda real modulada por época del año |
+| `Necesidad de compra` | cajas | `MAX(0, Inventario objetivo − Stock de huevos)` | Brecha entre stock actual y objetivo — activa la compra |
+| `Costo de compra` | CLP/mes | `Tasa de compra * Precio proveedor` | Gasto mensual en adquisición |
+| `Capacidad de inversion` | Dmnl | `IF THEN ELSE(Margen Acumulado > Umbral de inversion, 1, 0)` | Indicador binario: ¿hay margen para invertir? |
+| `Estacionalidad` | Dmnl | `WITH LOOKUP(Time, ...)` | Índice estacional mensual — ver tabla sección 3.5 |
+| `Disponibilidad proveedor` | Dmnl | `WITH LOOKUP(Time, ...)` | Fracción de demanda que el proveedor puede surtir |
 
-### 3.4 Parámetros y constantes
+### 3.4 Constantes — Constant Tool en Vensim
 
-| Parámetro | Símbolo | Valor base | Valor mejora | Unidad | Fuente / Justificación |
-|-----------|---------|:----------:|:------------:|--------|------------------------|
-| Demanda base | `DBASE` | 220 | 220 | cajas/mes | Calibrado desde ventas 2025 fuera de temporada |
-| Precio de venta | `PV` | 55.000 | 60.000 (+verano) | CLP/caja | Estimado: ventas totales 2025 / volumen anual |
-| Precio proveedor | `PP` | 42.000 | 42.000 | CLP/caja | Estimado: compras totales 2025 / volumen anual |
-| Costos operacionales | `CO` | 580.000 | 780.000 (+personal) | CLP/mes | Estimado basado en márgenes 2025 |
-| Umbral de inversión | `UI` | 3.000.000 | 3.000.000 | CLP | ≈ costo vehículo de reparto usado |
-| Tasa de expansión | `TEXP` | **0** | **50** | cajas/mes² | 0 = sin inversión; 50 = compra vehículo + personal |
+| Constante | Valor base | Valor mejora | Unidad | Justificación |
+|-----------|:----------:|:------------:|--------|---------------|
+| `Demanda base` | 220 | 220 | cajas/mes | Calibrado desde ventas 2025 fuera de temporada |
+| `Inventario objetivo` | 1.000 | 1.000 | cajas | Nivel de stock deseado — activa el pedido cuando hay brecha |
+| `Precio de venta` | 55.000 | 60.000 | CLP/caja | Estimado: ventas totales 2025 / volumen anual |
+| `Precio proveedor` | 42.000 | 42.000 | CLP/caja | Estimado: compras totales 2025 / volumen anual |
+| `Costos operacionales` | 580.000 | 780.000 | CLP/mes | Estimado basado en márgenes 2025; mejora suma personal extra |
+| `Umbral de inversion` | 3.000.000 | 3.000.000 | CLP | ≈ costo vehículo de reparto usado |
+| `Tasa de expansion` | **0** | **50** | cajas/mes/mes | 0 = sin inversión nueva; 50 = compra vehículo + personal |
 
-### 3.5 Variables exógenas (lookup mensual)
+### 3.5 Lookups — Variable Tool con WITH LOOKUP en Vensim
 
-#### Estacionalidad — índice mensual calibrado con ventas 2025
+#### Estacionalidad
 
-| Mes | Índice | Justificación |
-|-----|:------:|---------------|
-| Enero | 1,80 | Peak verano — ventas más altas del año |
-| Febrero | 1,70 | Continúa temporada alta |
-| Marzo | 0,80 | Caída marcada post-verano |
-| Abril | 0,70 | Mes bajo |
-| Mayo | 0,80 | Leve recuperación |
-| Junio | 0,70 | Mes bajo |
-| Julio | 0,75 | Mes bajo |
-| Agosto | 0,60 | Mes más bajo del año |
-| Septiembre | 0,65 | Mes bajo |
-| Octubre | 0,85 | Inicio recuperación |
-| Noviembre | 0,75 | Mes moderado |
-| Diciembre | 1,20 | Pre-temporada alta |
+| Time (mes) | Índice | Mes calendario |
+|:----------:|:------:|----------------|
+| 0 | 1,80 | Enero (año 1) |
+| 1 | 1,70 | Febrero |
+| 2 | 0,80 | Marzo |
+| 3 | 0,70 | Abril |
+| 4 | 0,80 | Mayo |
+| 5 | 0,70 | Junio |
+| 6 | 0,75 | Julio |
+| 7 | 0,60 | Agosto |
+| 8 | 0,65 | Septiembre |
+| 9 | 0,85 | Octubre |
+| 10 | 0,75 | Noviembre |
+| 11 | 1,20 | Diciembre |
+| 12 | 1,80 | Enero (año 2) |
+| 13 | 1,70 | Febrero |
+| 14 | 0,80 | Marzo |
+| ... | ... | (repite patrón) |
+| 23 | 0,75 | Noviembre |
+| 24 | 1,20 | Diciembre |
 
-#### Disponibilidad del proveedor — fracción satisfecha
+#### Disponibilidad del proveedor
 
-| Mes | Fracción | Justificación |
-|-----|:--------:|---------------|
-| Enero | 0,80 | −20% en verano (experiencia 2 temporadas consecutivas) |
-| Febrero | 0,80 | −20% en verano |
-| Marzo–Noviembre | 1,00 | Disponibilidad normal |
-| Diciembre | 0,90 | Inicio de restricción pre-verano |
+| Time (mes) | Fracción | Observación |
+|:----------:|:--------:|-------------|
+| 0–1 | 0,80 | Enero–Febrero año 1: −20% verano |
+| 2–10 | 1,00 | Marzo–Noviembre: disponibilidad normal |
+| 11 | 0,90 | Diciembre: inicio restricción |
+| 12–13 | 0,80 | Enero–Febrero año 2: −20% verano |
+| 14–22 | 1,00 | Marzo–Noviembre: disponibilidad normal |
+| 23 | 1,00 | Noviembre |
+| 24 | 0,90 | Diciembre año 2 |
 
 ---
 
-## 4. Ecuaciones del modelo (para ingresar en Vensim manualmente)
+## 4. Ecuaciones completas para ingresar en Vensim
 
 ```
+════════════════════════════════════════════════════════════
+ STOCKS
+════════════════════════════════════════════════════════════
+
 Stock de huevos = INTEG( Tasa de compra - Tasa de despacho, 1000 )
     UNITS: cajas
 
@@ -204,134 +235,166 @@ Margen Acumulado = INTEG( Ingresos - Costos totales, 0 )
 Capacidad de reparto = INTEG( Inversion en capacidad, 200 )
     UNITS: cajas/mes
 
-──────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+ FLUJOS
+════════════════════════════════════════════════════════════
 
-Tasa de compra = MIN( Demanda total, Disponibilidad proveedor * Demanda total )
+Tasa de compra =
+    MIN(
+        Necesidad de compra,
+        Disponibilidad proveedor * Demanda total
+    )
     UNITS: cajas/mes
 
-Tasa de despacho = MIN( Stock de huevos, Capacidad de reparto )
+Tasa de despacho =
+    MIN( Stock de huevos, Capacidad de reparto )
     UNITS: cajas/mes
 
-Ingresos = Tasa de despacho * Precio de venta
+Ingresos =
+    Tasa de despacho * Precio de venta
     UNITS: CLP/mes
 
-Costos totales = Costo de compra + Costos operacionales
+Costos totales =
+    Costo de compra + Costos operacionales
     UNITS: CLP/mes
 
-Costo de compra = Tasa de compra * Precio proveedor
-    UNITS: CLP/mes
-
-Inversion en capacidad = Capacidad de inversion * Tasa de expansion
+Inversion en capacidad =
+    Capacidad de inversion * Tasa de expansion
     UNITS: cajas/mes/mes
 
-──────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+ VARIABLES AUXILIARES
+════════════════════════════════════════════════════════════
 
-Demanda total = Demanda base * Estacionalidad
+Demanda total =
+    Demanda base * Estacionalidad
     UNITS: cajas/mes
 
-Capacidad de inversion = IF THEN ELSE( Margen Acumulado > Umbral de inversion, 1, 0 )
+Necesidad de compra =
+    MAX( 0, Inventario objetivo - Stock de huevos )
+    UNITS: cajas
+
+Costo de compra =
+    Tasa de compra * Precio proveedor
+    UNITS: CLP/mes
+
+Capacidad de inversion =
+    IF THEN ELSE( Margen Acumulado > Umbral de inversion, 1, 0 )
     UNITS: Dmnl
 
-──────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+ CONSTANTES
+════════════════════════════════════════════════════════════
 
-Demanda base = 220          UNITS: cajas/mes
-Precio de venta = 55000     UNITS: CLP/caja
-Precio proveedor = 42000    UNITS: CLP/caja
-Costos operacionales = 580000   UNITS: CLP/mes
-Umbral de inversion = 3000000   UNITS: CLP
-Tasa de expansion = 0       UNITS: cajas/mes/mes   ← cambiar a 50 en escenario mejora
+Inventario objetivo   = 1000       UNITS: cajas
+Demanda base          = 220        UNITS: cajas/mes
+Precio de venta       = 55000      UNITS: CLP/caja
+Precio proveedor      = 42000      UNITS: CLP/caja
+Costos operacionales  = 580000     UNITS: CLP/mes
+Umbral de inversion   = 3000000    UNITS: CLP
+Tasa de expansion     = 0          UNITS: cajas/mes/mes
+    ↑ Cambiar a 50 en escenario de mejora
 
-──────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+ LOOKUPS
+════════════════════════════════════════════════════════════
 
 Estacionalidad = WITH LOOKUP( Time,
     ([(0,0)-(25,3)],
-    (0,1.8),(1,1.8),(2,1.7),(3,0.8),(4,0.7),(5,0.8),(6,0.7),
-    (7,0.75),(8,0.6),(9,0.65),(10,0.85),(11,0.75),(12,1.2),
-    (13,1.8),(14,1.7),(15,0.8),(16,0.7),(17,0.8),(18,0.7),
-    (19,0.75),(20,0.6),(21,0.65),(22,0.85),(23,0.75),(24,1.2))
+    (0,1.8),(1,1.7),(2,0.8),(3,0.7),(4,0.8),(5,0.7),
+    (6,0.75),(7,0.6),(8,0.65),(9,0.85),(10,0.75),(11,1.2),
+    (12,1.8),(13,1.7),(14,0.8),(15,0.7),(16,0.8),(17,0.7),
+    (18,0.75),(19,0.6),(20,0.65),(21,0.85),(22,0.75),(23,1.2),
+    (24,1.8))
 )
     UNITS: Dmnl
 
 Disponibilidad proveedor = WITH LOOKUP( Time,
     ([(0,0)-(25,1.1)],
-    (0,0.8),(1,0.8),(2,0.8),(3,1),(4,1),(5,1),(6,1),
-    (7,1),(8,1),(9,1),(10,1),(11,1),(12,0.9),
-    (13,0.8),(14,0.8),(15,1),(16,1),(17,1),(18,1),
-    (19,1),(20,1),(21,1),(22,1),(23,1),(24,0.9))
+    (0,0.8),(1,0.8),(2,1),(3,1),(4,1),(5,1),
+    (6,1),(7,1),(8,1),(9,1),(10,1),(11,0.9),
+    (12,0.8),(13,0.8),(14,1),(15,1),(16,1),(17,1),
+    (18,1),(19,1),(20,1),(21,1),(22,1),(23,0.9),
+    (24,0.8))
 )
     UNITS: Dmnl
 
-──────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+ CONTROL DE SIMULACIÓN
+════════════════════════════════════════════════════════════
 
-INITIAL TIME = 0        UNITS: mes
-FINAL TIME = 24         UNITS: mes   (2 años: 2025-2026)
-TIME STEP = 0.25        UNITS: mes
-SAVEPER = TIME STEP
+INITIAL TIME  = 0       UNITS: mes
+FINAL TIME    = 24      UNITS: mes    (2 años: 2025–2026)
+TIME STEP     = 0.25    UNITS: mes
+SAVEPER       = TIME STEP
 ```
 
 ---
 
-## 5. Escenarios de simulación
+## 5. Lógica de compra — Cómo funciona el nuevo esquema
+
+El ajuste que hiciste introduce un **bucle de balanceo de inventario (B1b)** que hace el modelo más realista:
+
+```
+Inventario objetivo (1.000 cajas)
+        │
+        │  − Stock de huevos actual
+        ▼
+Necesidad de compra = MAX(0, 1000 − Stock)
+        │
+        │  limitada por disponibilidad del proveedor
+        ▼
+Tasa de compra = MIN(Necesidad, Disp.proveedor × Demanda total)
+        │
+        ▼
+Stock de huevos ↑
+```
+
+**Diferencia respecto al modelo anterior:**
+
+| Aspecto | Modelo anterior | Modelo actual |
+|---------|----------------|---------------|
+| ¿Qué activa la compra? | La demanda total directamente | La **brecha** entre stock objetivo y stock real |
+| Comportamiento | Compra proporcional a demanda | Compra reactiva cuando el stock cae bajo 1.000 |
+| Bucle adicional | — | B1b: reposición de inventario (balanceo) |
+| Realismo | Moderado | **Alto** — replica cómo opera el negocio real |
+
+---
+
+## 6. Escenarios de simulación
 
 ### Escenario Base — sin intervención
 
-| Parámetro modificado | Valor |
-|---------------------|-------|
-| Tasa de expansión | **0** (sin inversión nueva) |
-| Precio de venta | 55.000 CLP/caja (fijo) |
-| Costos operacionales | 580.000 CLP/mes |
+| Parámetro | Valor |
+|-----------|-------|
+| `Tasa de expansion` | **0** |
+| `Precio de venta` | 55.000 CLP/caja |
+| `Costos operacionales` | 580.000 CLP/mes |
 
-**Comportamiento esperado:** La capacidad de reparto se mantiene en 200 cajas/mes. En enero-febrero la demanda supera la capacidad → despacho limitado → margen subóptimo. El sistema no crece.
+Comportamiento esperado: stock oscila cerca de 1.000, la capacidad de reparto no crece, el margen se acumula lentamente y en verano el despacho queda limitado por los 200 cajas/mes.
 
 ### Escenario de Mejora — inversión en vehículo y personal
 
-| Parámetro modificado | Valor base → Valor nuevo |
-|---------------------|--------------------------|
-| Tasa de expansión | 0 → **50** cajas/mes² |
-| Precio de venta (verano) | 55.000 → **60.000** CLP/caja |
-| Costos operacionales | 580.000 → **780.000** CLP/mes (+personal) |
+| Parámetro | Valor base → Nuevo |
+|-----------|--------------------|
+| `Tasa de expansion` | 0 → **50** |
+| `Precio de venta` | 55.000 → **60.000** |
+| `Costos operacionales` | 580.000 → **780.000** |
 
-**Comportamiento esperado:** Cuando el margen supera 3.000.000 CLP, se activa la inversión → capacidad de reparto crece → más despacho en verano → mayor margen acumulado (bucle R1 dominante).
-
----
-
-## 6. Cómo construir el diagrama en Vensim paso a paso
-
-### Paso 1 — Crear los 3 stocks
-1. Herramienta **Box** → dibuja `Stock de huevos`
-2. Herramienta **Box** → dibuja `Margen Acumulado`
-3. Herramienta **Box** → dibuja `Capacidad de reparto`
-
-### Paso 2 — Agregar los flujos (válvulas)
-Para cada flujo: herramienta **Arrow con válvula** entre nube y stock:
-- Nube → `Tasa de compra` → `Stock de huevos`
-- `Stock de huevos` → `Tasa de despacho` → Nube
-- Nube → `Ingresos` → `Margen Acumulado`
-- `Margen Acumulado` → `Costos totales` → Nube
-- Nube → `Inversion en capacidad` → `Capacidad de reparto`
-
-### Paso 3 — Agregar variables auxiliares (círculos)
-- `Demanda total`, `Costo de compra`, `Capacidad de inversion`
-
-### Paso 4 — Agregar parámetros (constantes)
-- `Demanda base`, `Precio de venta`, `Precio proveedor`
-- `Costos operacionales`, `Umbral de inversion`, `Tasa de expansion`
-
-### Paso 5 — Agregar variables exógenas (lookup)
-- `Estacionalidad` → tipo Variable, ecuación WITH LOOKUP
-- `Disponibilidad proveedor` → tipo Variable, ecuación WITH LOOKUP
-
-### Paso 6 — Conectar con flechas causales
-Dibuja todas las flechas de influencia según las ecuaciones de la sección 4.
-
-### Paso 7 — Ingresar ecuaciones
-Doble clic en cada variable → pestaña **Equations** → ingresar la ecuación correspondiente.
-
-### Paso 8 — Verificar y simular
-- **Model → Check Model** → debe mostrar 0 errores
-- **Run** → observar comportamiento de stocks en el tiempo
+Comportamiento esperado: en cuanto el margen supera 3.000.000 CLP se activa la inversión, la capacidad de reparto crece, en verano se despacha más y el bucle R1 se vuelve dominante.
 
 ---
 
-*Modelo calibrado con datos reales de operación 2025 de la distribuidora.*
+## 7. Herramienta por variable — resumen rápido
+
+| Herramienta Vensim | Variables |
+|--------------------|-----------|
+| **Stock Tool** (rectángulo) | `Stock de huevos`, `Margen Acumulado`, `Capacidad de reparto` |
+| **Flow Tool** (válvula) | `Tasa de compra`, `Tasa de despacho`, `Ingresos`, `Costos totales`, `Inversion en capacidad` |
+| **Variable Tool** (óvalo, con ecuación) | `Demanda total`, `Necesidad de compra`, `Costo de compra`, `Capacidad de inversion`, `Estacionalidad`, `Disponibilidad proveedor` |
+| **Constant Tool** (óvalo, solo número) | `Inventario objetivo`, `Demanda base`, `Precio de venta`, `Precio proveedor`, `Costos operacionales`, `Umbral de inversion`, `Tasa de expansion` |
+
+---
+
+*Modelo calibrado con datos reales de operación 2025 de la distribuidora.*  
 *Proyecto final — Teoría de Sistemas.*
