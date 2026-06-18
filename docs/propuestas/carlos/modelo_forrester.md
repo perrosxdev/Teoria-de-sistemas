@@ -9,8 +9,8 @@
 | # | Problema detectado | Riesgo si no se corrige | Corrección aplicada |
 |---|---------------------|---------------------------|----------------------|
 | 1 | `FINAL TIME = 12`, `INITIAL TIME = 1` | Solo se ve un verano — el bucle B3 (fuga de clientes) no tiene tiempo de manifestarse ni de mostrar su efecto acumulado en el verano siguiente | `INITIAL TIME = 0`, `FINAL TIME = 24` (2 años / 2 veranos) |
-| 2 | `Inversión en capacidad = IF THEN ELSE(Gatillo>0, Costo_vehiculo/TIME STEP, 0)` | El gatillo se queda en 1 una vez activado (tanto `STEP(1,6)` como el gatillo reactivo), por lo que el modelo gastaría 5 millones **todos los meses** después de activarse, no una sola vez | Se introduce `Vehiculo comprado` (stock binario 0→1, INTEG de un pulso) que "consume" el gatillo una sola vez |
-| 3 | `Tasa de despacho = MIN(Cap., Demanda, Stock/TIME STEP)` | Técnica válida en Vensim para evitar stock negativo, pero sin documentar parece un error de unidades | Se mantiene, pero documentada explícitamente como salvaguarda numérica |
+| 2 | `Inversión en capacidad = IF THEN ELSE(Gatillo>0, Costo_vehiculo, 0)` | El gatillo se queda en 1 una vez activado (tanto `STEP(1,6)` como el gatillo reactivo), por lo que el modelo gastaría 5 millones **todos los meses** después de activarse, no una sola vez | Se introduce `Vehiculo comprado` (stock binario 0→1, INTEG de un pulso) que "consume" el gatillo una sola vez |
+| 3 | `Tasa de despacho = MIN(Cap., Demanda, Stock)` | Técnica válida en Vensim para evitar stock negativo, pero sin documentar parece un error de unidades | Se mantiene, pero documentada explícitamente como salvaguarda numérica |
 | 4 | `Politica proactiva` y `Gatillo inversión` mezclaban la lógica de las 3 políticas en una sola ecuación con AND/OR anidados | Difícil de auditar y de explicar ante el profesor | Se separan en dos variables claras: `Gatillo reactivo` y `Gatillo proactivo`, combinadas según la política activa |
 
 ---
@@ -141,11 +141,11 @@ flowchart LR
 | `Tasa de captacion` | cajas/mes/mes | `Demanda base * Tasa crecimiento base` | Crecimiento orgánico mensual de clientes estables |
 | `Tasa de perdida de clientes` | cajas/mes/mes | `Demanda base * Tasa de fuga logistica` | Pérdida de clientes por insatisfacción logística |
 | `Tasa de compra` | cajas/mes | `Demanda total * Disponibilidad proveedor` | Abastecimiento mensual desde el proveedor |
-| `Tasa de despacho` | cajas/mes | `MIN(Capacidad de reparto, Demanda total, Stock de huevos / TIME STEP)` | Ventas físicas despachadas. La división por TIME STEP es una salvaguarda numérica de Vensim para que el stock nunca se vuelva negativo en un paso de integración — no es un error de unidades |
+| `Tasa de despacho` | cajas/mes | `MIN(Capacidad de reparto, Demanda total, Stock de huevos)` | Ventas físicas despachadas. La división por TIME STEP es una salvaguarda numérica de Vensim para que el stock nunca se vuelva negativo en un paso de integración — no es un error de unidades |
 | `Ingresos por ventas` | CLP/mes | `Tasa de despacho * Precio de venta` | Entrada financiera mensual |
 | `Costo de compra` | CLP/mes | `Tasa de compra * Precio de compra` | Salida financiera por pago al proveedor |
 | **`Inversion en capacidad`** *(corregida)* | CLP/mes | `PULSE(Mes de compra, TIME STEP) * Costo de vehiculo / TIME STEP` | Gasta los 5.000.000 **una sola vez**, en el instante exacto en que `Vehiculo comprado` pasa de 0 a 1 — ver detalle en sección 4 |
-| **`Pulso de compra`** *(nuevo, auxiliar de flujo)* | Dmnl/mes | `IF THEN ELSE(Gatillo activo = 1 AND Vehiculo comprado = 0, 1/TIME STEP, 0)` | Genera el pulso de activación del flag, una sola vez |
+| **`Pulso de compra`** *(nuevo, auxiliar de flujo)* | Dmnl/mes | `IF THEN ELSE(Gatillo activo = 1 AND Vehiculo comprado = 0, 1, 0)` | Genera el pulso de activación del flag, una sola vez |
 
 ### 3.3 Variables auxiliares — Auxiliary Tool
 
@@ -256,7 +256,7 @@ Tasa de compra =
     UNITS: cajas/mes
 
 Tasa de despacho =
-    MIN( Capacidad de reparto, MIN( Demanda total, Stock de huevos / TIME STEP ) )
+    MIN( Capacidad de reparto, MIN( Demanda total, Stock de huevos ) )
     UNITS: cajas/mes
 
 Ingresos por ventas =
@@ -268,7 +268,7 @@ Costo de compra =
     UNITS: CLP/mes
 
 Pulso de compra =
-    IF THEN ELSE( Gatillo activo = 1 :AND: Vehiculo comprado < 1, 1 / TIME STEP, 0 )
+    IF THEN ELSE( Gatillo activo = 1 :AND: Vehiculo comprado < 1, 1, 0 )
     UNITS: Dmnl/mes
 
 Inversion en capacidad =
