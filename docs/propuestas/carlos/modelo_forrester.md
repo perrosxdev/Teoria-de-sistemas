@@ -1,17 +1,7 @@
 # 🥚 Modelo Dinámica de Sistemas — Distribuidora de Huevos
-## Versión adoptada: Timing de Inversión con Demanda Creciente y Fuga de Clientes
-### (corregida — basada en la propuesta del compañero)
+## Versión adoptada: Tiempo de Inversión con Demanda Creciente y Fuga de Clientes
 
 ---
-
-## 0. Qué se corrigió respecto a la propuesta original y por qué
-
-| # | Problema detectado | Riesgo si no se corrige | Corrección aplicada |
-|---|---------------------|---------------------------|----------------------|
-| 1 | `FINAL TIME = 12`, `INITIAL TIME = 1` | Solo se ve un verano — el bucle B3 (fuga de clientes) no tiene tiempo de manifestarse ni de mostrar su efecto acumulado en el verano siguiente | `INITIAL TIME = 0`, `FINAL TIME = 24` (2 años / 2 veranos) |
-| 2 | `Inversión en capacidad = IF THEN ELSE(Gatillo>0, Costo_vehiculo, 0)` | El gatillo se queda en 1 una vez activado (tanto `STEP(1,6)` como el gatillo reactivo), por lo que el modelo gastaría 5 millones **todos los meses** después de activarse, no una sola vez | Se introduce `Vehiculo comprado` (stock binario 0→1, INTEG de un pulso) que "consume" el gatillo una sola vez |
-| 3 | `Tasa de despacho = MIN(Cap., Demanda, Stock)` | Técnica válida en Vensim para evitar stock negativo, pero sin documentar parece un error de unidades | Se mantiene, pero documentada explícitamente como salvaguarda numérica |
-| 4 | `Politica proactiva` y `Gatillo inversión` mezclaban la lógica de las 3 políticas en una sola ecuación con AND/OR anidados | Difícil de auditar y de explicar ante el profesor | Se separan en dos variables claras: `Gatillo reactivo` y `Gatillo proactivo`, combinadas según la política activa |
 
 ---
 
@@ -206,7 +196,7 @@ Con esto, en el paso de integración donde se activa el gatillo, `Pulso de compr
 
 ---
 
-## 5. Ecuaciones completas para Vensim (versión corregida, 24 meses)
+## 5. Ecuaciones completas para Vensim
 
 ```
 ════════════════════════════════════════════════════════════
@@ -225,19 +215,23 @@ SAVEPER      = TIME STEP
 Demanda base = INTEG( Tasa de captacion - Tasa de perdida de clientes, 700 )
     UNITS: cajas/mes
 
-Stock de huevos = INTEG( Tasa de compra - Tasa de despacho, 200 )
+Stock de huevos = INTEG( Tasa de compra - Tasa de despacho, 900 )
     UNITS: cajas
 
-Capacidad de reparto = INTEG( Inversion en capacidad * Incremento cap por CLP, 867 )
+Capacidad de reparto = INTEG( Inversion en capacidad * Incremento cap por CLP, 720 )
     UNITS: cajas/mes
 
 Margen acumulado = INTEG(
-    Ingresos por ventas - Costo de compra - Costos operacionales - Inversion en capacidad,
-    0 )
+    Ingresos por ventas - (Costo de compra + Costos operacionales + Inversion en capacidad),
+    12000000 )
     UNITS: CLP
 
 Vehiculo comprado = INTEG( Pulso de compra, 0 )
     UNITS: Dmnl
+Tiempo = INTEG(
+    1,0
+)
+
 
 ════════════════════════════════════════════════════════════
  FLUJOS
@@ -248,15 +242,15 @@ Tasa de captacion =
     UNITS: cajas/mes/mes
 
 Tasa de perdida de clientes =
-    Demanda base * Tasa de fuga logistica
+    IF THEN ELSE(Demanda Base > Demanda minima, Demanda Base * Tasa de fuga logistica, 0)
     UNITS: cajas/mes/mes
 
 Tasa de compra =
-    Demanda total * Disponibilidad proveedor
+    MIN(Necesidad de compra, Disponibilidad proveedor * Capacidad maxima proveedor)
     UNITS: cajas/mes
 
 Tasa de despacho =
-    MIN( Capacidad de reparto, MIN( Demanda total, Stock de huevos ) )
+    MIN( Capacidad Reparto, MIN( Demanda total, Stock de huevos/ Paso de tiempo) )
     UNITS: cajas/mes
 
 Ingresos por ventas =
@@ -268,7 +262,10 @@ Costo de compra =
     UNITS: CLP/mes
 
 Pulso de compra =
-    IF THEN ELSE( Gatillo activo = 1 :AND: Vehiculo comprado < 1, 1, 0 )
+    IF THEN ELSE(
+        Gatillo Activo = 1 :AND: Vehiculo comprado < 1,
+        1/Paso de tiempo,
+        0 )
     UNITS: Dmnl/mes
 
 Inversion en capacidad =
@@ -297,17 +294,22 @@ Costos operacionales =
 
 Gatillo reactivo =
     IF THEN ELSE(
-        Margen acumulado > Costo de vehiculo :AND: Tasa de incumplimiento > 0.1,
-        1, 0 )
+            Margen acumulado > Costo del Vehiculo :AND: Tasa de incumplimiento > 0.1,
+            1, 0 )
     UNITS: Dmnl
 
 Gatillo proactivo =
-    IF THEN ELSE( Time = Mes de compra, 1, 0 )
+    IF THEN ELSE(Tiempo >= Mes de compra, 1, 0)
     UNITS: Dmnl
 
 Gatillo activo =
     IF THEN ELSE( Politica proactiva = 1, Gatillo proactivo, Gatillo reactivo )
     UNITS: Dmnl
+
+Necesidad de compra =
+    MAX(0, Inventario Objetivo - Stock de huevos)
+    UNITS: Dmnl
+
 
 ════════════════════════════════════════════════════════════
  LOOKUPS
@@ -315,19 +317,15 @@ Gatillo activo =
 
 Tasa de fuga logistica( Tasa de incumplimiento ) =
     WITH LOOKUP( Tasa de incumplimiento,
-    ([(0,0)-(0.5,0.3)], (0,0),(0.1,0.02),(0.3,0.10),(0.5,0.25)) )
+    ([(0,0)-(0.5,0.3)],(0,0), (0.1,0.02), (0.3,0.1), (0.5,0.25), (0.7,0.3), (1,0.32)))
     UNITS: Dmnl
 
-Estacionalidad = WITH LOOKUP( Time,
-    ([(0,0)-(25,2)],
-    (0,1.84),(1,1.81),(2,0.84),(3,0.78),(4,0.90),(5,0.75),
-    (6,0.84),(7,0.67),(8,0.69),(9,0.91),(10,0.71),(11,1.27),
-    (12,1.84),(13,1.81),(14,0.84),(15,0.78),(16,0.90),(17,0.75),
-    (18,0.84),(19,0.67),(20,0.69),(21,0.91),(22,0.71),(23,1.27),
-    (24,1.84)) )
+Estacionalidad = WITH LOOKUP( MODULO ( Tiempo , 12 ),
+    ([(0,0)-(24,2)],(0,1.84), (1,1.81), (2,0.84), (3,0.78), (4,0.9), (5,0.75), (6,0.84), (7,0.67), (8,0.69), (9,0.91), (10,0.71), (11,1.27))
+    )
     UNITS: Dmnl
 
-Disponibilidad proveedor = WITH LOOKUP( Time,
+Disponibilidad proveedor = WITH LOOKUP( MODULO ( Tiempo , 12 ),
     ([(0,0)-(25,1.1)],
     (0,0.8),(1,0.8),(2,1.0),(3,1.0),(4,1.0),(5,1.0),
     (6,1.0),(7,1.0),(8,1.0),(9,1.0),(10,1.0),(11,1.0),
@@ -341,14 +339,16 @@ Disponibilidad proveedor = WITH LOOKUP( Time,
 ════════════════════════════════════════════════════════════
 
 Tasa crecimiento base   = 0.02       UNITS: 1/mes
-Precio de venta         = 11500      UNITS: CLP/caja
-Precio de compra        = 9000       UNITS: CLP/caja
+Precio de venta         = 33000      UNITS: CLP/caja
+Precio de compra        = 24000       UNITS: CLP/caja
 Costo de vehiculo       = 5000000    UNITS: CLP
-Incremento cap por CLP  = 0.0001     UNITS: (cajas/mes)/CLP
+Incremento cap por CLP  = 0,00004328     UNITS: (cajas/mes)/CLP
 Costo variable reparto  = 500        UNITS: CLP/caja
 Costo fijo mantenimiento = 200       UNITS: CLP/caja/mes
-Mes de compra           = 6          UNITS: mes
-Politica proactiva      = 0          UNITS: Dmnl   (0 = Base/Reactivo, 1 = Proactivo)
+Mes de compra           = 8          UNITS: mes
+Politica proactiva      = 1          UNITS: Dmnl   (0 = Base/Reactivo, 1 = Proactivo)
+Inventario Objetivo     = 1300       UNITS: Caja
+Paso de tiempo          = 1          UNITS: mes
 ```
 
 ---
