@@ -294,7 +294,7 @@ Costos operacionales =
 
 Gatillo reactivo =
     IF THEN ELSE(
-            Margen acumulado > Costo del Vehiculo :AND: Tasa de incumplimiento > 0.1,
+            Margen acumulado > Costo de Vehiculo :AND: Tasa de incumplimiento > 0.1,
             1, 0 )
     UNITS: Dmnl
 
@@ -341,12 +341,16 @@ Disponibilidad proveedor = WITH LOOKUP( MODULO ( Tiempo , 12 ),
 Tasa crecimiento base   = 0.02       UNITS: 1/mes
 Precio de venta         = 33000      UNITS: CLP/caja
 Precio de compra        = 24000       UNITS: CLP/caja
-Costo de vehiculo       = 5000000    UNITS: CLP
+Costo de vehiculo       = 50000000    UNITS: CLP
 Incremento cap por CLP  = 0,00004328     UNITS: (cajas/mes)/CLP
 Costo variable reparto  = 500        UNITS: CLP/caja
 Costo fijo mantenimiento = 200       UNITS: CLP/caja/mes
 Mes de compra           = 8          UNITS: mes
-Politica proactiva      = 1          UNITS: Dmnl   (0 = Base/Reactivo, 1 = Proactivo)
+Politica proactiva      = 2          UNITS: Dmnl
+    ~ Controla el escenario de simulación activo:
+      0 = Base (sin inversión — negocio no amplía flota en ningún caso)
+      1 = Reactivo (invierte cuando Margen acumulado > Costo del Vehiculo :AND: Tasa de incumplimiento > 0.1)
+      2 = Proactivo (invierte anticipadamente en el mes definido por Mes de compra)
 Inventario Objetivo     = 1300       UNITS: Caja
 Paso de tiempo          = 1          UNITS: mes
 ```
