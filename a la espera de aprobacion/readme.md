@@ -4,12 +4,12 @@
 
 Una distribuidora de huevos de pequeña escala abastece actualmente a supermercados de la zona, restoranes locales, almacenes de población y un nuevo punto de venta reciente.
 
-El negocio se enfrenta a una **demanda creciente de forma orgánica** a largo plazo, la cual se ve fuertemente acentuada en temporada de verano por la estacionalidad turística. Sin embargo, la **capacidad de reparto** (vehículo propio y personal de entrega) está limitada a un máximo físico de 867 cajas/mes.
+El negocio se enfrenta a una **demanda creciente de forma orgánica** a largo plazo, la cual se ve fuertemente acentuada en temporada de verano por la estacionalidad turística. Sin embargo, la **capacidad de reparto** (vehículo propio y personal de entrega) está limitada inicialmente a un valor de 720 cajas/mes.
 
 Cuando la demanda creciente supera esta capacidad logística, se produce un cuello de botella:
 1.  Los pedidos se retrasan y se generan ventas no entregadas.
 2.  La insatisfacción de los clientes provoca una **pérdida de clientes (fuga/churn)**, afectando la demanda futura.
-3.  La empresa debe decidir si invertir en ampliar la flota (un camión adicional por CLP 5.000.000 y costos fijos de personal).
+3.  La empresa debe decidir si invertir en ampliar la flota (un camión adicional por CLP 50.000.000 y costos fijos de personal).
 
 La pregunta general de investigación que guía el modelo es:
 
@@ -84,6 +84,6 @@ El modelo se divide en dos subsistemas principales: el **Operacional/Logístico*
 
 El modelo evalúa el **timing de la inversión** comparando tres escenarios en base a una demanda que crece orgánicamente un 2% mensual:
 
-1.  **Escenario Base (Sin Inversión):** La distribuidora mantiene su capacidad fija (867 cajas/mes). Al llegar el verano del mes 12, el colapso logístico es total, provocando una masiva pérdida de clientes y estancando las ganancias a largo plazo.
-2.  **Escenario Futuro A (Inversión Reactiva):** La distribuidora compra el vehículo (CLP 5.000.000) solo cuando ha acumulado la caja necesaria y la tasa de incumplimiento supera el 10% durante dos meses consecutivos. El negocio sufre pérdidas de clientes previas antes de recuperar su capacidad de entrega.
-3.  **Escenario Futuro B (Inversión Proactiva):** La distribuidora compra el vehículo de forma anticipada en el mes 6 (antes del verano y del colapso), recurriendo a crédito de capital de trabajo si la caja propia no es suficiente, protegiendo al 100% la base de clientes.
+1.  **Escenario Base (Sin Inversión):** La distribuidora mantiene su capacidad fija (720 cajas/mes). Al llegar el verano del mes 12, el colapso logístico es total, provocando una masiva pérdida de clientes y estancando las ganancias a largo plazo.
+2.  **Escenario Futuro A (Inversión Reactiva):** La distribuidora compra el vehículo (CLP 50.000.000) solo cuando ha acumulado la caja necesaria y la tasa de incumplimiento supera el 10% de forma instantánea. El negocio sufre pérdidas de clientes previas antes de recuperar su capacidad de entrega.
+3.  **Escenario Futuro B (Inversión Proactiva):** La distribuidora compra el vehículo de forma anticipada en el mes 8 (antes del verano y del colapso), recurriendo a crédito de capital de trabajo si la caja propia no es suficiente, protegiendo al 100% la base de clientes.
