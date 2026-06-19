@@ -144,7 +144,7 @@ flowchart LR
 | Variable | Valor inicial | Unidad | Ecuación INTEG | Descripción |
 |----------|:-------------:|--------|-----------------|-------------|
 | `Demanda base` | 700 | cajas/mes | `INTEG(Tasa de captacion − Tasa de perdida de clientes, 700)` | Volumen de clientes estables, antes de aplicar estacionalidad |
-| `Stock de huevos` | 900 | cajas | `INTEG(Tasa de compra − Tasa de despacho, 900)` | Inventario físico en bodega |
+| `Stock de huevos` | 800 | cajas | `INTEG(Tasa de compra − Tasa de despacho, 800)` | Inventario físico en bodega |
 | `Capacidad de reparto` | 720 | cajas/mes | `INTEG(Inversion en capacidad * Incremento cap por CLP, 720)` | Techo logístico de despacho mensual |
 | `Margen acumulado` | 12.000.000 | CLP | `INTEG(Ingresos por ventas − (Costo de compra + Costos operacionales + Inversion en capacidad), 12.000.000)` | Caja líquida acumulada |
 | `Vehiculo comprado` | 0 | Dmnl (flag) | `INTEG(Pulso de compra, 0)` | Flag que pasa de 0 a 1 una sola vez cuando se gatilla la inversión — evita que se gaste dinero repetidamente |
@@ -169,11 +169,12 @@ flowchart LR
 |----------|--------|----------|-------------|
 | `Demanda total` | cajas/mes | `Demanda base * Estacionalidad` | Demanda estacional del mes actual |
 | `Tasa de incumplimiento` | Dmnl | `MAX(0, (Demanda total − Tasa de despacho) / Demanda total)` | Fracción de pedidos no entregados |
-| **`Necesidad de compra`** *(nuevo)* | cajas | `MAX(0, Inventario Objetivo − Stock de huevos)` | Brecha entre el inventario objetivo y el stock actual; es la que dispara la compra |
+| **`Necesidad de compra`** *(nuevo)* | cajas | `MAX(0, Inventario Objetivo − Stock de huevos)` | Brecha entre el inventario objetivo (dinámico: 850 antes del vehículo, 2.000 después) y el stock actual; es la que dispara la compra |
 | `Costos operacionales` | CLP/mes | `Costos fijos mensuales + (Tasa de despacho * Costo variable reparto)` | Costos totales de operación |
 | `Costos fijos mensuales` | CLP/mes | `200000 + (Capacidad de reparto − 867) * Costo fijo mantenimiento` | Escala con la capacidad agregada — más realista que un costo fijo plano |
 | `Gatillo reactivo` | Dmnl (booleano) | `IF THEN ELSE(Margen acumulado > Costo de vehiculo AND Tasa de incumplimiento > 0.1, 1, 0)` | Se activa solo si hay caja Y hay colapso ya ocurriendo |
 | **`Gatillo proactivo`** *(en función de `Tiempo`)* | Dmnl (booleano) | `IF THEN ELSE(Tiempo >= Mes de compra, 1, 0)` | Se activa desde el mes definido en adelante, independiente del estado de caja |
+| **`Inventario Objetivo`** *(variable auxiliar)* | Caja | `IF THEN ELSE(Vehiculo comprado = 1, 2000, 850)` | Objetivo de stock dinámico: 850 cajas con el furgón actual, 2.000 cajas una vez comprado el camión. Al cambiar de valor, `Necesidad de compra` aumenta y el modelo empieza a comprar más para llenar la bodega gradualmente |
 | `Gatillo activo` | Dmnl (booleano) | `IF THEN ELSE( Politica proactiva = 2, Gatillo proactivo, IF THEN ELSE( Politica proactiva = 1, Gatillo reactivo, 0 ) )` | Selecciona qué política manda según el escenario simulado — **ver nota de verificación en la sección 6** sobre cómo esta fórmula lee los valores de `Politica proactiva` |
 
 ### 3.4 Lookups — Auxiliary Tool con WITH LOOKUP
@@ -197,7 +198,7 @@ flowchart LR
 | `Costo fijo mantenimiento` | 200 | CLP/caja/mes | Sueldo chofer + mantención, prorrateado por capacidad agregada |
 | `Mes de compra` | 8 | mes | Mes en que se activa la compra si la política es proactiva (antes del primer verano, mes 12-13) |
 | `Politica proactiva` | 2 *(valor configurado actualmente)* | Dmnl | Bandera de escenario: `0`=Base, `1`=Reactivo, `2`=Proactivo. `Gatillo activo` ya implementa las tres ramas correctamente (ver sección 5) |
-| **`Inventario Objetivo`** *(nuevo)* | 1.300 | Caja | Nivel de stock que el negocio busca mantener; alimenta `Necesidad de compra` |
+| **`Inventario Objetivo`** *(variable auxiliar)* | — | Caja | Ya no es una constante fija. Toma el valor 850 antes de la compra del vehículo y 2.000 después. Ver ecuación en sección 3.3 |
 | **`Paso de tiempo`** *(renombrado)* | 1 | mes | Equivalente al `TIME STEP` de Vensim, ahora referenciado explícitamente por nombre en `Tasa de despacho` y `Pulso de compra` |
 | **`Demanda minima`** *(referenciada, valor pendiente)* | ❓ | cajas/mes | Usada en `Tasa de perdida de clientes` como piso de la fuga de clientes — falta definir su valor en el bloque de constantes (ver sección 9) |
 | **`Capacidad maxima proveedor`** *(referenciada, valor pendiente)* | ❓ | cajas/mes | Usada en `Tasa de compra` como techo de lo que el proveedor puede entregar — falta definir su valor en el bloque de constantes (ver sección 9) |
@@ -246,7 +247,7 @@ SAVEPER      = TIME STEP
 Demanda base = INTEG( Tasa de captacion - Tasa de perdida de clientes, 700 )
     UNITS: cajas/mes
 
-Stock de huevos = INTEG( Tasa de compra - Tasa de despacho, 900 )
+Stock de huevos = INTEG( Tasa de compra - Tasa de despacho, 750 )
     UNITS: cajas
 
 Capacidad de reparto = INTEG( Inversion en capacidad * Incremento cap por CLP, 720 )
@@ -342,6 +343,10 @@ Necesidad de compra =
     MAX(0, Inventario Objetivo - Stock de huevos)
     UNITS: Dmnl
 
+Inventario Objetivo =
+    IF THEN ELSE(Vehiculo comprado = 1, 2000, 850)
+    UNITS: Caja
+
 
 ════════════════════════════════════════════════════════════
  LOOKUPS
@@ -383,7 +388,6 @@ Politica proactiva      = 2          UNITS: Dmnl
       0 = Base (sin inversión — negocio no amplía flota en ningún caso)
       1 = Reactivo (invierte cuando Margen acumulado > Costo del Vehiculo :AND: Tasa de incumplimiento > 0.1)
       2 = Proactivo (invierte anticipadamente en el mes definido por Mes de compra)
-Inventario Objetivo     = 1300       UNITS: Caja
 Paso de tiempo          = 1          UNITS: mes
 ```
 
@@ -448,9 +452,9 @@ Paso de tiempo          = 1          UNITS: mes
 |-------------|-----------|
 | **Stock / Box Variable (Level)** | `Demanda base`, `Stock de huevos`, `Capacidad de reparto`, `Margen acumulado`, `Vehiculo comprado`, `Tiempo` |
 | **Rate / Flow** | `Tasa de captacion`, `Tasa de perdida de clientes`, `Tasa de compra`, `Tasa de despacho`, `Ingresos por ventas`, `Costo de compra`, `Pulso de compra`, `Inversion en capacidad` |
-| **Auxiliary** | `Demanda total`, `Tasa de incumplimiento`, `Necesidad de compra`, `Costos fijos mensuales`, `Costos operacionales`, `Gatillo reactivo`, `Gatillo proactivo`, `Gatillo activo` |
+| **Auxiliary** | `Demanda total`, `Tasa de incumplimiento`, `Necesidad de compra`, `Inventario Objetivo`, `Costos fijos mensuales`, `Costos operacionales`, `Gatillo reactivo`, `Gatillo proactivo`, `Gatillo activo` |
 | **Auxiliary con WITH LOOKUP** | `Tasa de fuga logistica`, `Estacionalidad`, `Disponibilidad proveedor` |
-| **Constant** | `Tasa crecimiento base`, `Precio de venta`, `Precio de compra`, `Costo de vehiculo`, `Incremento cap por CLP`, `Costo variable reparto`, `Costo fijo mantenimiento`, `Mes de compra`, `Politica proactiva`, `Inventario Objetivo`, `Paso de tiempo`, `Demanda minima` *(pendiente)*, `Capacidad maxima proveedor` *(pendiente)* |
+| **Constant** | `Tasa crecimiento base`, `Precio de venta`, `Precio de compra`, `Costo de vehiculo`, `Incremento cap por CLP`, `Costo variable reparto`, `Costo fijo mantenimiento`, `Mes de compra`, `Politica proactiva`, `Paso de tiempo`, `Demanda minima` *(pendiente)*, `Capacidad maxima proveedor` *(pendiente)* |
 
 ---
 
