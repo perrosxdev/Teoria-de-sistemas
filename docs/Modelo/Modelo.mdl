@@ -1,0 +1,483 @@
+{UTF-8}
+Inventario Objetivo=IF THEN ELSE(Vehiculo comprado = 1, 2000, 850)
+	~	
+	~		|
+
+Camion en uso=IF THEN ELSE(Vehiculo comprado = 1 :AND: Demanda total >= Demanda minima para camion\
+		, 1, 0)
+	~	Dmnl
+	~	Indica si el camion esta operativo. Una vez comprado, se deja de usar (y \
+		se deja de pagar su mantenimiento) si la demanda total (incluyendo \
+		estacionalidad) cae bajo el umbral definido.
+	|
+
+Demanda minima para camion=700
+	~	Caja/Month
+	~	Umbral de demanda total (con estacionalidad) bajo el cual se deja de \
+		utilizar el camion para evitar el gasto de mantenimiento, aun cuando ya \
+		fue comprado.
+	|
+
+Mercado potencial=1200
+	~	
+	~		|
+
+Clientes potenciales Restantes=MAX(0, Mercado potencial - Demanda Base)
+	~	
+	~		|
+
+Tasa de captacion=Demanda Base * Tasa de crecimiento base * Fraccion de mercado Disponible
+	~	
+	~		|
+
+Fraccion de mercado Disponible=Clientes potenciales Restantes/Mercado potencial
+	~	
+	~		|
+
+Gatillo reactivo=IF THEN ELSE(
+	        Margen acumulado > Costo de vehiculo :AND: Tasa de incumplimiento > 0.1,
+	        1, 0 )
+	~	
+	~		|
+
+Capacidad maxima proveedor=1500
+	~	
+	~		|
+
+Demanda minima=200
+	~	
+	~		|
+
+Demanda total=Demanda Base*Estacionalidad
+	~	
+	~		|
+
+Disponibilidad proveedor = WITH LOOKUP (MODULO ( Tiempo , 12 ),
+		([(0,0)-(25,2)],(0,0.8), (1,0.8), (2,1), (3,1), (4,1), (5,1), (6,1), (7,1), (8,1), \
+		(9,1), (10,1), (11,1), (12,0.8), (13,0.8), (14,1), (15,1), (16,1), (17,1), (18,1), \
+		(19,1), (20,1), (21,1), (22,1), (23,1), (24,0.8)))
+	~	
+	~		|
+
+Necesidad de compra=MAX(0, Inventario Objetivo - Stock de huevos)
+	~	
+	~		|
+
+Paso de tiempo=1
+	~	Month
+	~		|
+
+Gatillo proactivo=IF THEN ELSE(Tiempo >= Mes de compra, 1, 0)
+	~	
+	~		|
+
+Pulso de compra=IF THEN ELSE(
+	        Gatillo Activo = 1 :AND: Vehiculo comprado < 1,
+	        1/Paso de tiempo,
+	        0 )
+	~	Dmnl/Month
+	~		|
+
+Tasa de perdida de clientes=IF THEN ELSE(Demanda Base > Demanda minima, Demanda Base \
+		* Tasa de fuga logistica, 0)
+	~	
+	~		|
+
+Estacionalidad = WITH LOOKUP (MODULO ( Tiempo , 12 ) ,
+		([(0,0)-(24,2)],(0,1.84), (1,1.81), (2,0.84), (3,0.78), (4,0.9), (5,0.75), (6,0.84)\
+		, (7,0.67), (8,0.69), (9,0.91), (10,0.71), (11,1.27)))
+	~	
+	~		|
+
+Tasa de despacho=MIN( Capacidad Reparto, MIN( Demanda total, Stock de huevos/ Paso de tiempo\
+		) )
+	~	
+	~		|
+
+Tiempo= INTEG ( 1,
+		 0)
+	~	Month
+	~		|
+
+Tasa de compra=MIN(Necesidad de compra, Disponibilidad proveedor * Capacidad maxima proveedor\
+		)
+	~	
+	~		|
+
+Capacidad Reparto= INTEG (Inversion en capacidad*Incremento capacidad por CLP,
+		720)
+	~	
+	~		|
+
+Costo de compra=Tasa de compra*Precio de compra
+	~	
+	~		|
+
+Costo de vehiculo=5e+07
+	~	
+	~		|
+
+Costo fijo mantenimiento=200
+	~	
+	~		|
+
+Costo variable reparto=500
+	~	
+	~		|
+
+Costos fijos mensuales=700000 + Mantenimiento del camion
+	~	
+	~	El mantenimiento asociado a la capacidad extra que aporta el camion solo \
+		se paga mientras el camion esta en uso (ver Camion en uso).
+	|
+
+Costos operacionales=Costos fijos mensuales + (Tasa de despacho * Costo variable reparto\
+		)
+	~	
+	~		|
+
+Demanda Base= INTEG (Tasa de captacion - Tasa de perdida de clientes,
+		700)
+	~	
+	~		|
+
+Gatillo Activo=    IF THEN ELSE( Politica proactiva = 2, Gatillo proactivo,
+	        IF THEN ELSE( Politica proactiva = 1, Gatillo reactivo, 0 ) )
+	~	
+	~		|
+
+Incremento capacidad por CLP=4.328e-05
+	~	
+	~		|
+
+Ingresos por ventas=Tasa de despacho*Precio de venta
+	~	
+	~		|
+
+Inversion en capacidad=Pulso de compra*Costo de vehiculo
+	~	
+	~		|
+
+Margen acumulado= INTEG (Ingresos por ventas - (Costo de compra + Costos operacionales\
+		 + Inversion en capacidad),
+		1.2e+07)
+	~	
+	~		|
+
+Mes de compra=8
+	~	
+	~		|
+
+Politica proactiva=2
+	~	
+	~		|
+
+Precio de compra=24000
+	~	
+	~		|
+
+Precio de venta=33000
+	~	
+	~		|
+
+Stock de huevos= INTEG (Tasa de compra-Tasa de despacho,
+		750)
+	~	
+	~		|
+
+Tasa de crecimiento base=0.02
+	~	
+	~		|
+
+Tasa de fuga logistica = WITH LOOKUP (Tasa de incumplimiento,
+		([(0,0)-(0.5,0.3)],(0,0), (0.1,0.02), (0.3,0.1), (0.5,0.25), (0.7,0.3), (1,0.32)))
+	~	
+	~		|
+
+Tasa de incumplimiento= MAX( 0, (Demanda total - Tasa de despacho) / Demanda total )
+	~	
+	~		|
+
+Vehiculo comprado= INTEG (Pulso de compra,
+		0)
+	~	
+	~		|
+
+Capacidad base sin camion=867
+	~	Caja/Month
+	~	Capacidad de reparto que existiria sin la inversion en el camion (valor de \
+		referencia historico de Capacidad Reparto).
+	|
+
+Capacidad atribuible al camion=MAX(0, Capacidad Reparto - Capacidad base sin camion)
+	~	Caja/Month
+	~	Capacidad de reparto adicional generada por la inversion acumulada en el \
+		camion.
+	|
+
+Despacho atribuible al camion=IF THEN ELSE( Camion en uso = 1, MIN( Tasa de despacho,\
+		 Capacidad atribuible al camion ), 0 )
+	~	Caja/Month
+	~	Porcion del despacho mensual que solo es posible gracias a la capacidad \
+		extra que aporta el camion, y que se anula si el camion deja de usarse.
+	|
+
+Margen unitario de venta=Precio de venta - Precio de compra - Costo variable reparto
+	~	CLP/Caja
+	~	Margen bruto por caja despachada, antes de mantenimiento.
+	|
+
+Beneficio bruto del camion=Despacho atribuible al camion * Margen unitario de venta
+	~	CLP/Month
+	~	Margen generado por las ventas atribuibles a la capacidad extra del camion.
+	|
+
+Mantenimiento del camion=Camion en uso * Capacidad atribuible al camion * Costo fijo mantenimiento
+	~	CLP/Month
+	~	Gasto de mantenimiento asociado al camion, que se elimina cuando el camion \
+		deja de usarse por baja demanda.
+	|
+
+Beneficio neto del camion=Beneficio bruto del camion - Mantenimiento del camion
+	~	CLP/Month
+	~	Flujo neto mensual atribuible al camion (margen incremental menos su \
+		mantenimiento).
+	|
+
+Beneficio acumulado del camion= INTEG (Beneficio neto del camion,
+		0)
+	~	CLP
+	~	Beneficio neto acumulado desde la compra del camion, usado para calcular \
+		el ROI.
+	|
+
+ROI del camion=IF THEN ELSE( Vehiculo comprado = 1, Beneficio acumulado del camion / \
+		Costo de vehiculo, 0 )
+	~	Dmnl
+	~	Retorno sobre la inversion del camion: beneficio neto acumulado dividido \
+		por el costo de adquisicion. Un valor de 1 significa que el camion ya se \
+		pago a si mismo.
+	|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 96
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,66,2
+1,1,75,40,1,0,0,0,0,192,0,-1--1--1,,1|(1112,-27)|
+10,2,Demanda Base,634,496,57,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,Stock de huevos,895,-179,60,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,Capacidad Reparto,1748,-89,46,26,3,3,0,6,-1,1,0,0,0-0-0,128-255-0,|||0-0-0,0,0,0,0,0,0
+10,5,Margen acumulado,1326,9,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,Vehiculo comprado,1392,437,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,Demanda total,569,105,56,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,Tasa de incumplimiento,561,379,59,26,8,3,0,0,-1,1,0,0,0,0,0,0,0,0
+10,9,Costos fijos mensuales,1992,-85,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,10,Costos operacionales,1427,-149,53,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,11,Gatillo reactivo,861,381,56,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,Gatillo proactivo,1100,671,61,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,13,Gatillo Activo,1097,515,50,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,14,48,852,489,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,15,17,14,100,0,0,22,0,192,0,-1--1--1,,1|(807,489)|
+1,16,17,2,4,0,0,22,0,192,0,-1--1--1,,1|(725,489)|
+11,17,0,766,489,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,18,Tasa de captacion,766,523,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,19,48,398,490,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,20,22,19,100,0,0,22,0,192,0,-1--1--1,,1|(447,490)|
+1,21,22,2,4,0,0,22,0,192,0,-1--1--1,,1|(537,490)|
+11,22,0,492,490,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,23,Tasa de perdida de clientes,492,524,61,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,24,48,679,-176,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,25,27,24,100,0,0,22,0,192,0,-1--1--1,,1|(722,-176)|
+1,26,27,3,4,0,0,22,0,192,0,-1--1--1,,1|(801,-176)|
+11,27,0,762,-176,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,28,Tasa de compra,762,-142,60,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,29,48,1583,-88,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,30,32,29,100,0,0,22,0,192,0,-1--1--1,,1|(1617,-88)|
+1,31,32,4,4,0,0,22,0,192,0,-1--1--1,,1|(1677,-88)|
+11,32,0,1647,-88,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,33,Inversion en capacidad,1647,-54,48,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,34,Incremento capacidad por CLP,1874,53,68,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,35,34,4,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,36,48,1164,12,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,37,39,36,100,0,0,22,0,192,0,-1--1--1,,1|(1197,12)|
+1,38,39,5,4,0,0,22,0,192,0,-1--1--1,,1|(1256,12)|
+11,39,0,1227,12,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,40,Ingresos por ventas,1227,46,48,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,41,48,1504,13,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,42,44,41,100,0,0,22,0,192,0,-1--1--1,,1|(1466,13)|
+1,43,44,5,4,0,0,22,0,192,0,-1--1--1,,1|(1399,13)|
+11,44,0,1433,13,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,45,Costo de compra,1433,47,63,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,46,10,5,1,0,0,0,0,192,0,-1--1--1,,1|(1352,-62)|
+1,47,33,5,1,0,0,0,0,192,0,-1--1--1,,1|(1503,-51)|
+12,48,48,1571,434,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,49,51,48,100,0,0,22,0,192,0,-1--1--1,,1|(1540,434)|
+1,50,51,6,4,0,0,22,0,192,0,-1--1--1,,1|(1473,434)|
+11,51,0,1514,434,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,52,Pulso de compra,1514,468,62,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,53,Tasa de crecimiento base,944,530,64,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,54,53,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,55,2,18,1,0,0,0,0,192,0,-1--1--1,,1|(687,556)|
+1,56,2,23,1,0,0,0,0,192,0,-1--1--1,,1|(546,608)|
+10,57,Tasa de fuga logistica,365,384,49,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,58,8,57,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,59,57,23,1,0,0,0,0,192,0,-1--1--1,,1|(358,484)|
+1,60,7,8,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,61,Costo fijo mantenimiento,2209,-86,58,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,62,9,10,1,0,0,0,0,192,0,-1--1--1,,1|(1734,-166)|
+10,63,Costo variable reparto,1426,-270,54,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,64,63,10,1,0,0,0,0,192,0,-1--1--1,,1|(1445,-223)|
+1,65,8,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,66,5,11,1,0,0,0,0,192,0,-1--1--1,,1|(1147,343)|
+10,67,Mes de compra,1098,763,58,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,68,67,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,69,Disponibilidad proveedor,570,-148,55,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,70,69,28,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,71,48,1098,-179,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,72,74,3,100,0,0,22,0,192,0,-1--1--1,,1|(985,-179)|
+1,73,74,71,4,0,0,22,0,192,0,-1--1--1,,1|(1057,-179)|
+11,74,0,1021,-179,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,75,Tasa de despacho,1021,-145,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,76,7,75,1,0,0,0,0,192,0,-1--1--1,,1|(835,-17)|
+1,77,3,75,1,0,0,0,0,192,0,-1--1--1,,1|(945,-139)|
+1,78,4,75,1,0,0,0,0,192,0,-1--1--1,,1|(1399,-354)|
+10,79,Precio de venta,1091,71,58,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,80,79,40,1,0,0,0,0,192,0,-1--1--1,,1|(1157,77)|
+1,81,28,45,1,0,0,0,0,192,0,-1--1--1,,1|(1114,168)|
+10,82,Precio de compra,1457,174,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,83,82,45,1,0,0,0,0,192,0,-1--1--1,,1|(1431,123)|
+1,84,13,52,1,0,0,0,0,192,0,-1--1--1,,1|(1370,629)|
+1,85,6,52,1,0,0,0,0,192,0,-1--1--1,,1|(1422,499)|
+1,86,52,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,87,Costo de vehiculo,1743,123,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,88,87,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,89,2,7,1,0,0,0,0,192,0,-1--1--1,,1|(586,138)|
+1,90,75,8,1,0,0,0,0,192,0,-1--1--1,,1|(865,139)|
+1,91,75,10,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,92,12,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,93,11,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,94,Politica proactiva,1295,506,63,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,95,94,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,96,Estacionalidad,364,113,55,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,97,96,7,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,98,Tiempo,373,-145,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,99,98,96,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,100,98,69,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,101,98,12,1,0,0,0,0,192,0,-1--1--1,,1|(241,523)|
+10,102,Paso de tiempo,881,-363,58,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,103,102,75,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,104,102,52,1,0,0,0,0,192,0,-1--1--1,,1|(2419,44)|
+10,105,Inventario Objetivo,761,-306,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,106,Necesidad de compra,608,-265,52,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,107,105,106,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,108,3,106,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,109,106,28,1,0,0,0,0,192,0,-1--1--1,,1|(698,-207)|
+10,110,Capacidad maxima proveedor,562,-59,70,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,111,110,28,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,112,Demanda minima,479,660,66,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,113,112,23,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,114,87,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,115,6,105,1,0,0,0,0,192,0,-1--1--1,,1|(2381,-231)|
+10,116,Mercado potencial,425,799,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,117,Clientes potenciales Restantes,709,714,74,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,118,Fraccion de mercado Disponible,677,887,76,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,119,116,117,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,120,2,117,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,121,116,118,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,122,117,118,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,123,118,18,1,0,0,0,0,192,0,-1--1--1,,1|(835,739)|
+10,124,Camion en uso,1710,708,55,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,125,6,124,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,126,7,124,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,127,Demanda minima para camion,1860,708,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,128,127,124,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,129,Capacidad base sin camion,2010,808,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,130,Capacidad atribuible al camion,1860,808,70,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,131,4,130,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,132,129,130,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,133,Despacho atribuible al camion,1710,858,70,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,134,124,133,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,135,75,133,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,136,130,133,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,137,Margen unitario de venta,1560,908,60,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,138,79,137,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,139,82,137,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,140,63,137,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,141,Beneficio bruto del camion,1710,958,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,142,133,141,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,143,137,141,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,144,Mantenimiento del camion,1910,958,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,145,124,144,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,146,61,144,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,147,Beneficio neto del camion,1810,1038,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,148,141,147,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,149,144,147,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,150,Beneficio acumulado del camion,1810,1118,68,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,151,147,150,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+10,152,ROI del camion,1810,1198,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,153,150,152,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,154,87,152,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,155,6,152,1,0,0,0,0,192,0,-1--1--1,,1|(10,-242)|
+1,156,144,9,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,157,130,144,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+///---\\\
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:Camion en uso
+9:current
+19:66,0
+24:0
+25:96
+26:96
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

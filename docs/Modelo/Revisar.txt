@@ -1,0 +1,6 @@
+Hay que revisar:
+Diagrama Causal (habría que hacer uno en mermaid o algo asi y usar un pdf o svg para insertar en el latex) lo mismo con el de Forrester
+% tasa de incumplimientos y tasas de perdida de clientes en los casos de proactivo, reactivo y sin invertir
+que es plateu? (se menciona en linea 733)
+inversion reactiva (en que mes se compra el camion cuantos meses estamos perdiendo clientes hasta que por fin se estabiliza en comparación con una inversion proactiva)
+Revisar conclusion(es) y la bibliografía o referencias si están citas como pidió el profe|

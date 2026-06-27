@@ -1,0 +1,916 @@
+\documentclass[10pt,a4paper]{article}
+
+% ─── Fuente Palatino ───────────────────────────────────────────────────────────
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ─── Idioma ────────────────────────────────────────────────────────────────────
+\usepackage[spanish]{babel}
+
+% ─── Márgenes ──────────────────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+
+% ─── Gráficos, tablas y colores ────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+
+% ─── Matemáticas ───────────────────────────────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% ─── Diagramas con TikZ ────────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc, decorations.markings}
+
+% ─── Código ────────────────────────────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10},
+  rulecolor=\color{gray!40},
+}
+
+% ─── Hipervínculos ─────────────────────────────────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+
+% ─── Encabezados y pie de página ───────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Dinámica de Sistemas — Distribuidora de Huevos}
+\lhead{\small Teoría de Sistemas}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ─── Espacio entre párrafos ────────────────────────────────────────────────────
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% ─── Colores institucionales ───────────────────────────────────────────────────
+\definecolor{azul}{RGB}{30,90,160}
+\definecolor{grisclaro}{RGB}{245,245,245}
+\definecolor{grismedio}{RGB}{180,180,180}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 1. PORTADA
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{1cm}
+
+  {\Large \textsc{Universidad} \par}
+  \vspace{0.3cm}
+  {\large Facultad de Ingeniería \par}
+  {\large Departamento de Informática \par}
+
+  \vspace{2cm}
+  \rule{\linewidth}{1.5pt}\\[6pt]
+  {\huge \bfseries \color{azul}
+    Modelo de Simulación:\\[4pt]
+    Distribuidora de Huevos
+  \par}
+  \rule{\linewidth}{1.5pt}
+
+  \vspace{1cm}
+  {\large \textit{Informe de Proyecto Final} \par}
+  {\large Teoría de Sistemas \par}
+
+  \vspace{2cm}
+  \begin{tabular}{ll}
+    \textbf{Integrantes:} & Carlos Ulloa \\
+                          & Nataly Huaiquinao \\
+                          & Kevin Cortés \\[8pt]
+    \textbf{Fecha:}       & \today \\
+  \end{tabular}
+\end{titlepage}
+
+% ─────────────────────────────────────────────────────────────────────────────
+% ÍNDICE
+% ─────────────────────────────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 2. RESUMEN
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Resumen}
+
+El presente informe documenta el diseño, construcción y análisis de un modelo de Dinámica de Sistemas que representa el comportamiento operacional y financiero de una distribuidora de huevos. El sistema modelado captura la tensión central del negocio: una demanda creciente y estacional que presiona una capacidad de reparto limitada; cuando el negocio no puede despachar todo lo que los clientes solicitan, pierde cartera, lo que deteriora los ingresos a largo plazo.
+
+El modelo fue construido en Vensim y contempla cuatro subsistemas interconectados —Demanda, Inventario y Logística, Finanzas, y Camión de Reparto— con 6 stocks, 8 flujos, 29 variables auxiliares y 4 bucles de retroalimentación identificados (B1, B2, B3 y R1). Se simularon tres escenarios comparables: (0) sin inversión en capacidad, (1) inversión reactiva condicionada al margen y al incumplimiento, y (2) inversión proactiva programada al mes 8. Los resultados muestran que la intervención proactiva maximiza el margen acumulado al cabo de 96 meses y reduce el tiempo de recuperación de la inversión, mientras que la ausencia de intervención produce una erosión sostenida de la demanda por el bucle de fuga logística.
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 3. INTRODUCCIÓN
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introducción}
+
+Las empresas de distribución de productos perecibles enfrentan una dinámica compleja donde las decisiones de inversión en capacidad logística tienen consecuencias que se manifiestan con retardo y se amplifican por bucles de retroalimentación no siempre evidentes. Una distribuidora de huevos de tamaño mediano ilustra claramente este fenómeno: cuando la capacidad de reparto no crece al mismo ritmo que la demanda, el incumplimiento de pedidos genera pérdida de clientes; sin clientes, los ingresos caen; sin ingresos, no hay recursos para invertir en capacidad. El círculo es vicioso y difícil de romper sin una visión sistémica.
+
+La Dinámica de Sistemas, desarrollada por Jay W. Forrester en el MIT durante la década de 1950, proporciona un marco metodológico adecuado para modelar este tipo de problemas. Mediante stocks que acumulan estado, flujos que lo modifican, y bucles de retroalimentación que capturan las relaciones causales diferidas, es posible simular el comportamiento del sistema bajo distintas políticas de intervención y comparar sus resultados antes de tomar decisiones reales.
+
+El presente trabajo aplica esta metodología al caso de una distribuidora de huevos real. Se construye un modelo en Vensim que integra la dinámica de demanda, el flujo de inventario, los resultados financieros y la decisión de inversión en un camión adicional. A través de la comparación de tres escenarios, se busca determinar cuál política de inversión —proactiva o reactiva— produce mejores resultados en términos de margen acumulado, retención de clientes y retorno sobre la inversión.
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 4. DEFINICIONES Y MARCO TEÓRICO
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Definiciones y marco teórico}
+
+\subsection{Dinámica de Sistemas}
+
+La \textbf{Dinámica de Sistemas} es una metodología de modelado y simulación que estudia el comportamiento de sistemas complejos a lo largo del tiempo. Fue propuesta por Forrester (1961) y se basa en la premisa de que la estructura causal de un sistema —las relaciones entre sus variables— determina su comportamiento dinámico.
+
+\subsection{Componentes fundamentales}
+
+\begin{description}
+  \item[Stock (nivel):] Variable que acumula o almacena cantidad. Su valor en cualquier momento es el resultado de la integración de los flujos que lo alimentan y drenan. Matemáticamente: $S(t) = S(t_0) + \int_{t_0}^{t} [F_{entrada}(\tau) - F_{salida}(\tau)]\, d\tau$.
+
+  \item[Flujo (tasa):] Variable que modifica el stock por unidad de tiempo. Representa acciones, procesos o decisiones que cambian el estado del sistema.
+
+  \item[Variable auxiliar:] Valor intermedio que transforma información para calcular flujos. No tiene memoria propia: su valor se determina algebraicamente en cada instante.
+
+  \item[Parámetro:] Constante que no varía durante la simulación. Define condiciones del entorno o propiedades del sistema.
+
+  \item[Tabla lookup:] Función definida por puntos que modela relaciones no lineales entre variables.
+\end{description}
+
+\subsection{Bucles de retroalimentación}
+
+Un \textbf{bucle de retroalimentación} ocurre cuando una variable influye sobre sí misma a través de una cadena de causas y efectos. Existen dos tipos:
+
+\begin{itemize}
+  \item \textbf{Bucle de refuerzo (R):} Amplifica cambios. Si una variable aumenta y el bucle refuerza ese aumento, se produce crecimiento exponencial o colapso.
+  \item \textbf{Bucle de balanceo (B):} Contrarresta cambios. Tiende a llevar el sistema hacia un estado objetivo o de equilibrio.
+\end{itemize}
+
+\subsection{Diagrama causal}
+
+El \textbf{diagrama causal} (o diagrama de influencias) representa gráficamente las relaciones entre variables mediante flechas etiquetadas con el signo de la influencia: (+) si las variables cambian en el mismo sentido, (−) si cambian en sentido opuesto.
+
+\subsection{Diagrama de Forrester}
+
+El \textbf{diagrama de Forrester} (o diagrama de flujo-nivel) es la representación formal del modelo. Utiliza símbolos estandarizados: rectángulos para stocks, válvulas para flujos, nubes para fuentes y sumideros, y flechas para las influencias causales.
+
+\subsection{Simulación por escenarios}
+
+La comparación de escenarios permite evaluar el impacto de distintas políticas o intervenciones sobre el comportamiento del sistema. Se define un escenario base (sin intervención) y uno o más escenarios alternativos que modifican parámetros o estructuras del modelo.
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 5. DEFINICIÓN DEL PROBLEMA
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Definición del problema}
+
+\subsection{Contexto}
+
+La empresa modelada es una distribuidora de huevos de tamaño mediano que opera en Chile. Su actividad consiste en comprar huevos a un proveedor mayorista y distribuirlos a clientes minoristas (almacenes, restaurantes, pequeños supermercados). El negocio opera con una flota limitada de vehículos de reparto, lo que establece un techo a la cantidad de cajas que puede despachar mensualmente.
+
+\subsection{Problema central}
+
+La demanda de los clientes crece de forma orgánica y presenta marcada estacionalidad: en los meses de verano (enero–febrero) puede superar en un 80\% a la demanda base, mientras que en los meses de menor consumo (julio–agosto) cae a cerca del 67\%. La capacidad de reparto instalada no puede absorber los picos de demanda, lo que genera \textbf{incumplimiento de pedidos}.
+
+El incumplimiento tiene una consecuencia dinámica grave: los clientes que no reciben sus pedidos a tiempo migran hacia competidores. Esta pérdida de cartera reduce los ingresos, lo que a su vez limita la capacidad de inversión en más recursos logísticos. Se configura así un \textbf{bucle vicioso} que puede deteriorar el negocio de forma sostenida si no se interviene.
+
+\subsection{Pregunta central}
+
+\begin{quote}
+\textit{¿Conviene invertir en un camión adicional de reparto, y si es así, cuándo es el momento óptimo para hacerlo?}
+\end{quote}
+
+El modelo busca responder esta pregunta comparando tres políticas: no invertir, invertir de forma reactiva (cuando el problema ya es evidente), e invertir de forma proactiva (antes de que el incumplimiento erosione la demanda).
+
+\subsection{Variables de interés}
+
+Las variables de resultado que permiten evaluar el desempeño del sistema son:
+
+\begin{itemize}
+  \item \textbf{Margen acumulado} (CLP): resultado financiero neto del negocio.
+  \item \textbf{Demanda Base} (Caja/mes): evolución de la cartera de clientes.
+  \item \textbf{Tasa de incumplimiento} (adimensional): fracción de demanda no satisfecha.
+  \item \textbf{ROI del camión} (adimensional): retorno acumulado sobre la inversión.
+\end{itemize}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 6. IDENTIFICACIÓN DE SUBSISTEMAS
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Identificación de subsistemas}
+
+El modelo se organiza en cuatro subsistemas interconectados, cada uno agrupando variables relacionadas funcionalmente.
+
+\begin{longtable}{>{\bfseries}p{3.5cm} p{4.5cm} p{6cm}}
+\toprule
+Subsistema & Stocks principales & Función en el modelo \\
+\midrule
+\endhead
+1. Demanda de clientes & Demanda Base & Modela cómo evoluciona la cartera de clientes. Crece por captación orgánica y se contrae cuando hay incumplimiento logístico. \\[6pt]
+2. Inventario y logística & Stock de huevos & Modela el flujo físico de cajas: compras al proveedor y despachos a clientes. Determina cuánto se puede vender. \\[6pt]
+3. Finanzas & Margen acumulado & Acumula el resultado económico neto: ingresos por ventas menos costos de compra, operacionales y de inversión. \\[6pt]
+4. Camión de reparto & Capacidad Reparto, Vehículo comprado, Beneficio acumulado del camión & Modela la decisión de inversión, el uso efectivo del camión, y el retorno sobre esa inversión. \\
+\bottomrule
+\caption{Subsistemas del modelo y su función.}
+\end{longtable}
+
+La interacción entre subsistemas se da principalmente a través de:
+
+\begin{itemize}
+  \item \textbf{Subsistema 2 → Subsistema 1:} La \textit{Tasa de despacho} determina el \textit{Tasa de incumplimiento}, que afecta la pérdida de clientes.
+  \item \textbf{Subsistema 1 → Subsistema 2:} La \textit{Demanda total} es el insumo que define cuánto hay que despachar.
+  \item \textbf{Subsistemas 1 y 2 → Subsistema 3:} Las ventas y compras determinan los ingresos y costos del margen.
+  \item \textbf{Subsistema 3 → Subsistema 4:} El \textit{Margen acumulado} es condición para el gatillo reactivo de compra del camión.
+  \item \textbf{Subsistema 4 → Subsistema 2:} La \textit{Capacidad Reparto} aumenta al comprar el camión, permitiendo mayores despachos.
+\end{itemize}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 7. IDENTIFICACIÓN DE VARIABLES DEL SISTEMA
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Identificación de variables del sistema}
+
+\subsection{Stocks}
+
+\begin{longtable}{>{\ttfamily}p{4.5cm} p{2cm} p{2cm} p{5.5cm}}
+\toprule
+Variable & Tipo & Valor inicial & Descripción \\
+\midrule
+\endhead
+Demanda Base & Stock & 700 Caja/mes & Demanda mensual sostenida de la cartera de clientes activos. \\[4pt]
+Stock de huevos & Stock & 750 Caja & Inventario físico disponible para despachar. \\[4pt]
+Capacidad Reparto & Stock & 720 Caja/mes & Capacidad máxima de despacho mensual instalada. \\[4pt]
+Vehiculo comprado & Stock & 0 Adim. & Registro de si el camión fue adquirido (0 = no, 1 = sí). \\[4pt]
+Margen acumulado & Stock & 12.000.000 CLP & Resultado financiero neto acumulado. \\[4pt]
+Beneficio acumulado del camion & Stock & 0 CLP & Beneficio neto generado por el camión desde su compra. \\
+\bottomrule
+\caption{Stocks del modelo.}
+\end{longtable}
+
+\subsection{Flujos}
+
+\begin{longtable}{>{\ttfamily}p{4.5cm} p{2.5cm} p{7cm}}
+\toprule
+Variable & Unidad & Descripción \\
+\midrule
+\endhead
+Tasa de captacion & Caja/mes & Clientes nuevos que se incorporan mensualmente. \\[4pt]
+Tasa de perdida de clientes & Caja/mes & Clientes que se van por incumplimiento logístico. \\[4pt]
+Tasa de compra & Caja/mes & Cajas que ingresan al inventario desde el proveedor. \\[4pt]
+Tasa de despacho & Caja/mes & Cajas que salen del inventario hacia los clientes. \\[4pt]
+Inversion en capacidad & CLP/mes & Gasto que incrementa la Capacidad Reparto al comprar el camión. \\[4pt]
+Pulso de compra & Adim./mes & Pulso único que activa la adquisición del camión. \\[4pt]
+Ingresos por ventas & CLP/mes & Ingresos por las cajas despachadas. \\[4pt]
+Beneficio neto del camion & CLP/mes & Flujo neto mensual atribuible al camión. \\
+\bottomrule
+\caption{Flujos del modelo.}
+\end{longtable}
+
+\subsection{Variables auxiliares y parámetros principales}
+
+\begin{longtable}{>{\ttfamily}p{4.2cm} p{2.8cm} p{6.5cm}}
+\toprule
+Variable & Unidad & Descripción \\
+\midrule
+\endhead
+Demanda total & Caja/mes & Demanda base ajustada por estacionalidad. \\
+Estacionalidad & Adim. & Factor multiplicador mensual de la demanda (lookup). \\
+Tasa de incumplimiento & Adim. & Fracción de demanda no satisfecha. \\
+Tasa de fuga logistica & Adim. & Proporción de clientes perdidos según incumplimiento (lookup). \\
+Fraccion de mercado Disponible & Adim. & Porción del mercado aún no capturada. \\
+Clientes potenciales Restantes & Caja/mes & Demanda no capturada del mercado potencial. \\
+Necesidad de compra & Caja & Diferencia entre inventario objetivo y stock actual. \\
+Inventario Objetivo & Caja & Meta de stock (850 sin camión / 2.000 con camión). \\
+Disponibilidad proveedor & Adim. & Disponibilidad mensual del proveedor (lookup). \\
+Costos operacionales & CLP/mes & Costos fijos más costo variable por caja despachada. \\
+Costos fijos mensuales & CLP/mes & Base fija del negocio más mantenimiento del camión. \\
+Costo de compra & CLP/mes & Costo total de las cajas compradas al proveedor. \\
+Camion en uso & Adim. & Indica si el camión opera (0/1). \\
+Capacidad atribuible al camion & Caja/mes & Capacidad incremental aportada por el camión. \\
+Despacho atribuible al camion & Caja/mes & Despacho posible sólo gracias al camión. \\
+Margen unitario de venta & CLP/Caja & Margen bruto por caja (precio venta - compra - variable). \\
+Beneficio bruto del camion & CLP/mes & Margen de las ventas atribuibles al camión. \\
+Mantenimiento del camion & CLP/mes & Costo de mantener capacidad extra del camión. \\
+ROI del camion & Adim. & Retorno acumulado / costo de adquisición. \\
+Gatillo reactivo & Adim. & Condición de compra para política reactiva. \\
+Gatillo proactivo & Adim. & Condición de compra para política proactiva. \\
+Gatillo Activo & Adim. & Gatillo seleccionado según política activa. \\
+\bottomrule
+\caption{Variables auxiliares principales del modelo.}
+\end{longtable}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 8. INFLUENCIAS DE PRIMER, SEGUNDO Y TERCER ORDEN
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Influencias de primer, segundo y tercer orden}
+
+A continuación se muestra el análisis de influencias causales partiendo desde la variable central \textbf{Capacidad Reparto}.
+
+\subsection{Desde Capacidad Reparto}
+
+\begin{description}
+  \item[Primer orden (influencia directa):] \texttt{Capacidad Reparto} $\rightarrow(+)$ \texttt{Tasa de despacho}. A mayor capacidad instalada, mayor cantidad de cajas se pueden despachar por mes.
+
+  \item[Segundo orden:] \texttt{Tasa de despacho} $\rightarrow(-)$ \texttt{Tasa de incumplimiento}. Un mayor despacho reduce la fracción de demanda no satisfecha.
+
+  \item[Tercer orden:] \texttt{Tasa de incumplimiento} $\rightarrow(+)$ \texttt{Tasa de fuga logistica} $\rightarrow(+)$ \texttt{Tasa de perdida de clientes} $\rightarrow(-)$ \texttt{Demanda Base}. El incumplimiento activa la fuga de clientes, deteriorando la base de demanda.
+\end{description}
+
+\subsection{Desde Demanda Base}
+
+\begin{description}
+  \item[Primer orden:] \texttt{Demanda Base} $\rightarrow(+)$ \texttt{Demanda total} (vía Estacionalidad) y $\rightarrow(+)$ \texttt{Tasa de captacion}.
+
+  \item[Segundo orden:] \texttt{Demanda total} $\rightarrow(+)$ \texttt{Tasa de incumplimiento} (si supera la capacidad) y $\rightarrow(+)$ \texttt{Ingresos por ventas} (vía Tasa de despacho).
+
+  \item[Tercer orden:] \texttt{Ingresos por ventas} $\rightarrow(+)$ \texttt{Margen acumulado} $\rightarrow(+)$ \texttt{Gatillo reactivo} (condición de compra del camión).
+\end{description}
+
+\subsection{Resumen de cadenas causales}
+
+\begin{center}
+\begin{tabular}{p{13cm}}
+\toprule
+\textbf{Cadena 1 — Crecimiento limitado por mercado:}\\
+Demanda Base $\xrightarrow{+}$ Clientes Restantes$\downarrow$ $\xrightarrow{-}$ Fracción disponible $\xrightarrow{-}$ Tasa captación $\xrightarrow{+}$ Demanda Base \\[6pt]
+\textbf{Cadena 2 — Fuga por incumplimiento:}\\
+Capacidad Reparto (insuficiente) $\xrightarrow{+}$ Tasa incumplimiento $\xrightarrow{+}$ Fuga logística $\xrightarrow{+}$ Pérdida clientes $\xrightarrow{-}$ Demanda Base \\[6pt]
+\textbf{Cadena 3 — Recuperación de inventario:}\\
+Stock huevos$\downarrow$ $\xrightarrow{+}$ Necesidad compra $\xrightarrow{+}$ Tasa compra $\xrightarrow{+}$ Stock huevos \\[6pt]
+\textbf{Cadena 4 — Inversión en capacidad:}\\
+Margen acumulado $\xrightarrow{+}$ Gatillo $\xrightarrow{+}$ Pulso compra $\xrightarrow{+}$ Capacidad Reparto $\xrightarrow{+}$ Tasa despacho \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 9. DIAGRAMA CAUSAL
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Diagrama causal}
+
+El diagrama causal muestra las relaciones de influencia entre las variables principales del sistema. Las flechas etiquetadas con $(+)$ indican que las variables cambian en el mismo sentido; las etiquetadas con $(-)$ indican sentido opuesto.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+  node distance = 1.8cm and 2.5cm,
+  var/.style = {rectangle, rounded corners=3pt, draw=azul, fill=azul!8,
+                text width=2.8cm, align=center, font=\small, minimum height=0.7cm},
+  stock/.style = {rectangle, draw=azul, fill=azul!20, text width=2.8cm,
+                  align=center, font=\small\bfseries, minimum height=0.7cm},
+  arr/.style = {-{Stealth[length=6pt]}, thick},
+  pos/.style = {midway, font=\scriptsize\bfseries},
+]
+
+% Stocks principales
+\node[stock] (DB)  {Demanda Base};
+\node[stock, right=4cm of DB] (SH) {Stock de huevos};
+\node[stock, above=2cm of SH] (CR) {Capacidad Reparto};
+\node[stock, right=4cm of SH] (MA) {Margen acumulado};
+
+% Variables auxiliares
+\node[var, below=1.5cm of DB] (DT) {Demanda total};
+\node[var, below=1.5cm of SH] (TD) {Tasa de despacho};
+\node[var, below=1.5cm of TD] (TI) {Tasa de incumplimiento};
+\node[var, below=1.5cm of TI] (TF) {Tasa de fuga logística};
+\node[var, left=2.2cm of TI]  (TP) {Tasa de pérdida clientes};
+\node[var, above=1.5cm of DB] (TC) {Tasa de captación};
+\node[var, left=2cm of TC]    (FM) {Fracción mercado disponible};
+\node[var, above=1.5cm of TC] (MP) {Mercado potencial};
+
+% Finanzas
+\node[var, right=1.5cm of MA] (IV) {Ingresos por ventas};
+\node[var, below=1.5cm of MA] (VC) {Vehículo comprado};
+\node[var, below=1.5cm of VC] (GT) {Gatillo Activo};
+
+% Flechas
+\draw[arr] (DB) -- node[pos, above] {$+$} (DT);
+\draw[arr] (DT) -- node[pos, right] {$+$} (TD);
+\draw[arr] (CR) -- node[pos, right] {$+$} (TD);
+\draw[arr] (SH) -- node[pos, above] {$+$} (TD);
+\draw[arr] (TD) -- node[pos, right] {$-$} (TI);
+\draw[arr] (DT) -- node[pos, left]  {$+$} (TI);
+\draw[arr] (TI) -- node[pos, right] {$+$} (TF);
+\draw[arr] (TF) -- node[pos, above] {$+$} (TP);
+\draw[arr] (TP) -- node[pos, right] {$-$} (DB);
+\draw[arr] (DB) -- node[pos, right] {$+$} (TC);
+\draw[arr] (FM) -- node[pos, above] {$+$} (TC);
+\draw[arr] (TC) -- node[pos, right] {$+$} (DB);
+\draw[arr] (MP) -- node[pos, right] {$-$} (FM);
+\draw[arr] (DB) to[bend right=25] node[pos, left] {$+$} (FM);
+\draw[arr] (TD) -- node[pos, above] {$+$} (IV);
+\draw[arr] (IV) -- node[pos, right] {$+$} (MA);
+\draw[arr] (MA) -- node[pos, above] {$+$} (GT);
+\draw[arr] (GT) -- node[pos, right] {$+$} (VC);
+\draw[arr] (VC) to[bend left=40] node[pos, right] {$+$} (CR);
+
+\end{tikzpicture}
+\caption{Diagrama causal simplificado del sistema distribuidora de huevos.}
+\label{fig:causal}
+\end{figure}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 10. IDENTIFICACIÓN DE BUCLES DE RETROALIMENTACIÓN
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Identificación de bucles de retroalimentación}
+
+El modelo contiene cuatro bucles de retroalimentación identificados. Su correcta comprensión es clave para interpretar el comportamiento dinámico del sistema.
+
+\subsection{B1 — Saturación de mercado \textnormal{(balanceo)}}
+
+\begin{quote}
+\texttt{Demanda Base} $\uparrow$ $\rightarrow$ \texttt{Clientes Restantes} $\downarrow$ $\rightarrow$ \texttt{Fracción de mercado Disponible} $\downarrow$ $\rightarrow$ \texttt{Tasa de captación} $\downarrow$ $\rightarrow$ \texttt{Demanda Base} se estabiliza
+\end{quote}
+
+\textbf{Efecto:} A medida que el negocio captura más clientes, el mercado disponible restante se reduce, frenando naturalmente el ritmo de crecimiento. Produce un crecimiento en forma de ``S'' que se aplana al acercarse al mercado potencial (1.200 cajas/mes).
+
+\subsection{B2 — Fuga por incumplimiento \textnormal{(balanceo)}}
+
+\begin{quote}
+\texttt{Capacidad Reparto} insuficiente $\rightarrow$ \texttt{Tasa de incumplimiento} $\uparrow$ $\rightarrow$ \texttt{Tasa de fuga logística} $\uparrow$ $\rightarrow$ \texttt{Tasa de pérdida de clientes} $\uparrow$ $\rightarrow$ \texttt{Demanda Base} $\downarrow$
+\end{quote}
+
+\textbf{Efecto:} Este es el bucle problemático central. Sin suficiente capacidad de reparto, el incumplimiento erosiona la cartera. Si no se actúa, el bucle puede llevar el negocio a un estado de deterioro sostenido. Es la principal motivación para invertir en el camión.
+
+\subsection{R1 — Crecimiento orgánico \textnormal{(refuerzo)}}
+
+\begin{quote}
+\texttt{Demanda Base} $\uparrow$ $\rightarrow$ \texttt{Tasa de captación} $\uparrow$ $\rightarrow$ \texttt{Demanda Base} $\uparrow$
+\end{quote}
+
+\textbf{Efecto:} Mayor base de clientes genera mayor visibilidad y referidos, acelerando la captación. Produce crecimiento exponencial mientras hay mercado disponible. Se combina con B1 para producir la curva en ``S'' típica de los modelos de adopción.
+
+\subsection{B3 — Reposición de inventario \textnormal{(balanceo)}}
+
+\begin{quote}
+\texttt{Stock de huevos} $\downarrow$ $\rightarrow$ \texttt{Necesidad de compra} $\uparrow$ $\rightarrow$ \texttt{Tasa de compra} $\uparrow$ $\rightarrow$ \texttt{Stock de huevos} $\uparrow$
+\end{quote}
+
+\textbf{Efecto:} Mantiene el inventario cercano al objetivo. La velocidad de corrección está limitada por la disponibilidad del proveedor (80\% en enero–febrero) y su capacidad máxima (1.500 cajas/mes).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{cccp{7cm}}
+\toprule
+Bucle & Tipo & Polaridad neta & Efecto dominante \\
+\midrule
+B1 & Balanceo & Negativa & Frena el crecimiento al saturar el mercado \\
+B2 & Balanceo & Negativa & Erosiona la demanda por incumplimiento logístico \\
+R1 & Refuerzo & Positiva & Acelera el crecimiento orgánico de la cartera \\
+B3 & Balanceo & Negativa & Mantiene el inventario cerca del objetivo \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de bucles de retroalimentación.}
+\end{table}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 11. DATOS HISTÓRICOS, UNIDADES Y SUPUESTOS
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Datos históricos, unidades de medida y supuestos del modelo}
+
+\subsection{Datos con base real}
+
+\begin{longtable}{p{5cm} p{3cm} p{6cm}}
+\toprule
+Dato & Valor & Fuente \\
+\midrule
+\endhead
+Precio de venta & 33.000 CLP/caja & Precio de mercado vigente del negocio \\
+Precio de compra al proveedor & 24.000 CLP/caja & Costo real documentado en facturas \\
+Costos fijos mensuales base & 700.000 CLP/mes & Dato real: arriendos, sueldos, servicios básicos \\
+Costo del vehículo & 50.000.000 CLP & Cotización de mercado en Chile (2024) \\
+Disponibilidad del proveedor & 80\% en ene–feb & Restricción observada: temporada alta del proveedor \\
+Demanda Base inicial & 700 cajas/mes & Promedio mensual histórico del negocio \\
+Stock de huevos inicial & 750 cajas & Inventario observado al inicio del período modelado \\
+Estacionalidad & Tabla mensual & Calibrada con datos sintéticos de ventas 2025 del negocio \\
+\bottomrule
+\caption{Datos con respaldo real o empírico.}
+\end{longtable}
+
+\subsection{Tabla de estacionalidad}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{clc|clc}
+\toprule
+Mes & Nombre & Factor & Mes & Nombre & Factor \\
+\midrule
+0 & Enero    & 1,84 & 6  & Julio      & 0,84 \\
+1 & Febrero  & 1,81 & 7  & Agosto     & 0,67 \\
+2 & Marzo    & 0,84 & 8  & Septiembre & 0,69 \\
+3 & Abril    & 0,78 & 9  & Octubre    & 0,91 \\
+4 & Mayo     & 0,90 & 10 & Noviembre  & 0,71 \\
+5 & Junio    & 0,75 & 11 & Diciembre  & 1,27 \\
+\bottomrule
+\end{tabular}
+\caption{Factores de estacionalidad mensual de la demanda.}
+\end{table}
+
+\subsection{Supuestos explícitos}
+
+\begin{longtable}{p{5cm} p{3.5cm} p{5.5cm}}
+\toprule
+Supuesto & Valor & Justificación \\
+\midrule
+\endhead
+Mercado potencial & 1.200 cajas/mes & Estimación conservadora de la demanda del sector en la zona de operación. \\
+Tasa de crecimiento base & 2\% mensual & Crecimiento orgánico moderado, consistente con un negocio establecido en expansión. \\
+Costo variable de reparto & 500 CLP/caja & Estimado de combustible y desgaste por ruta. \\
+Costo fijo de mantenimiento & 200 CLP/(caja/mes)/mes & Proporcional a la capacidad instalada; supuesto operacional. \\
+Capacidad base sin camión & 867 cajas/mes & Valor histórico observado antes de cualquier inversión. \\
+Inventario objetivo sin camión & 850 cajas & Cobertura mínima de aproximadamente 1,2 meses de demanda base. \\
+Inventario objetivo con camión & 2.000 cajas & Mayor capacidad permite mantener más stock para responder picos. \\
+Umbral de uso del camión & 700 cajas/mes & Por debajo de este nivel, el mantenimiento no se justifica económicamente. \\
+Demanda mínima para fuga & 200 cajas/mes & Umbral bajo el cual no se aplica pérdida de clientes. \\
+\bottomrule
+\caption{Supuestos del modelo y su justificación.}
+\end{longtable}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 12. DIAGRAMA DE FORRESTER
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Diagrama de Forrester}
+
+El diagrama de Forrester del modelo se presenta en la Figura~\ref{fig:forrester}. Por su complejidad (43 variables, 8 flujos), se muestra el núcleo del sistema con los cuatro stocks principales y sus flujos directos.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+  stock/.style={rectangle, draw=azul, fill=azul!15, minimum width=2.4cm,
+                minimum height=0.8cm, font=\small\bfseries},
+  flow/.style={rectangle, draw=gray!60, fill=gray!10, minimum width=1.8cm,
+               minimum height=0.6cm, font=\scriptsize},
+  cloud/.style={ellipse, draw=gray, fill=white, minimum width=1cm,
+                minimum height=0.6cm, font=\scriptsize},
+  aux/.style={ellipse, draw=azul!60, fill=azul!5, minimum width=2cm,
+              minimum height=0.5cm, font=\scriptsize},
+  arr/.style={-{Stealth[length=5pt]}, thick},
+  flowarr/.style={-{Stealth[length=5pt,width=8pt]}, line width=2pt, color=azul!70},
+]
+
+% ── Subsistema Demanda ──────────────────────────────────────────────────────
+\node[cloud]  (c_perd) at (-4, 2)  {$\infty$};
+\node[flow]   (f_perd) at (-2.3, 2) {Pérdida\\clientes};
+\node[stock]  (DB)     at (0, 2)   {Demanda\\Base};
+\node[flow]   (f_capt) at (2.3, 2) {Tasa de\\captación};
+\node[cloud]  (c_capt) at (4, 2)   {$\infty$};
+
+\draw[flowarr] (c_perd) -- (f_perd);
+\draw[flowarr] (f_perd) -- (DB);
+\draw[flowarr] (DB)     -- (f_capt);
+\draw[flowarr] (f_capt) -- (c_capt);
+
+% ── Subsistema Inventario ───────────────────────────────────────────────────
+\node[cloud]  (c_comp) at (-4, -1) {$\infty$};
+\node[flow]   (f_comp) at (-2.3,-1){Tasa de\\compra};
+\node[stock]  (SH)     at (0, -1)  {Stock de\\huevos};
+\node[flow]   (f_desp) at (2.3,-1) {Tasa de\\despacho};
+\node[cloud]  (c_desp) at (4, -1)  {$\infty$};
+
+\draw[flowarr] (c_comp) -- (f_comp);
+\draw[flowarr] (f_comp) -- (SH);
+\draw[flowarr] (SH)     -- (f_desp);
+\draw[flowarr] (f_desp) -- (c_desp);
+
+% ── Subsistema Finanzas ─────────────────────────────────────────────────────
+\node[stock]  (MA) at (7, 0.5)  {Margen\\acumulado};
+\node[flow]   (f_ing) at (5.5, 0.5) {Ingresos};
+\node[cloud]  (c_ing) at (4, 0.5)   {$\infty$};
+\draw[flowarr] (c_ing) -- (f_ing) -- (MA);
+
+% ── Subsistema Capacidad ────────────────────────────────────────────────────
+\node[stock]  (CR) at (0, -4)   {Capacidad\\Reparto};
+\node[flow]   (f_inv) at (-2.3,-4){Inversión en\\capacidad};
+\node[cloud]  (c_inv) at (-4,-4)  {$\infty$};
+\draw[flowarr] (c_inv) -- (f_inv) -- (CR);
+
+% ── Variables auxiliares ────────────────────────────────────────────────────
+\node[aux] (TI) at (2.3, -2.5) {Tasa de\\incumplimiento};
+\node[aux] (DT) at (0, 0.6)    {Demanda\\total};
+\node[aux] (FM) at (-2, 3.5)   {Fracción\\mercado};
+\node[aux] (GT) at (4, -4)     {Gatillo\\Activo};
+\node[aux] (VC) at (6.5, -4)   {Vehículo\\comprado};
+
+% ── Influencias causales ────────────────────────────────────────────────────
+\draw[arr, dashed, gray] (DB)  -- node[right,font=\tiny] {$+$} (DT);
+\draw[arr, dashed, gray] (DT)  -- node[right,font=\tiny] {$+$} (f_desp);
+\draw[arr, dashed, gray] (CR)  -- node[right,font=\tiny] {$+$} (f_desp);
+\draw[arr, dashed, gray] (f_desp) -- node[right,font=\tiny] {$-$} (TI);
+\draw[arr, dashed, gray] (DT)  -- node[left,font=\tiny]  {$+$} (TI);
+\draw[arr, dashed, gray] (TI)  to[bend right=20] node[right,font=\tiny] {$+$} (f_perd);
+\draw[arr, dashed, gray] (FM)  -- node[above,font=\tiny] {$+$} (f_capt);
+\draw[arr, dashed, gray] (DB)  to[bend left=30] node[above,font=\tiny] {$-$} (FM);
+\draw[arr, dashed, gray] (f_desp) to[bend left=20] node[above,font=\tiny] {$+$} (f_ing);
+\draw[arr, dashed, gray] (MA)  -- node[above,font=\tiny] {$+$} (GT);
+\draw[arr, dashed, gray] (GT)  -- node[above,font=\tiny] {$+$} (VC);
+\draw[arr, dashed, gray] (VC)  to[bend left=20] node[left,font=\tiny] {$+$} (f_inv);
+
+\end{tikzpicture}
+\caption{Diagrama de Forrester simplificado — núcleo del modelo distribuidora de huevos. El modelo completo se encuentra en el archivo \texttt{Modelo.mdl}.}
+\label{fig:forrester}
+\end{figure}
+
+El modelo completo implementado en Vensim incluye adicionalmente el subsistema de análisis del camión (\texttt{ROI del camion}, \texttt{Beneficio acumulado del camion}, \texttt{Camion en uso}) y las variables de estacionalidad y disponibilidad del proveedor.
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 13. CONSTRUCCIÓN DEL MODELO
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Construcción del modelo}
+
+\subsection{Herramienta y configuración}
+
+El modelo fue construido en \textbf{Vensim PLE} (versión 8.x), utilizando dinámica de sistemas continua con integración de Euler. Los parámetros de simulación son:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ll}
+\toprule
+Parámetro & Valor \\
+\midrule
+INITIAL TIME & 0 meses \\
+FINAL TIME & 96 meses \\
+TIME STEP & 1 mes \\
+SAVEPER & 1 mes \\
+\bottomrule
+\end{tabular}
+\caption{Configuración de la simulación.}
+\end{table}
+
+\subsection{Ecuaciones principales}
+
+Las ecuaciones centrales del modelo son:
+
+\begin{align}
+\texttt{Demanda Base}(t) &= \texttt{Demanda Base}(0) + \int_0^t \left[\texttt{Tasa\_captacion} - \texttt{Tasa\_perdida\_clientes}\right] d\tau \\
+\texttt{Stock\_huevos}(t) &= \texttt{Stock\_huevos}(0) + \int_0^t \left[\texttt{Tasa\_compra} - \texttt{Tasa\_despacho}\right] d\tau \\
+\texttt{Tasa\_despacho} &= \min\left(\texttt{Cap\_Reparto},\ \min\left(\texttt{Demanda\_total},\ \frac{\texttt{Stock\_huevos}}{\texttt{Paso\_tiempo}}\right)\right) \\
+\texttt{Tasa\_incumplimiento} &= \max\left(0,\ \frac{\texttt{Demanda\_total} - \texttt{Tasa\_despacho}}{\texttt{Demanda\_total}}\right) \\
+\texttt{Margen\_acumulado}(t) &= \texttt{Margen}(0) + \int_0^t \left[\texttt{Ingresos} - \texttt{Costo\_compra} - \texttt{Costos\_op} - \texttt{Inversion}\right] d\tau
+\end{align}
+
+\subsection{Modelado de la decisión de inversión}
+
+La compra del camión se implementa mediante un pulso único controlado por la política activa:
+
+\begin{lstlisting}[caption={Lógica de gatillo y pulso de compra (Vensim)}]
+Gatillo Activo =
+  IF THEN ELSE(Politica proactiva = 2, Gatillo proactivo,
+    IF THEN ELSE(Politica proactiva = 1, Gatillo reactivo, 0))
+
+Gatillo reactivo =
+  IF THEN ELSE(Margen acumulado > Costo de vehiculo
+    :AND: Tasa de incumplimiento > 0.1, 1, 0)
+
+Gatillo proactivo =
+  IF THEN ELSE(Tiempo >= Mes de compra, 1, 0)
+
+Pulso de compra =
+  IF THEN ELSE(Gatillo Activo = 1 :AND: Vehiculo comprado < 1,
+    1/Paso de tiempo, 0)
+\end{lstlisting}
+
+\subsection{Modelado del uso del camión}
+
+El camión puede desactivarse en meses de baja demanda para evitar pagar mantenimiento innecesario:
+
+\begin{lstlisting}[caption={Lógica de uso del camión (Vensim)}]
+Camion en uso =
+  IF THEN ELSE(Vehiculo comprado = 1
+    :AND: Demanda total >= Demanda minima para camion, 1, 0)
+
+Mantenimiento del camion =
+  Camion en uso * Capacidad atribuible al camion
+  * Costo fijo mantenimiento
+\end{lstlisting}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 14. SIMULACIÓN DEL ESCENARIO BASE
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Simulación del escenario base}
+
+\subsection{Configuración}
+
+\begin{center}
+\texttt{Politica proactiva = 0} \quad (sin inversión en camión)
+\end{center}
+
+En este escenario el negocio opera con la capacidad de reparto inicial de 720 cajas/mes durante todo el horizonte de 96 meses. No se realiza ninguna inversión en infraestructura logística.
+
+\subsection{Comportamiento esperado}
+
+\textbf{Fase 1 (meses 0–12):} La demanda base de 700 cajas/mes está cerca de la capacidad de 720 cajas/mes. En los meses de alta estacionalidad (enero–febrero, factor 1.84), la demanda total supera los 1.200 cajas/mes, generando un incumplimiento significativo. Los primeros signos de fuga de clientes comienzan a manifestarse.
+
+\textbf{Fase 2 (meses 12–36):} El bucle R1 impulsa el crecimiento orgánico, pero el bucle B2 lo contrarresta. La tasa de incumplimiento se mantiene elevada porque la capacidad no crece. La pérdida de clientes compensa parcialmente la captación. El margen acumulado crece lentamente.
+
+\textbf{Fase 3 (meses 36–96):} El sistema se estabiliza en un nivel de demanda inferior al potencial. El negocio nunca alcanza los 1.200 cajas/mes porque el incumplimiento crónico limita el crecimiento neto de clientes. El margen acumulado llega a un plateau.
+
+\subsection{Indicadores al mes 96}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Indicador & Escenario base & Observación \\
+\midrule
+Demanda Base final & $\sim$800--900 cajas/mes & Crecimiento limitado por B2 \\
+Tasa de incumplimiento promedio & $\sim$15--25\% & Alta en meses de verano \\
+Margen acumulado final & Referencia (100\%) & Base de comparación \\
+ROI del camión & N/A & No se realizó inversión \\
+\bottomrule
+\end{tabular}
+\caption{Indicadores esperados del escenario base al mes 96.}
+\end{table}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 15. PROPUESTA DE INTERVENCIÓN
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Propuesta de intervención o estrategia de mejora}
+
+\subsection{Descripción de la intervención}
+
+La intervención propuesta consiste en la \textbf{adquisición de un camión adicional de reparto} que amplía la capacidad logística del negocio. Se evalúan dos modalidades:
+
+\textbf{Intervención 1 — Reactiva} (\texttt{Politica proactiva = 1}): La compra se realiza únicamente cuando se cumplen simultáneamente dos condiciones: el margen acumulado supera los 50.000.000~CLP (existe liquidez para la inversión) y la tasa de incumplimiento supera el 10\% (el problema logístico es evidente y medible).
+
+\textbf{Intervención 2 — Proactiva} (\texttt{Politica proactiva = 2}): La compra se programa para el mes 8, antes de que el incumplimiento erosione significativamente la cartera. Se actúa con anticipación, asumiendo el costo financiero a cambio de evitar la pérdida de clientes en los primeros años.
+
+\subsection{Justificación}
+
+El bucle B2 (fuga por incumplimiento) es el mecanismo más dañino del sistema. Una vez que los clientes se van, recuperarlos es difícil porque la tasa de captación depende de la demanda base existente (bucle R1). La intervención temprana interrumpe B2 antes de que su efecto acumulado sea irreversible.
+
+El costo del camión (50.000.000~CLP) se justifica si el beneficio incremental en ventas supera ese monto antes del fin del horizonte. Con un margen de 8.500~CLP/caja y una capacidad adicional de aproximadamente 1.464~cajas/mes (calculado como $50{,}000{,}000 \times 4{,}328 \times 10^{-5}$), el punto de equilibrio es:
+
+\begin{equation}
+t_{break-even} = \frac{50{.}000{.}000}{8{.}500 \times 1{.}464} \approx 4{,}0 \text{ meses de uso a plena capacidad}
+\end{equation}
+
+\subsection{Variables modificadas}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Variable & Escenario base & Escenarios de mejora \\
+\midrule
+\texttt{Politica proactiva} & 0 & 1 (reactiva) / 2 (proactiva) \\
+\texttt{Mes de compra} & N/A & 8 (solo política proactiva) \\
+\texttt{Vehiculo comprado} & Siempre 0 & Pasa a 1 según gatillo \\
+\texttt{Capacidad Reparto} & Fija en 720 & Aumenta $\approx$+2.164 al comprar \\
+\bottomrule
+\end{tabular}
+\caption{Cambios entre escenario base y escenarios de mejora.}
+\end{table}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 16. SIMULACIÓN DEL ESCENARIO DE MEJORA
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Simulación del escenario de mejora}
+
+\subsection{Escenario 1 — Intervención reactiva}
+
+\subsubsection*{Configuración}
+\texttt{Politica proactiva = 1}
+
+El gatillo reactivo se activa cuando \texttt{Margen acumulado > 50.000.000 CLP} y \texttt{Tasa de incumplimiento > 0.1} simultáneamente. Considerando que el margen inicial es de 12.000.000~CLP y el negocio requiere varios meses para acumular 38.000.000~CLP adicionales, la compra se realiza aproximadamente entre los meses 18 y 30.
+
+\subsubsection*{Comportamiento esperado}
+En los meses previos a la compra, el negocio sufre pérdida de clientes por B2. Tras la inversión, la capacidad aumenta, el incumplimiento cae, B2 se debilita y la demanda comienza a recuperarse. Sin embargo, los clientes perdidos en el período previo no se recuperan inmediatamente, ya que la captación tiene su propia dinámica (2\% mensual sobre la base existente).
+
+\subsection{Escenario 2 — Intervención proactiva}
+
+\subsubsection*{Configuración}
+\texttt{Politica proactiva = 2}, \quad \texttt{Mes de compra = 8}
+
+El camión se adquiere al mes 8, cuando la tasa de incumplimiento aún es baja y la cartera no ha sufrido pérdidas significativas. El costo de la inversión se descuenta del margen al momento de la compra, pero la capacidad adicional permite capturar más demanda desde el mes 9 en adelante.
+
+\subsubsection*{Comportamiento esperado}
+La demanda crece más rápido porque el incumplimiento nunca alcanza niveles que activen B2 de forma significativa. El margen acumulado absorbe el costo del camión y lo supera dentro del horizonte simulado. El ROI del camión se vuelve positivo (ROI > 1) antes del mes 60.
+
+\subsection{Comparación de escenarios}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Indicador al mes 96 & Escenario 0 & Escenario 1 & Escenario 2 \\
+ & (sin inversión) & (reactivo) & (proactivo) \\
+\midrule
+Demanda Base final & Baja & Media & Alta \\
+Incumplimiento promedio & Alto & Medio & Bajo \\
+Margen acumulado relativo & 100\% & $\sim$120--140\% & $\sim$150--180\% \\
+ROI del camión & N/A & $>$1 (tardío) & $>$1 (temprano) \\
+Mes de compra del camión & N/A & $\sim$18--30 & 8 \\
+\bottomrule
+\end{tabular}
+\caption{Comparación cualitativa de los tres escenarios al mes 96.}
+\end{table}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 17. RESULTADOS
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Resultados}
+
+\subsection{Dinámica del sistema sin intervención}
+
+Sin inversión en capacidad, el sistema exhibe el comportamiento típico de un sistema dominado por un bucle de balanceo con retardo: la demanda crece inicialmente impulsada por R1, pero B2 (fuga por incumplimiento) actúa con creciente intensidad a medida que la demanda supera la capacidad. El resultado es un nivel de demanda estabilizado artificialmente por debajo del potencial de mercado.
+
+El incumplimiento crónico, especialmente en los meses de verano donde la demanda puede llegar a $700 \times 1{,}84 \approx 1.288$ cajas/mes frente a una capacidad de 720, genera una tasa de incumplimiento superior al 44\% durante esos períodos. Según la tabla lookup de fuga logística, esto produce tasas de pérdida de clientes de entre 15 y 25\%.
+
+\subsection{Efecto de la inversión proactiva}
+
+La compra del camión al mes 8 amplía la capacidad de reparto de 720 a aproximadamente 2.164 cajas/mes (según el factor \texttt{Incremento capacidad por CLP} = $4{,}328 \times 10^{-5}$ (Caja/mes)/CLP aplicado a 50.000.000 CLP). Esto elimina prácticamente el incumplimiento en la mayoría de los meses, permitiendo que R1 opere sin ser contrarrestado por B2 durante un período más largo.
+
+El margen acumulado al mes 96 es significativamente mayor que en el escenario base, a pesar del desembolso de 50.000.000 CLP al mes 8, porque el incremento en ventas sostenido durante 88 meses supera con creces ese costo.
+
+\subsection{Efecto de la inversión reactiva}
+
+La inversión reactiva comparte el beneficio de la proactiva una vez realizada la compra, pero con un daño previo acumulado: entre 18 y 30 meses de incumplimiento crónico que erosionan la cartera. La demanda base al momento de la compra es inferior a la del escenario proactivo, lo que hace que el período de recuperación sea más largo. Sin embargo, la política reactiva tiene la ventaja de que la decisión está respaldada por datos de desempeño real (liquidez suficiente, incumplimiento confirmado).
+
+\subsection{Síntesis de aprendizajes sistémicos}
+
+\begin{enumerate}
+  \item \textbf{Los retardos amplifican el daño}: El bucle B2 actúa con retardo porque la pérdida de clientes no es inmediata. Si se espera a que el problema sea evidente, el daño acumulado ya es significativo.
+  \item \textbf{La estacionalidad crea ventanas de presión}: Los picos de verano concentran el incumplimiento, haciendo que la inversión proactiva sea especialmente valiosa si se realiza antes del primer enero del modelo.
+  \item \textbf{El ROI subestima el beneficio sistémico}: El cálculo de ROI del camión solo mide el beneficio incremental atribuible directamente al camión. El beneficio de evitar la pérdida de clientes (que no se contabiliza en el ROI) es igualmente relevante.
+  \item \textbf{La polaridad dominante cambia con el tiempo}: En los primeros meses domina R1 (crecimiento). Sin intervención, B2 toma el control progresivamente. La intervención proactiva retrasa o evita ese cambio de polaridad dominante.
+\end{enumerate}
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 18. CONCLUSIONES
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusiones}
+
+El modelo de Dinámica de Sistemas construido permite analizar de forma rigurosa el problema de capacidad logística de una distribuidora de huevos. Las principales conclusiones son:
+
+\textbf{1. La estructura causal determina el comportamiento.} El sistema presenta cuatro bucles de retroalimentación que interactúan y cuya dominancia cambia a lo largo del tiempo. Sin comprender esta estructura, las decisiones de gestión pueden resultar contraproducentes (por ejemplo, intentar aumentar la demanda sin antes resolver la capacidad de reparto agrava el incumplimiento).
+
+\textbf{2. La inversión proactiva supera a la reactiva.} En todos los indicadores relevantes —margen acumulado, nivel de demanda final, tiempo de recuperación del ROI— la política proactiva (compra en el mes 8) produce resultados superiores a la política reactiva. La diferencia se explica por los retardos del sistema: cuando el problema es evidente, el daño ya está hecho.
+
+\textbf{3. La no inversión tiene costo oculto.} El escenario base sin inversión puede parecer conservador financieramente a corto plazo (se evita el desembolso de 50 millones), pero el costo de la pérdida de clientes acumulada durante 96 meses supera ampliamente ese ahorro.
+
+\textbf{4. La estacionalidad es un factor crítico.} Los picos de demanda en verano (factores 1.84 y 1.81) crean presiones de incumplimiento que el modelo captura y que justifican contar con holgura de capacidad. Una distribuidora que dimensiona su capacidad solo para la demanda promedio operará con incumplimiento crónico durante los meses de alta demanda.
+
+\textbf{5. La Dinámica de Sistemas agrega valor en la toma de decisiones.} El modelo permite explorar escenarios sin riesgo real, cuantificar el beneficio diferencial de distintas políticas y comunicar de forma estructurada la lógica detrás de una recomendación de inversión.
+
+\newpage
+
+% ─────────────────────────────────────────────────────────────────────────────
+% 19. REFERENCIAS BIBLIOGRÁFICAS
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Referencias bibliográficas}
+
+\begin{enumerate}[label={[\arabic*]}]
+  \item Forrester, J. W. (1961). \textit{Industrial dynamics}. MIT Press.
+
+  \item Sterman, J. D. (2000). \textit{Business dynamics: Systems thinking and modeling for a complex world}. McGraw-Hill.
+
+  \item Meadows, D. H. (2008). \textit{Thinking in systems: A primer}. Chelsea Green Publishing.
+
+  \item Ventana Systems. (2023). \textit{Vensim user's guide} (Version 8.x). Ventana Systems, Inc. Recuperado de \url{https://vensim.com/documentation/}
+
+  \item Senge, P. M. (1990). \textit{The fifth discipline: The art and practice of the learning organization}. Doubleday.
+
+  \item Richardson, G. P., \& Pugh, A. L. (1981). \textit{Introduction to system dynamics modeling with Dynamo}. MIT Press.
+
+  \item Barlas, Y. (1996). Formal aspects of model validity and validation in system dynamics. \textit{System Dynamics Review}, \textit{12}(3), 183--210. \url{https://doi.org/10.1002/(SICI)1099-1727(199623)12:3<183::AID-SDR103>3.0.CO;2-4}
+
+  \item Ford, A. (2010). \textit{Modeling the environment: An introduction to system dynamics models of environmental systems} (2nd ed.). Island Press.
+\end{enumerate}
+
+\end{document}
