@@ -364,62 +364,10 @@ Margen acumulado $\xrightarrow{+}$ Gatillo $\xrightarrow{+}$ Pulso compra $\xrig
 El diagrama causal muestra las relaciones de influencia entre las variables principales del sistema. Las flechas etiquetadas con $(+)$ indican que las variables cambian en el mismo sentido; las etiquetadas con $(-)$ indican sentido opuesto.
 
 \begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  node distance = 1.8cm and 2.5cm,
-  var/.style = {rectangle, rounded corners=3pt, draw=azul, fill=azul!8,
-                text width=2.8cm, align=center, font=\small, minimum height=0.7cm},
-  stock/.style = {rectangle, draw=azul, fill=azul!20, text width=2.8cm,
-                  align=center, font=\small\bfseries, minimum height=0.7cm},
-  arr/.style = {-{Stealth[length=6pt]}, thick},
-  lbl/.style = {midway, font=\scriptsize\bfseries},
-]
-
-% Stocks principales
-\node[stock] (DB)  {Demanda Base};
-\node[stock, right=4cm of DB] (SH) {Stock de huevos};
-\node[stock, above=2cm of SH] (CR) {Capacidad Reparto};
-\node[stock, right=4cm of SH] (MA) {Margen acumulado};
-
-% Variables auxiliares
-\node[var, below=1.5cm of DB] (DT) {Demanda total};
-\node[var, below=1.5cm of SH] (TD) {Tasa de despacho};
-\node[var, below=1.5cm of TD] (TI) {Tasa de incumplimiento};
-\node[var, below=1.5cm of TI] (TF) {Tasa de fuga logística};
-\node[var, left=2.2cm of TI]  (TP) {Tasa de pérdida clientes};
-\node[var, above=1.5cm of DB] (TC) {Tasa de captación};
-\node[var, left=2cm of TC]    (FM) {Fracción mercado disponible};
-\node[var, above=1.5cm of TC] (MP) {Mercado potencial};
-
-% Finanzas
-\node[var, right=1.5cm of MA] (IV) {Ingresos por ventas};
-\node[var, below=1.5cm of MA] (VC) {Vehículo comprado};
-\node[var, below=1.5cm of VC] (GT) {Gatillo Activo};
-
-% Flechas
-\draw[arr] (DB) -- node[lbl, above] {$+$} (DT);
-\draw[arr] (DT) -- node[lbl, right] {$+$} (TD);
-\draw[arr] (CR) -- node[lbl, right] {$+$} (TD);
-\draw[arr] (SH) -- node[lbl, above] {$+$} (TD);
-\draw[arr] (TD) -- node[lbl, right] {$-$} (TI);
-\draw[arr] (DT) -- node[lbl, left]  {$+$} (TI);
-\draw[arr] (TI) -- node[lbl, right] {$+$} (TF);
-\draw[arr] (TF) -- node[lbl, above] {$+$} (TP);
-\draw[arr] (TP) -- node[lbl, right] {$-$} (DB);
-\draw[arr] (DB) -- node[lbl, right] {$+$} (TC);
-\draw[arr] (FM) -- node[lbl, above] {$+$} (TC);
-\draw[arr] (TC) -- node[lbl, right] {$+$} (DB);
-\draw[arr] (MP) -- node[lbl, right] {$-$} (FM);
-\draw[arr] (DB) to[bend right=25] node[lbl, left] {$+$} (FM);
-\draw[arr] (TD) -- node[lbl, above] {$+$} (IV);
-\draw[arr] (IV) -- node[lbl, right] {$+$} (MA);
-\draw[arr] (MA) -- node[lbl, above] {$+$} (GT);
-\draw[arr] (GT) -- node[lbl, right] {$+$} (VC);
-\draw[arr] (VC) to[bend left=40] node[lbl, right] {$+$} (CR);
-
-\end{tikzpicture}
-\caption{Diagrama causal simplificado del sistema distribuidora de huevos.}
-\label{fig:causal}
+  \centering
+  \includegraphics[width=0.85\textwidth, page=1]{./analisis/Modelo Causal.pdf}
+  \caption{Diagrama causal del sistema distribuidora de huevos.}
+  \label{fig:causal}
 \end{figure}
 
 \newpage
@@ -552,84 +500,12 @@ Demanda mínima para fuga & 200 cajas/mes & Umbral bajo el cual no se aplica pé
 
 El diagrama de Forrester del modelo se presenta en la Figura~\ref{fig:forrester}. Por su complejidad (43 variables, 8 flujos), se muestra el núcleo del sistema con los cuatro stocks principales y sus flujos directos.
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  stock/.style={rectangle, draw=azul, fill=azul!15, minimum width=2.4cm,
-                minimum height=0.8cm, font=\small\bfseries},
-  flow/.style={rectangle, draw=gray!60, fill=gray!10, minimum width=1.8cm,
-               minimum height=0.6cm, font=\scriptsize},
-  cloud/.style={ellipse, draw=gray, fill=white, minimum width=1cm,
-                minimum height=0.6cm, font=\scriptsize},
-  aux/.style={ellipse, draw=azul!60, fill=azul!5, minimum width=2cm,
-              minimum height=0.5cm, font=\scriptsize},
-  arr/.style={-{Stealth[length=5pt]}, thick},
-  flowarr/.style={-{Stealth[length=5pt,width=8pt]}, line width=2pt, color=azul!70},
-]
-
-% ── Subsistema Demanda ──────────────────────────────────────────────────────
-\node[cloud]  (c_perd) at (-4, 2)  {$\infty$};
-\node[flow]   (f_perd) at (-2.3, 2) {Pérdida clientes};
-\node[stock]  (DB)     at (0, 2)   {Demanda Base};
-\node[flow]   (f_capt) at (2.3, 2) {Tasa captación};
-\node[cloud]  (c_capt) at (4, 2)   {$\infty$};
-
-\draw[flowarr] (c_perd) -- (f_perd);
-\draw[flowarr] (f_perd) -- (DB);
-\draw[flowarr] (DB)     -- (f_capt);
-\draw[flowarr] (f_capt) -- (c_capt);
-
-% ── Subsistema Inventario ───────────────────────────────────────────────────
-\node[cloud]  (c_comp) at (-4, -1) {$\infty$};
-\node[flow]   (f_comp) at (-2.3,-1){Tasa compra};
-\node[stock]  (SH)     at (0, -1)  {Stock huevos};
-\node[flow]   (f_desp) at (2.3,-1) {Tasa despacho};
-\node[cloud]  (c_desp) at (4, -1)  {$\infty$};
-
-\draw[flowarr] (c_comp) -- (f_comp);
-\draw[flowarr] (f_comp) -- (SH);
-\draw[flowarr] (SH)     -- (f_desp);
-\draw[flowarr] (f_desp) -- (c_desp);
-
-% ── Subsistema Finanzas ─────────────────────────────────────────────────────
-\node[stock]  (MA) at (7, 0.5)  {Margen acum.};
-\node[flow]   (f_ing) at (5.5, 0.5) {Ingresos};
-\node[cloud]  (c_ing) at (4, 0.5)   {$\infty$};
-\draw[flowarr] (c_ing) -- (f_ing) -- (MA);
-
-% ── Subsistema Capacidad ────────────────────────────────────────────────────
-\node[stock]  (CR) at (0, -4)   {Cap. Reparto};
-\node[flow]   (f_inv) at (-2.3,-4){Inv. capacidad};
-\node[cloud]  (c_inv) at (-4,-4)  {$\infty$};
-\draw[flowarr] (c_inv) -- (f_inv) -- (CR);
-
-% ── Variables auxiliares ────────────────────────────────────────────────────
-\node[aux] (TI) at (2.3, -2.5) {Tasa incumpl.};
-\node[aux] (DT) at (0, 0.6)    {Demanda total};
-\node[aux] (FM) at (-2, 3.5)   {Fracc. mercado};
-\node[aux] (GT) at (4, -4)     {Gatillo Activo};
-\node[aux] (VC) at (6.5, -4)   {Vehículo comprado};
-
-% ── Influencias causales ────────────────────────────────────────────────────
-\draw[arr, dashed, gray] (DB)  -- node[right,font=\tiny] {$+$} (DT);
-\draw[arr, dashed, gray] (DT)  -- node[right,font=\tiny] {$+$} (f_desp);
-\draw[arr, dashed, gray] (CR)  -- node[right,font=\tiny] {$+$} (f_desp);
-\draw[arr, dashed, gray] (f_desp) -- node[right,font=\tiny] {$-$} (TI);
-\draw[arr, dashed, gray] (DT)  -- node[left,font=\tiny]  {$+$} (TI);
-\draw[arr, dashed, gray] (TI)  to[bend right=20] node[right,font=\tiny] {$+$} (f_perd);
-\draw[arr, dashed, gray] (FM)  -- node[above,font=\tiny] {$+$} (f_capt);
-\draw[arr, dashed, gray] (DB)  to[bend left=30] node[above,font=\tiny] {$-$} (FM);
-\draw[arr, dashed, gray] (f_desp) to[bend left=20] node[above,font=\tiny] {$+$} (f_ing);
-\draw[arr, dashed, gray] (MA)  -- node[above,font=\tiny] {$+$} (GT);
-\draw[arr, dashed, gray] (GT)  -- node[above,font=\tiny] {$+$} (VC);
-\draw[arr, dashed, gray] (VC)  to[bend left=20] node[left,font=\tiny] {$+$} (f_inv);
-
-\end{tikzpicture}
-\caption{Diagrama de Forrester simplificado --- núcleo del modelo distribuidora de huevos. El modelo completo se encuentra en el archivo \texttt{Modelo.mdl}.}
-\label{fig:forrester}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.85\textwidth, page=1]{./analisis/ModeloVensim.pdf}
+  \caption{Diagrama causal del sistema distribuidora de huevos.}
+  \label{fig:causal}
 \end{figure}
-
-El modelo completo implementado en Vensim incluye adicionalmente el subsistema de análisis del camión (\texttt{ROI del camion}, \texttt{Beneficio acumulado del camion}, \texttt{Camion en uso}) y las variables de estacionalidad y disponibilidad del proveedor.
 
 \newpage
 
