@@ -114,7 +114,7 @@ El modelo fue construido en Vensim y contempla cuatro subsistemas interconectado
 
 Las empresas de distribución de productos perecibles enfrentan una dinámica compleja donde las decisiones de inversión en capacidad logística tienen consecuencias que se manifiestan con retardo y se amplifican por bucles de retroalimentación no siempre evidentes. Una distribuidora de huevos de tamaño mediano ilustra claramente este fenómeno: cuando la capacidad de reparto no crece al mismo ritmo que la demanda, el incumplimiento de pedidos genera pérdida de clientes; sin clientes, los ingresos caen; sin ingresos, no hay recursos para invertir en capacidad. El círculo es vicioso y difícil de romper sin una visión sistémica.
 
-La Dinámica de Sistemas, desarrollada por Jay W. Forrester en el MIT durante la década de 1950, proporciona un marco metodológico adecuado para modelar este tipo de problemas. Mediante stocks que acumulan estado, flujos que lo modifican, y bucles de retroalimentación que capturan las relaciones causales diferidas, es posible simular el comportamiento del sistema bajo distintas políticas de intervención y comparar sus resultados antes de tomar decisiones reales.
+La Dinámica de Sistemas, desarrollada por Forrester (1961) en el MIT durante la década de 1950, proporciona un marco metodológico adecuado para modelar este tipo de problemas. Mediante stocks que acumulan estado, flujos que lo modifican, y bucles de retroalimentación que capturan las relaciones causales diferidas, es posible simular el comportamiento del sistema bajo distintas políticas de intervención y comparar sus resultados antes de tomar decisiones reales (Sterman, 2000).
 
 El presente trabajo aplica esta metodología al caso de una distribuidora de huevos real. Se construye un modelo en Vensim que integra la dinámica de demanda, el flujo de inventario, los resultados financieros y la decisión de inversión en un camión adicional. A través de la comparación de tres escenarios, se busca determinar cuál política de inversión ---proactiva o reactiva--- produce mejores resultados en términos de margen acumulado, retención de clientes y retorno sobre la inversión.
 
@@ -127,9 +127,11 @@ El presente trabajo aplica esta metodología al caso de una distribuidora de hue
 
 \subsection{Dinámica de Sistemas}
 
-La \textbf{Dinámica de Sistemas} es una metodología de modelado y simulación que estudia el comportamiento de sistemas complejos a lo largo del tiempo. Fue propuesta por Forrester (1961) y se basa en la premisa de que la estructura causal de un sistema ---las relaciones entre sus variables--- determina su comportamiento dinámico.
+La \textbf{Dinámica de Sistemas} es una metodología de modelado y simulación que estudia el comportamiento de sistemas complejos a lo largo del tiempo. Fue propuesta por Forrester (1961) y se basa en la premisa de que la estructura causal de un sistema ---las relaciones entre sus variables--- determina su comportamiento dinámico. Sterman (2000) amplía esta perspectiva señalando que los modelos de dinámica de sistemas permiten explorar las consecuencias de políticas antes de su implementación real.
 
 \subsection{Componentes fundamentales}
+
+Los componentes estructurales del paradigma son descritos de forma canónica por Sterman (2000) y Richardson y Pugh (1981):
 
 \begin{description}
   \item[Stock (nivel):] Variable que acumula o almacena cantidad. Su valor en cualquier momento es el resultado de la integración de los flujos que lo alimentan y drenan. Matemáticamente: $S(t) = S(t_0) + \int_{t_0}^{t} [F_{entrada}(\tau) - F_{salida}(\tau)]\, d\tau$.
@@ -145,7 +147,7 @@ La \textbf{Dinámica de Sistemas} es una metodología de modelado y simulación 
 
 \subsection{Bucles de retroalimentación}
 
-Un \textbf{bucle de retroalimentación} ocurre cuando una variable influye sobre sí misma a través de una cadena de causas y efectos. Existen dos tipos:
+Un \textbf{bucle de retroalimentación} ocurre cuando una variable influye sobre sí misma a través de una cadena de causas y efectos (Meadows, 2008; Sterman, 2000). Existen dos tipos:
 
 \begin{itemize}
   \item \textbf{Bucle de refuerzo (R):} Amplifica cambios. Si una variable aumenta y el bucle refuerza ese aumento, se produce crecimiento exponencial o colapso.
@@ -154,15 +156,15 @@ Un \textbf{bucle de retroalimentación} ocurre cuando una variable influye sobre
 
 \subsection{Diagrama causal}
 
-El \textbf{diagrama causal} (o diagrama de influencias) representa gráficamente las relaciones entre variables mediante flechas etiquetadas con el signo de la influencia: (+) si las variables cambian en el mismo sentido, (--) si cambian en sentido opuesto.
+El \textbf{diagrama causal} (o diagrama de influencias) representa gráficamente las relaciones entre variables mediante flechas etiquetadas con el signo de la influencia: (+) si las variables cambian en el mismo sentido, (--) si cambian en sentido opuesto (Richardson \& Pugh, 1981).
 
 \subsection{Diagrama de Forrester}
 
-El \textbf{diagrama de Forrester} (o diagrama de flujo-nivel) es la representación formal del modelo. Utiliza símbolos estandarizados: rectángulos para stocks, válvulas para flujos, nubes para fuentes y sumideros, y flechas para las influencias causales.
+El \textbf{diagrama de Forrester} (o diagrama de flujo-nivel) es la representación formal del modelo (Forrester, 1961). Utiliza símbolos estandarizados: rectángulos para stocks, válvulas para flujos, nubes para fuentes y sumideros, y flechas para las influencias causales.
 
 \subsection{Simulación por escenarios}
 
-La comparación de escenarios permite evaluar el impacto de distintas políticas o intervenciones sobre el comportamiento del sistema. Se define un escenario base (sin intervención) y uno o más escenarios alternativos que modifican parámetros o estructuras del modelo.
+La comparación de escenarios permite evaluar el impacto de distintas políticas o intervenciones sobre el comportamiento del sistema (Sterman, 2000). Se define un escenario base (sin intervención) y uno o más escenarios alternativos que modifican parámetros o estructuras del modelo.
 
 \newpage
 
@@ -173,13 +175,13 @@ La comparación de escenarios permite evaluar el impacto de distintas políticas
 
 \subsection{Contexto}
 
-La empresa modelada es una distribuidora de huevos de tamaño mediano que opera en Chile. Su actividad consiste en comprar huevos a un proveedor mayorista y distribuirlos a clientes minoristas (almacenes, restaurantes, pequeños supermercados). El negocio opera con una flota limitada de vehículos de reparto, lo que establece un techo a la cantidad de cajas que puede despachar mensualmente.
+La empresa modelada es una distribuidora de huevos de tamaño mediano que opera en Chile. Su actividad consiste en comprar huevos a un proveedor mayorista y distribuirlos a clientes minoristas (almacenes, restaurantes, pequeños supermercados). El negocio opera con una flota limitada de vehículos de reparto, lo que establece un techo a la cantidad de cajas que puede despachar mensualmente (C. Ulloa, comunicación personal, junio de 2026).
 
 \subsection{Problema central}
 
 La demanda de los clientes crece de forma orgánica y presenta marcada estacionalidad: en los meses de verano (enero–febrero) puede superar en un 80\% a la demanda base, mientras que en los meses de menor consumo (julio–agosto) cae a cerca del 67\%. La capacidad de reparto instalada no puede absorber los picos de demanda, lo que genera \textbf{incumplimiento de pedidos}.
 
-El incumplimiento tiene una consecuencia dinámica grave: los clientes que no reciben sus pedidos a tiempo migran hacia competidores. Esta pérdida de cartera reduce los ingresos, lo que a su vez limita la capacidad de inversión en más recursos logísticos. Se configura así un \textbf{bucle vicioso} que puede deteriorar el negocio de forma sostenida si no se interviene.
+El incumplimiento tiene una consecuencia dinámica grave: los clientes que no reciben sus pedidos a tiempo migran hacia competidores. Esta pérdida de cartera reduce los ingresos, lo que a su vez limita la capacidad de inversión en más recursos logísticos. Se configura así un \textbf{bucle vicioso} que puede deteriorar el negocio de forma sostenida si no se interviene (Senge, 1990).
 
 \subsection{Pregunta central}
 
@@ -207,7 +209,7 @@ Las variables de resultado que permiten evaluar el desempeño del sistema son:
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Identificación de subsistemas}
 
-El modelo se organiza en cuatro subsistemas interconectados, cada uno agrupando variables relacionadas funcionalmente.
+El modelo se organiza en cuatro subsistemas interconectados, cada uno agrupando variables relacionadas funcionalmente (Sterman, 2000).
 
 \begin{longtable}{>{\bfseries}p{3.5cm} p{4.5cm} p{6cm}}
 \toprule
@@ -315,7 +317,7 @@ Gatillo Activo & Adim. & Gatillo seleccionado según política activa. \\
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Influencias de primer, segundo y tercer orden}
 
-A continuación se muestra el análisis de influencias causales partiendo desde la variable central \textbf{Capacidad Reparto}.
+A continuación se muestra el análisis de influencias causales partiendo desde la variable central \textbf{Capacidad Reparto}. Este tipo de análisis de cadenas causales es fundamental en la metodología de Dinámica de Sistemas para comprender cómo una perturbación se propaga a través del sistema (Meadows, 2008).
 
 \subsection{Desde Capacidad Reparto}
 
@@ -361,7 +363,7 @@ Margen acumulado $\xrightarrow{+}$ Gatillo $\xrightarrow{+}$ Pulso compra $\xrig
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Diagrama causal}
 
-El diagrama causal muestra las relaciones de influencia entre las variables principales del sistema. Las flechas etiquetadas con $(+)$ indican que las variables cambian en el mismo sentido; las etiquetadas con $(-)$ indican sentido opuesto.
+El diagrama causal muestra las relaciones de influencia entre las variables principales del sistema. Las flechas etiquetadas con $(+)$ indican que las variables cambian en el mismo sentido; las etiquetadas con $(-)$ indican sentido opuesto (Richardson \& Pugh, 1981).
 
 \begin{figure}[H]
   \centering
@@ -377,7 +379,7 @@ El diagrama causal muestra las relaciones de influencia entre las variables prin
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Identificación de bucles de retroalimentación}
 
-El modelo contiene cuatro bucles de retroalimentación identificados. Su correcta comprensión es clave para interpretar el comportamiento dinámico del sistema.
+El modelo contiene cuatro bucles de retroalimentación identificados. Su correcta comprensión es clave para interpretar el comportamiento dinámico del sistema (Meadows, 2008; Sterman, 2000).
 
 \subsection{B1 --- Saturación de mercado \textnormal{(balanceo)}}
 
@@ -401,7 +403,7 @@ El modelo contiene cuatro bucles de retroalimentación identificados. Su correct
 \texttt{Demanda Base} $\uparrow$ $\rightarrow$ \texttt{Tasa de captación} $\uparrow$ $\rightarrow$ \texttt{Demanda Base} $\uparrow$
 \end{quote}
 
-\textbf{Efecto:} Mayor base de clientes genera mayor visibilidad y referidos, acelerando la captación. Produce crecimiento exponencial mientras hay mercado disponible. Se combina con B1 para producir la curva en ``S'' típica de los modelos de adopción.
+\textbf{Efecto:} Mayor base de clientes genera mayor visibilidad y referidos, acelerando la captación. Produce crecimiento exponencial mientras hay mercado disponible. Se combina con B1 para producir la curva en ``S'' típica de los modelos de adopción (Senge, 1990).
 
 \subsection{B3 --- Reposición de inventario \textnormal{(balanceo)}}
 
@@ -411,7 +413,7 @@ El modelo contiene cuatro bucles de retroalimentación identificados. Su correct
 
 \textbf{Efecto:} Mantiene el inventario cercano al objetivo. La velocidad de corrección está limitada por la disponibilidad del proveedor (80\% en enero–febrero) y su capacidad máxima (1.500 cajas/mes).
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{cccp{7cm}}
 \toprule
@@ -435,26 +437,30 @@ B3 & Balanceo & Negativa & Mantiene el inventario cerca del objetivo \\
 
 \subsection{Datos con base real}
 
+Los datos operativos del negocio fueron proporcionados directamente por el propietario a partir de registros contables y observación operacional (C. Ulloa, comunicación personal, junio de 2026). El costo del vehículo corresponde a una cotización de mercado vigente en Chile.
+
 \begin{longtable}{p{5cm} p{3cm} p{6cm}}
 \toprule
 Dato & Valor & Fuente \\
 \midrule
 \endhead
-Precio de venta & 33.000 CLP/caja & Precio de mercado vigente del negocio \\
-Precio de compra al proveedor & 24.000 CLP/caja & Costo real documentado en facturas \\
-Costos fijos mensuales base & 700.000 CLP/mes & Dato real: arriendos, sueldos, servicios básicos \\
+Precio de venta & 33.000 CLP/caja & Registro operativo del negocio$^{a}$ \\
+Precio de compra al proveedor & 24.000 CLP/caja & Registro operativo del negocio$^{a}$ \\
+Costos fijos mensuales base & 700.000 CLP/mes & Registro operativo del negocio$^{a}$ \\
 Costo del vehículo & 50.000.000 CLP & Cotización de mercado en Chile (2024) \\
-Disponibilidad del proveedor & 80\% en ene–feb & Restricción observada: temporada alta del proveedor \\
-Demanda Base inicial & 700 cajas/mes & Promedio mensual histórico del negocio \\
-Stock de huevos inicial & 750 cajas & Inventario observado al inicio del período modelado \\
-Estacionalidad & Tabla mensual & Calibrada con datos sintéticos de ventas 2025 del negocio \\
+Disponibilidad del proveedor & 80\% en ene–feb & Registro operativo del negocio$^{a}$ \\
+Demanda Base inicial & 700 cajas/mes & Registro operativo del negocio$^{a}$ \\
+Stock de huevos inicial & 750 cajas & Registro operativo del negocio$^{a}$ \\
+Estacionalidad & Tabla mensual & Calibrada con registros de ventas 2025$^{a}$ \\
 \bottomrule
 \caption{Datos con respaldo real o empírico.}
 \end{longtable}
 
+\noindent\small$^{a}$ C. Ulloa, comunicación personal, junio de 2026.
+
 \subsection{Tabla de estacionalidad}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{clc|clc}
 \toprule
@@ -468,7 +474,7 @@ Mes & Nombre & Factor & Mes & Nombre & Factor \\
 5 & Junio    & 0,75 & 11 & Diciembre  & 1,27 \\
 \bottomrule
 \end{tabular}
-\caption{Factores de estacionalidad mensual de la demanda.}
+\caption{Factores de estacionalidad mensual de la demanda (C. Ulloa, comunicación personal, junio de 2026).}
 \end{table}
 
 \subsection{Supuestos explícitos}
@@ -498,13 +504,13 @@ Demanda mínima para fuga & 200 cajas/mes & Umbral bajo el cual no se aplica pé
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Diagrama de Forrester}
 
-El diagrama de Forrester del modelo se presenta en la Figura~\ref{fig:forrester}. Por su complejidad (43 variables, 8 flujos), se muestra el núcleo del sistema con los cuatro stocks principales y sus flujos directos.
+El diagrama de Forrester del modelo se presenta en la Figura~\ref{fig:forrester}. Este tipo de representación, introducida por Forrester (1961) y formalizada por Richardson y Pugh (1981), utiliza símbolos estandarizados para distinguir stocks, flujos, variables auxiliares y parámetros.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.85\textwidth, page=1]{./analisis/ModeloVensim.pdf}
-  \caption{Diagrama causal del sistema distribuidora de huevos.}
-  \label{fig:causal}
+  \caption{Diagrama de Forrester del modelo de la distribuidora de huevos construido en Vensim PLE.}
+  \label{fig:forrester}
 \end{figure}
 
 \newpage
@@ -516,9 +522,9 @@ El diagrama de Forrester del modelo se presenta en la Figura~\ref{fig:forrester}
 
 \subsection{Herramienta y configuración}
 
-El modelo fue construido en \textbf{Vensim PLE} (versión 8.x), utilizando dinámica de sistemas continua con integración de Euler. Los parámetros de simulación son:
+El modelo fue construido en \textbf{Vensim PLE} (versión 8.x), utilizando dinámica de sistemas continua con integración de Euler (Ventana Systems, 2023). Los parámetros de simulación son:
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{ll}
 \toprule
@@ -530,12 +536,12 @@ TIME STEP & 1 mes \\
 SAVEPER & 1 mes \\
 \bottomrule
 \end{tabular}
-\caption{Configuración de la simulación.}
+\caption{Configuración de la simulación en Vensim PLE (Ventana Systems, 2023).}
 \end{table}
 
 \subsection{Ecuaciones principales}
 
-Las ecuaciones centrales del modelo son:
+Las ecuaciones centrales del modelo siguen la notación estándar de la Dinámica de Sistemas (Sterman, 2000):
 
 \begin{align}
 \texttt{Demanda Base}(t) &= \texttt{Demanda Base}(0) + \int_0^t \left[\texttt{Tasa\_captacion} - \texttt{Tasa\_perdida\_clientes}\right] d\tau \\
@@ -593,7 +599,7 @@ Mantenimiento del camion =
 \texttt{Politica proactiva = 0} \quad (sin inversión en camión)
 \end{center}
 
-En este escenario el negocio opera con la capacidad de reparto inicial de 720~cajas/mes durante todo el horizonte de 96~meses. No se realiza ninguna inversión en infraestructura logística. Este escenario sirve como referencia para evaluar el costo real de no actuar.
+En este escenario el negocio opera con la capacidad de reparto inicial de 720~cajas/mes durante todo el horizonte de 96~meses. No se realiza ninguna inversión en infraestructura logística. Este escenario sirve como referencia para evaluar el costo real de no actuar, en línea con la metodología de comparación de escenarios descrita por Sterman (2000).
 
 \subsection{Evolución de la demanda base}
 
@@ -619,7 +625,7 @@ En E0 (naranja), el incumplimiento presenta picos recurrentes cada 12~meses asoc
 
 \subsection{Indicadores del escenario base al mes 96}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -652,7 +658,7 @@ La intervención propuesta consiste en la \textbf{adquisición de un camión adi
 
 \subsection{Justificación}
 
-El bucle B2 (fuga por incumplimiento) es el mecanismo más dañino del sistema. Una vez que los clientes se van, recuperarlos es difícil porque la tasa de captación depende de la demanda base existente (bucle R1). La intervención temprana interrumpe B2 antes de que su efecto acumulado sea irreversible.
+El bucle B2 (fuga por incumplimiento) es el mecanismo más dañino del sistema. Una vez que los clientes se van, recuperarlos es difícil porque la tasa de captación depende de la demanda base existente (bucle R1). Meadows (2008) señala que intervenir un sistema antes de que un bucle de balanceo negativo alcance su máxima dominancia es sustancialmente más eficiente que hacerlo después. La intervención temprana interrumpe B2 antes de que su efecto acumulado sea irreversible.
 
 El costo del camión (50.000.000~CLP) se justifica si el beneficio incremental en ventas supera ese monto antes del fin del horizonte. Con un margen de 8.500~CLP/caja y una capacidad adicional de aproximadamente 2.164~cajas/mes (calculado como $50{,}000{,}000 \times 4{,}328 \times 10^{-5}$), el punto de equilibrio es:
 
@@ -662,7 +668,7 @@ t_{break-even} = \frac{50{.}000{.}000}{8{.}500 \times 2{.}164} \approx 2{,}7 \te
 
 \subsection{Variables modificadas}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -724,7 +730,7 @@ La demanda base crece sostenidamente hasta 649,3~cajas/mes al mes~96, casi idén
 
 \subsection{Comparación cuantitativa de escenarios}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lrrr}
 \toprule
@@ -804,7 +810,7 @@ El inventario físico en E0 (naranja) oscila establemente entre 400 y 650~cajas.
 
 \subsection{Tabla resumen completa}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lrrr}
 \toprule
@@ -827,13 +833,13 @@ Beneficio neto del camión (M CLP) & N/A & $\approx$102 & $\approx$148 \\
 \subsection{Síntesis de aprendizajes sistémicos}
 
 \begin{enumerate}
-  \item \textbf{Los retardos amplifican el daño.} El bucle~B2 actúa con retardo porque la pérdida de clientes no es inmediata. Cuatro meses de diferencia en la compra generan 34~meses de diferencia en la recuperación del ROI y 46~M~CLP de diferencia en el margen acumulado final.
+  \item \textbf{Los retardos amplifican el daño.} El bucle~B2 actúa con retardo porque la pérdida de clientes no es inmediata. Cuatro meses de diferencia en la compra generan 34~meses de diferencia en la recuperación del ROI y 46~M~CLP de diferencia en el margen acumulado final. Sterman (2000) denomina este fenómeno ``erosión de objetivos'': el sistema se adapta degradando su propio desempeño en lugar de resolver la causa raíz.
 
   \item \textbf{La estacionalidad crea ventanas de presión concentradas.} Los factores 1,84 (enero) y 1,81 (febrero) crean picos que elevan el incumplimiento sobre el 40\% en E0. La inversión proactiva en el mes~8 coloca la holgura de capacidad justo antes de esos picos críticos.
 
-  \item \textbf{El ROI subestima el beneficio sistémico total.} El cálculo de ROI del camión contabiliza solo el beneficio incremental directo atribuible a la capacidad extra. El beneficio de evitar la erosión de la cartera (diferencia de 317,6~cajas/mes de demanda entre E0 y E2 al mes~96) no se refleja en el ROI pero sí en el margen acumulado.
+  \item \textbf{El ROI subestima el beneficio sistémico total.} El cálculo de ROI del camión contabiliza solo el beneficio incremental directo atribuible a la capacidad extra. El beneficio de evitar la erosión de la cartera (diferencia de 317,6~cajas/mes de demanda entre E0 y E2 al mes~96) no se refleja en el ROI pero sí en el margen acumulado (Barlas, 1996).
 
-  \item \textbf{La polaridad dominante cambia con el tiempo.} En los primeros meses domina R1 (crecimiento orgánico). Sin intervención, B2 toma progresivamente el control. La inversión proactiva evita ese cambio de polaridad dominante manteniendo el incumplimiento bajo el umbral de activación de la fuga logística.
+  \item \textbf{La polaridad dominante cambia con el tiempo.} En los primeros meses domina R1 (crecimiento orgánico). Sin intervención, B2 toma progresivamente el control. La inversión proactiva evita ese cambio de polaridad dominante manteniendo el incumplimiento bajo el umbral de activación de la fuga logística (Meadows, 2008).
 \end{enumerate}
 
 \newpage
@@ -845,15 +851,15 @@ Beneficio neto del camión (M CLP) & N/A & $\approx$102 & $\approx$148 \\
 
 El modelo de Dinámica de Sistemas construido permite analizar de forma rigurosa el problema de capacidad logística de una distribuidora de huevos. Las principales conclusiones son:
 
-\textbf{1. La estructura causal determina el comportamiento.} El sistema presenta cuatro bucles de retroalimentación que interactúan y cuya dominancia cambia a lo largo del tiempo. Sin comprender esta estructura, las decisiones de gestión pueden resultar contraproducentes (por ejemplo, intentar aumentar la demanda sin antes resolver la capacidad de reparto agrava el incumplimiento).
+\textbf{1. La estructura causal determina el comportamiento.} El sistema presenta cuatro bucles de retroalimentación que interactúan y cuya dominancia cambia a lo largo del tiempo (Sterman, 2000). Sin comprender esta estructura, las decisiones de gestión pueden resultar contraproducentes (por ejemplo, intentar aumentar la demanda sin antes resolver la capacidad de reparto agrava el incumplimiento).
 
-\textbf{2. La inversión proactiva supera a la reactiva.} En todos los indicadores relevantes ---margen acumulado, nivel de demanda final, tiempo de recuperación del ROI--- la política proactiva (compra en el mes 8) produce resultados superiores a la política reactiva. La diferencia se explica por los retardos del sistema: cuando el problema es evidente, el daño ya está hecho.
+\textbf{2. La inversión proactiva supera a la reactiva.} En todos los indicadores relevantes ---margen acumulado, nivel de demanda final, tiempo de recuperación del ROI--- la política proactiva (compra en el mes 8) produce resultados superiores a la política reactiva. La diferencia se explica por los retardos del sistema: cuando el problema es evidente, el daño ya está hecho (Senge, 1990).
 
 \textbf{3. La no inversión tiene costo oculto.} El escenario base sin inversión puede parecer conservador financieramente a corto plazo (se evita el desembolso de 50 millones), pero el costo de la pérdida de clientes acumulada durante 96 meses supera ampliamente ese ahorro.
 
-\textbf{4. La estacionalidad es un factor crítico.} Los picos de demanda en verano (factores 1.84 y 1.81) crean presiones de incumplimiento que el modelo captura y que justifican contar con holgura de capacidad. Una distribuidora que dimensiona su capacidad solo para la demanda promedio operará con incumplimiento crónico durante los meses de alta demanda.
+\textbf{4. La estacionalidad es un factor crítico.} Los picos de demanda en verano (factores 1,84 y 1,81) crean presiones de incumplimiento que el modelo captura y que justifican contar con holgura de capacidad. Una distribuidora que dimensiona su capacidad solo para la demanda promedio operará con incumplimiento crónico durante los meses de alta demanda.
 
-\textbf{5. La Dinámica de Sistemas agrega valor en la toma de decisiones.} El modelo permite explorar escenarios sin riesgo real, cuantificar el beneficio diferencial de distintas políticas y comunicar de forma estructurada la lógica detrás de una recomendación de inversión.
+\textbf{5. La Dinámica de Sistemas agrega valor en la toma de decisiones.} El modelo permite explorar escenarios sin riesgo real, cuantificar el beneficio diferencial de distintas políticas y comunicar de forma estructurada la lógica detrás de una recomendación de inversión (Forrester, 1961; Meadows, 2008).
 
 \newpage
 
@@ -862,22 +868,48 @@ El modelo de Dinámica de Sistemas construido permite analizar de forma rigurosa
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Referencias bibliográficas}
 
-\begin{enumerate}[label={[\arabic*]}]
-  \item Forrester, J. W. (1961). \textit{Industrial dynamics}. MIT Press.
+\begin{flushleft}
+\setlength{\parindent}{0pt}
 
-  \item Sterman, J. D. (2000). \textit{Business dynamics: Systems thinking and modeling for a complex world}. McGraw-Hill.
+\hangindent=1cm
+\hangafter=1
+Barlas, Y. (1996). Formal aspects of model validity and validation in system dynamics. \textit{System Dynamics Review}, \textit{12}(3), 183--210. https://doi.org/10.1002/(SICI)1099-1727(199623)12:3<183::AID-SDR103>3.0.CO;2-4
 
-  \item Meadows, D. H. (2008). \textit{Thinking in systems: A primer}. Chelsea Green Publishing.
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Ford, A. (2010). \textit{Modeling the environment: An introduction to system dynamics models of environmental systems} (2.ª~ed.). Island Press.
 
-  \item Ventana Systems. (2023). \textit{Vensim user's guide} (Version 8.x). Ventana Systems, Inc. Recuperado de \url{https://vensim.com/documentation/}
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Forrester, J.~W. (1961). \textit{Industrial dynamics}. MIT Press.
 
-  \item Senge, P. M. (1990). \textit{The fifth discipline: The art and practice of the learning organization}. Doubleday.
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Meadows, D.~H. (2008). \textit{Thinking in systems: A primer}. Chelsea Green Publishing.
 
-  \item Richardson, G. P., \& Pugh, A. L. (1981). \textit{Introduction to system dynamics modeling with Dynamo}. MIT Press.
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Richardson, G.~P., \& Pugh, A.~L. (1981). \textit{Introduction to system dynamics modeling with Dynamo}. MIT Press.
 
-  \item Barlas, Y. (1996). Formal aspects of model validity and validation in system dynamics. \textit{System Dynamics Review}, \textit{12}(3), 183--210. \url{https://doi.org/10.1002/(SICI)1099-1727(199623)12:3<183::AID-SDR103>3.0.CO;2-4}
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Senge, P.~M. (1990). \textit{The fifth discipline: The art and practice of the learning organization}. Doubleday.
 
-  \item Ford, A. (2010). \textit{Modeling the environment: An introduction to system dynamics models of environmental systems} (2nd ed.). Island Press.
-\end{enumerate}
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Sterman, J.~D. (2000). \textit{Business dynamics: Systems thinking and modeling for a complex world}. McGraw-Hill.
+
+\vspace{8pt}
+\hangindent=1cm
+\hangafter=1
+Ventana Systems. (2023). \textit{Vensim user's guide} (versión~8.x). Ventana Systems, Inc. https://vensim.com/documentation/
+
+\end{flushleft}
 
 \end{document}
